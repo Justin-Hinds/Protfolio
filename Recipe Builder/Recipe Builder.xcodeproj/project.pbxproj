@@ -15,6 +15,10 @@
 		0530D7761CDA8B56004A6EAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0530D7741CDA8B56004A6EAD /* LaunchScreen.storyboard */; };
 		0530D7811CDA8B56004A6EAD /* Recipe_BuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0530D7801CDA8B56004A6EAD /* Recipe_BuilderTests.swift */; };
 		0530D78C1CDA8B56004A6EAD /* Recipe_BuilderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0530D78B1CDA8B56004A6EAD /* Recipe_BuilderUITests.swift */; };
+		05C4EA201CE41BB60073C1AC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C4EA1F1CE41BB60073C1AC /* FBSDKCoreKit.framework */; };
+		05C4EA221CE41BC80073C1AC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C4EA211CE41BC80073C1AC /* FBSDKLoginKit.framework */; };
+		05C4EA241CE41CBA0073C1AC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C4EA231CE41CBA0073C1AC /* FBSDKShareKit.framework */; };
+		05C4EA271CE4440A0073C1AC /* MyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C4EA261CE4440A0073C1AC /* MyTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,11 @@
 		0530D7871CDA8B56004A6EAD /* Recipe BuilderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Recipe BuilderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0530D78B1CDA8B56004A6EAD /* Recipe_BuilderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe_BuilderUITests.swift; sourceTree = "<group>"; };
 		0530D78D1CDA8B56004A6EAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05C4EA1F1CE41BB60073C1AC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		05C4EA211CE41BC80073C1AC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		05C4EA231CE41CBA0073C1AC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		05C4EA251CE41D700073C1AC /* Recipe Builder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recipe Builder-Bridging-Header.h"; sourceTree = "<group>"; };
+		05C4EA261CE4440A0073C1AC /* MyTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05C4EA221CE41BC80073C1AC /* FBSDKLoginKit.framework in Frameworks */,
+				05C4EA201CE41BB60073C1AC /* FBSDKCoreKit.framework in Frameworks */,
+				05C4EA241CE41CBA0073C1AC /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +91,9 @@
 		0530D75C1CDA8B56004A6EAD = {
 			isa = PBXGroup;
 			children = (
+				05C4EA231CE41CBA0073C1AC /* FBSDKShareKit.framework */,
+				05C4EA211CE41BC80073C1AC /* FBSDKLoginKit.framework */,
+				05C4EA1F1CE41BB60073C1AC /* FBSDKCoreKit.framework */,
 				0530D7671CDA8B56004A6EAD /* Recipe Builder */,
 				0530D77F1CDA8B56004A6EAD /* Recipe BuilderTests */,
 				0530D78A1CDA8B56004A6EAD /* Recipe BuilderUITests */,
@@ -101,7 +116,9 @@
 			children = (
 				0530D7681CDA8B56004A6EAD /* AppDelegate.swift */,
 				0530D76A1CDA8B56004A6EAD /* ViewController.swift */,
+				05C4EA251CE41D700073C1AC /* Recipe Builder-Bridging-Header.h */,
 				0530D76C1CDA8B56004A6EAD /* Main.storyboard */,
+				05C4EA261CE4440A0073C1AC /* MyTableView.swift */,
 				0530D7721CDA8B56004A6EAD /* Assets.xcassets */,
 				0530D7741CDA8B56004A6EAD /* LaunchScreen.storyboard */,
 				0530D7771CDA8B56004A6EAD /* Info.plist */,
@@ -263,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0530D76B1CDA8B56004A6EAD /* ViewController.swift in Sources */,
+				05C4EA271CE4440A0073C1AC /* MyTableView.swift in Sources */,
 				0530D7711CDA8B56004A6EAD /* Recipe_Builder.xcdatamodeld in Sources */,
 				0530D7691CDA8B56004A6EAD /* AppDelegate.swift in Sources */,
 			);
@@ -406,10 +424,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Recipe Builder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Recipe-Builder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Recipe Builder/Recipe Builder-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -417,10 +440,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Recipe Builder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Recipe-Builder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Recipe Builder/Recipe Builder-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -489,6 +517,7 @@
 				0530D7921CDA8B56004A6EAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0530D7931CDA8B56004A6EAD /* Build configuration list for PBXNativeTarget "Recipe BuilderTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +526,7 @@
 				0530D7951CDA8B56004A6EAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0530D7961CDA8B56004A6EAD /* Build configuration list for PBXNativeTarget "Recipe BuilderUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +535,7 @@
 				0530D7981CDA8B56004A6EAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
