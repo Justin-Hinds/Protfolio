@@ -10,14 +10,41 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+                withError error: NSError!) {
+        if (error == nil) {
+            // Perform any operations on signed in user here.
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            // [START_EXCLUDE]
+            NSNotificationCenter.defaultCenter().postNotificationName(
+                "ToggleAuthUINotification",
+                object: nil,
+                userInfo: ["statusText": "Signed in user:\n\(fullName)"])
+            // [END_EXCLUDE]
+        } else {
+            print("\(error.localizedDescription)")
+            // [START_EXCLUDE silent]
+            NSNotificationCenter.defaultCenter().postNotificationName(
+                "ToggleAuthUINotification", object: nil, userInfo: nil)
+            // [END_EXCLUDE]
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+          FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        // Initialize sign-in
+               GIDSignIn.sharedInstance().delegate = self
+
+        return true;
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -35,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -90,6 +117,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
+
+    func application(application: UIApplication,
+                     openURL url: NSURL,
+                             sourceApplication: String?,
+                             annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(
+            application,
+            openURL: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+        var options: [String: AnyObject] = [UIApplicationOpenURLOptionsSourceApplicationKey: sourceApplication!,
+                                            UIApplicationOpenURLOptionsAnnotationKey: annotation]
+        return GIDSignIn.sharedInstance().handleURL(url,
+                                                    sourceApplication: sourceApplication,
+                                                    annotation: annotation)
+    }
+    
 
     // MARK: - Core Data Saving support
 

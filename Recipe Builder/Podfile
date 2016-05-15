@@ -1,0 +1,3 @@
+platform :ios, "7.0"
+target "Recipe Builder"
+pod 'GoogleSignIn', '~> 3.0.0'
