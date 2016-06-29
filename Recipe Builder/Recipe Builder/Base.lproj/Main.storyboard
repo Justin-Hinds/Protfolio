@@ -99,7 +99,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xP8-e7-uN3">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xP8-e7-uN3" id="Zmz-1y-IBa">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -198,7 +198,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tS1-Au-vEX" id="8dv-hH-G2b">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -289,7 +289,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3te-fW-QrX" id="3rL-Ru-Un6">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -351,7 +351,7 @@
             </objects>
             <point key="canvasLocation" x="305" y="331"/>
         </scene>
-        <!--settings-->
+        <!--Grocery List-->
         <scene sceneID="rez-6z-feR">
             <objects>
                 <viewController id="Qsg-yG-XEj" sceneMemberID="viewController">
@@ -364,7 +364,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="settings" id="TLx-sa-r1e"/>
+                    <tabBarItem key="tabBarItem" title="Grocery List" id="TLx-sa-r1e"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggN-Bi-sDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
