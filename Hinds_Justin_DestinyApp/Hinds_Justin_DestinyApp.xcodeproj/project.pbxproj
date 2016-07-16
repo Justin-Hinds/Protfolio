@@ -15,6 +15,10 @@
 		05853ED01D245E5800FBD9B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05853ECE1D245E5800FBD9B6 /* LaunchScreen.storyboard */; };
 		05853EDB1D245E5800FBD9B6 /* Hinds_Justin_DestinyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05853EDA1D245E5800FBD9B6 /* Hinds_Justin_DestinyAppTests.swift */; };
 		05853EE61D245E5800FBD9B6 /* Hinds_Justin_DestinyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05853EE51D245E5800FBD9B6 /* Hinds_Justin_DestinyAppUITests.swift */; };
+		05913E101D3466F4002D477B /* DestinyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05913E0F1D3466F4002D477B /* DestinyInfo.swift */; };
+		05913E121D370694002D477B /* DestinyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05913E111D370694002D477B /* DestinyCharacter.swift */; };
+		05913E141D3768E6002D477B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05913E131D3768E6002D477B /* API.swift */; };
+		05913E161D39E7B8002D477B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05913E151D39E7B8002D477B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		05853EE11D245E5800FBD9B6 /* Hinds_Justin_DestinyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hinds_Justin_DestinyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05853EE51D245E5800FBD9B6 /* Hinds_Justin_DestinyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hinds_Justin_DestinyAppUITests.swift; sourceTree = "<group>"; };
 		05853EE71D245E5800FBD9B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05913E0F1D3466F4002D477B /* DestinyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinyInfo.swift; sourceTree = "<group>"; };
+		05913E111D370694002D477B /* DestinyCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinyCharacter.swift; sourceTree = "<group>"; };
+		05913E131D3768E6002D477B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		05913E151D39E7B8002D477B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +109,14 @@
 			children = (
 				05853EC21D245E5800FBD9B6 /* AppDelegate.swift */,
 				05853EC41D245E5800FBD9B6 /* ViewController.swift */,
+				05913E111D370694002D477B /* DestinyCharacter.swift */,
+				05913E0F1D3466F4002D477B /* DestinyInfo.swift */,
+				05913E131D3768E6002D477B /* API.swift */,
 				05853EC61D245E5800FBD9B6 /* Main.storyboard */,
 				05853ECC1D245E5800FBD9B6 /* Assets.xcassets */,
 				05853ECE1D245E5800FBD9B6 /* LaunchScreen.storyboard */,
 				05853ED11D245E5800FBD9B6 /* Info.plist */,
+				05913E151D39E7B8002D477B /* GoogleService-Info.plist */,
 				05853EC91D245E5800FBD9B6 /* Hinds_Justin_DestinyApp.xcdatamodeld */,
 			);
 			path = Hinds_Justin_DestinyApp;
@@ -238,6 +250,7 @@
 				05853ED01D245E5800FBD9B6 /* LaunchScreen.storyboard in Resources */,
 				05853ECD1D245E5800FBD9B6 /* Assets.xcassets in Resources */,
 				05853EC81D245E5800FBD9B6 /* Main.storyboard in Resources */,
+				05913E161D39E7B8002D477B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +275,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05913E101D3466F4002D477B /* DestinyInfo.swift in Sources */,
+				05913E121D370694002D477B /* DestinyCharacter.swift in Sources */,
 				05853EC51D245E5800FBD9B6 /* ViewController.swift in Sources */,
 				05853ECB1D245E5800FBD9B6 /* Hinds_Justin_DestinyApp.xcdatamodeld in Sources */,
+				05913E141D3768E6002D477B /* API.swift in Sources */,
 				05853EC31D245E5800FBD9B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,10 +422,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Hinds_Justin_DestinyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-DestinyApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -417,10 +436,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Hinds_Justin_DestinyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-DestinyApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -489,6 +511,7 @@
 				05853EEC1D245E5800FBD9B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05853EED1D245E5800FBD9B6 /* Build configuration list for PBXNativeTarget "Hinds_Justin_DestinyAppTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +520,7 @@
 				05853EEF1D245E5800FBD9B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05853EF01D245E5800FBD9B6 /* Build configuration list for PBXNativeTarget "Hinds_Justin_DestinyAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +529,7 @@
 				05853EF21D245E5800FBD9B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

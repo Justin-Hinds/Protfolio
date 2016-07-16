@@ -1,0 +1,20 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Hinds_Justin_DestinyApp' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Hinds_Justin_DestinyApp
+
+  target 'Hinds_Justin_DestinyAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Hinds_Justin_DestinyAppUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
