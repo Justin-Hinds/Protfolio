@@ -1,5 +1,5 @@
 Developer: Justin Hinds
-Recipe Builder Version 0.2.5
-Git - https://github.com/Justin-Hinds/Protfolio/commits/master
+Destiny App Version 0.0.5
+Git - https://github.com/Justin-Hinds/Protfolio/tree/master/Hinds_Justin_DestinyApp
 
-Currently the only thing working is the Facebook sign in. Everything else is a skeleton in place for development next week. Cocoa pods was used so yo may need to use the .xcworkspace file in order to get it to build properly.
+Currently nothing is working.

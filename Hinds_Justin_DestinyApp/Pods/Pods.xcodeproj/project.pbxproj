@@ -1,0 +1,852 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2351B40785D8A538E89859EA3E0D1D68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		53644C1CC995669C2DF2F3C6A701EBBE /* Pods-Hinds_Justin_DestinyAppTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 110BC3BD3B8DD7AF7514A9C6D5D57C51 /* Pods-Hinds_Justin_DestinyAppTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CD7183B5967B5129E60A67F39FAF162 /* Pods-Hinds_Justin_DestinyAppUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 33E2A0BA6C89499900EAD89B903DA421 /* Pods-Hinds_Justin_DestinyAppUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F3BAF604E995F952DE9869554C9F855 /* Pods-Hinds_Justin_DestinyAppUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A25CC52E6F124B5ED0A8D93884E6DA /* Pods-Hinds_Justin_DestinyAppUITests-dummy.m */; };
+		87DE3F9B8647883B510C75E8D2F157C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		96A661327E7F467062E94EE4D768ECCB /* Pods-Hinds_Justin_DestinyApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 427A81BD3FD5309F4DBDEE292404B15F /* Pods-Hinds_Justin_DestinyApp-dummy.m */; };
+		9B8F7279DE7E264F6EAA71EF04D0B399 /* Pods-Hinds_Justin_DestinyApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44FD67CFE456EB22093A6CE6FD35832D /* Pods-Hinds_Justin_DestinyApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C2B4FAF4A4AADE46071533D7E2CF5D6 /* Pods-Hinds_Justin_DestinyAppTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E40F68B889940EDED21327EB25DA7CF /* Pods-Hinds_Justin_DestinyAppTests-dummy.m */; };
+		A61D413C49351200EBD6CC51CBD5AF64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04FF0E5EB8C4137B05891CE8F60D4005 /* Pods-Hinds_Justin_DestinyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0690B02DA41066CE1F1798BCF565E222 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		0FA1BAAA6595104D12731FB985EA13BF /* Pods-Hinds_Justin_DestinyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		110BC3BD3B8DD7AF7514A9C6D5D57C51 /* Pods-Hinds_Justin_DestinyAppTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hinds_Justin_DestinyAppTests-umbrella.h"; sourceTree = "<group>"; };
+		1404D721154D3A20A4A42DC7D1C58B5C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15102490FA5037512340C84B46911F9E /* Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1815D2A3010404CD543E84C5268BCABC /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		1C1C5206525BB29E8202EBF35F27DECB /* Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		209D3890E0E260419D24C8B1AB3A2BCF /* Pods-Hinds_Justin_DestinyAppTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyAppTests-frameworks.sh"; sourceTree = "<group>"; };
+		28E068939D9EE20C8EF10B07D3E31F4C /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		29B9644E08D7268C34F79C7F819C7D26 /* Pods-Hinds_Justin_DestinyApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyApp-resources.sh"; sourceTree = "<group>"; };
+		2C99D04463C3DAB8A8DFDE49871D47DC /* Pods-Hinds_Justin_DestinyApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hinds_Justin_DestinyApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		2E40F68B889940EDED21327EB25DA7CF /* Pods-Hinds_Justin_DestinyAppTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hinds_Justin_DestinyAppTests-dummy.m"; sourceTree = "<group>"; };
+		33E2A0BA6C89499900EAD89B903DA421 /* Pods-Hinds_Justin_DestinyAppUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hinds_Justin_DestinyAppUITests-umbrella.h"; sourceTree = "<group>"; };
+		4200DE35743BF9858284AF88385C2797 /* Pods-Hinds_Justin_DestinyAppTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyAppTests-resources.sh"; sourceTree = "<group>"; };
+		427A81BD3FD5309F4DBDEE292404B15F /* Pods-Hinds_Justin_DestinyApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hinds_Justin_DestinyApp-dummy.m"; sourceTree = "<group>"; };
+		44FD67CFE456EB22093A6CE6FD35832D /* Pods-Hinds_Justin_DestinyApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hinds_Justin_DestinyApp-umbrella.h"; sourceTree = "<group>"; };
+		47085CE1DDC811244E53B42A9740EF8D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4ECCE3402153259021AF24C923F9DB31 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		57E91500719F61D3165E3FF6E368D2E9 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		601C3E35FB2471DF675E6962AB313BB8 /* Pods_Hinds_Justin_DestinyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63DDFEFC1970DD137BD9F7846F09ECAB /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Frameworks/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
+		6DE806336BCDA1FF18322CE4293BD9C2 /* Pods-Hinds_Justin_DestinyApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyApp-frameworks.sh"; sourceTree = "<group>"; };
+		6DEAC21D4808B818FCB12C030C00B482 /* Pods-Hinds_Justin_DestinyAppUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyAppUITests-resources.sh"; sourceTree = "<group>"; };
+		6E6CE62CA01F70E5D2273D94B12BBF78 /* Pods_Hinds_Justin_DestinyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76A25CC52E6F124B5ED0A8D93884E6DA /* Pods-Hinds_Justin_DestinyAppUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hinds_Justin_DestinyAppUITests-dummy.m"; sourceTree = "<group>"; };
+		8108B4AA7DA919542FC128151CF6C607 /* Pods-Hinds_Justin_DestinyApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hinds_Justin_DestinyApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		83BA34C434153606D12B9D218F48B75F /* Pods-Hinds_Justin_DestinyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyApp.release.xcconfig"; sourceTree = "<group>"; };
+		84DEBA593EF4D8E2D59B2B24CE17BD4C /* Pods-Hinds_Justin_DestinyApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Hinds_Justin_DestinyApp.modulemap"; sourceTree = "<group>"; };
+		85745E7D437459B31A5864C3F32C9317 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
+		8698D6E9CB13DD2FBC7399A824831CF9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		935F1F9F6A63196F33CD221FF2865879 /* Pods-Hinds_Justin_DestinyAppTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hinds_Justin_DestinyAppTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97F35DC54E78EDFF33E7BD71A244690B /* Pods-Hinds_Justin_DestinyAppTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hinds_Justin_DestinyAppTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9BEF1717F85D5EE325A7724FA4D601B7 /* Pods-Hinds_Justin_DestinyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		A099185732880F03733313ADFA45EB64 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Headers/Public/FIRInstanceID.h; sourceTree = "<group>"; };
+		A14FEE4CCDBADC5593AB7B445978395F /* Pods-Hinds_Justin_DestinyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A3E19C7523F5FC629F2B7915090020AA /* Pods-Hinds_Justin_DestinyAppUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyAppUITests-frameworks.sh"; sourceTree = "<group>"; };
+		AADD2F12C1FAD840D8463ABD9313FD6F /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Headers/Firebase.h; sourceTree = "<group>"; };
+		B07914CE61B45E2BCCE466D2E4FCE05F /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		B4681D183129176945E0774B09EC4ECC /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
+		B94D7435CA8C95B710D6C38CBB138AEA /* Pods-Hinds_Justin_DestinyAppUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Hinds_Justin_DestinyAppUITests.modulemap"; sourceTree = "<group>"; };
+		BD6CD03E824E22035B7E8DC0CDA0A5EE /* Pods_Hinds_Justin_DestinyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD224ABC4CEE7C14AB69FDA3630D24B1 /* Pods-Hinds_Justin_DestinyAppTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Hinds_Justin_DestinyAppTests.modulemap"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D6306FB4B90A105A5ADD61E3B30F0005 /* Pods-Hinds_Justin_DestinyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F49019F577398D68950086920B7B7783 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0BCC3BB89E1B8709223ACE7EEB4C682A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2351B40785D8A538E89859EA3E0D1D68 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915C1DD736ACED08DF2B281AA5453FAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87DE3F9B8647883B510C75E8D2F157C1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D548DDF63AEF51479C9CCA7A3EE06AF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A61D413C49351200EBD6CC51CBD5AF64 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C152434E318BDFC6AAA4637635C92CB /* FirebaseAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				34A0684B5AC997FEE0A96FA25B4950BF /* Frameworks */,
+			);
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		34A0684B5AC997FEE0A96FA25B4950BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0690B02DA41066CE1F1798BCF565E222 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		453639F77B3EB6B4CF18A5FD54CDAE71 /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				48FDA7781B212532661B34258760D0BC /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		48FDA7781B212532661B34258760D0BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F49019F577398D68950086920B7B7783 /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6260985D180B8FEB7FC63E1953C6BB6B /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				C116C31BAE424153AD00D6BFFC07ED1C /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		6580F1087CB9A5ADBF554447B2181AC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4681D183129176945E0774B09EC4ECC /* FirebaseAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F53415AD5BCEF2B24A4F69E1163ABC2 /* Pods-Hinds_Justin_DestinyApp */ = {
+			isa = PBXGroup;
+			children = (
+				8698D6E9CB13DD2FBC7399A824831CF9 /* Info.plist */,
+				84DEBA593EF4D8E2D59B2B24CE17BD4C /* Pods-Hinds_Justin_DestinyApp.modulemap */,
+				8108B4AA7DA919542FC128151CF6C607 /* Pods-Hinds_Justin_DestinyApp-acknowledgements.markdown */,
+				2C99D04463C3DAB8A8DFDE49871D47DC /* Pods-Hinds_Justin_DestinyApp-acknowledgements.plist */,
+				427A81BD3FD5309F4DBDEE292404B15F /* Pods-Hinds_Justin_DestinyApp-dummy.m */,
+				6DE806336BCDA1FF18322CE4293BD9C2 /* Pods-Hinds_Justin_DestinyApp-frameworks.sh */,
+				29B9644E08D7268C34F79C7F819C7D26 /* Pods-Hinds_Justin_DestinyApp-resources.sh */,
+				44FD67CFE456EB22093A6CE6FD35832D /* Pods-Hinds_Justin_DestinyApp-umbrella.h */,
+				A14FEE4CCDBADC5593AB7B445978395F /* Pods-Hinds_Justin_DestinyApp.debug.xcconfig */,
+				83BA34C434153606D12B9D218F48B75F /* Pods-Hinds_Justin_DestinyApp.release.xcconfig */,
+			);
+			name = "Pods-Hinds_Justin_DestinyApp";
+			path = "Target Support Files/Pods-Hinds_Justin_DestinyApp";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				D747591A8FEEFD8CD1042642C4C3A35F /* Pods */,
+				CF97C7EDFFA70747B61E62BDEC953BA5 /* Products */,
+				BEEEBA24E0D2BA7E809B56809B7E98A8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		863D8178306DF5EA35115F54FE9DB8DC /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				D834C6EF200379E11394034658824740 /* Analytics */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		89C482C500CAC5298583C8F231C91FDB /* GoogleParsingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				F4165ED857874553CD1CDC90E0ECC575 /* Frameworks */,
+			);
+			path = GoogleParsingUtilities;
+			sourceTree = "<group>";
+		};
+		92C7D5306D272D4E1C0A58168CEF693C /* Pods-Hinds_Justin_DestinyAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				47085CE1DDC811244E53B42A9740EF8D /* Info.plist */,
+				CD224ABC4CEE7C14AB69FDA3630D24B1 /* Pods-Hinds_Justin_DestinyAppTests.modulemap */,
+				97F35DC54E78EDFF33E7BD71A244690B /* Pods-Hinds_Justin_DestinyAppTests-acknowledgements.markdown */,
+				935F1F9F6A63196F33CD221FF2865879 /* Pods-Hinds_Justin_DestinyAppTests-acknowledgements.plist */,
+				2E40F68B889940EDED21327EB25DA7CF /* Pods-Hinds_Justin_DestinyAppTests-dummy.m */,
+				209D3890E0E260419D24C8B1AB3A2BCF /* Pods-Hinds_Justin_DestinyAppTests-frameworks.sh */,
+				4200DE35743BF9858284AF88385C2797 /* Pods-Hinds_Justin_DestinyAppTests-resources.sh */,
+				110BC3BD3B8DD7AF7514A9C6D5D57C51 /* Pods-Hinds_Justin_DestinyAppTests-umbrella.h */,
+				0FA1BAAA6595104D12731FB985EA13BF /* Pods-Hinds_Justin_DestinyAppTests.debug.xcconfig */,
+				9BEF1717F85D5EE325A7724FA4D601B7 /* Pods-Hinds_Justin_DestinyAppTests.release.xcconfig */,
+			);
+			name = "Pods-Hinds_Justin_DestinyAppTests";
+			path = "Target Support Files/Pods-Hinds_Justin_DestinyAppTests";
+			sourceTree = "<group>";
+		};
+		A294C616288F5AF3B947A787E60310EF /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				A099185732880F03733313ADFA45EB64 /* FIRInstanceID.h */,
+				A6E98D106C7587CF744C8756BCFC9142 /* Frameworks */,
+			);
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		A6AD1E8361F23DD7FC20CF1F5F6193F0 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				BA74169EA2E244B7BF9E5C173AC728CD /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		A6E98D106C7587CF744C8756BCFC9142 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57E91500719F61D3165E3FF6E368D2E9 /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA74169EA2E244B7BF9E5C173AC728CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B07914CE61B45E2BCCE466D2E4FCE05F /* GoogleInterchangeUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCE09D42006DAF8C572748336E33FF2D /* FirebaseDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				ED95977A669984D9A1D4265992675740 /* Frameworks */,
+			);
+			path = FirebaseDatabase;
+			sourceTree = "<group>";
+		};
+		BEEEBA24E0D2BA7E809B56809B7E98A8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6F53415AD5BCEF2B24A4F69E1163ABC2 /* Pods-Hinds_Justin_DestinyApp */,
+				92C7D5306D272D4E1C0A58168CEF693C /* Pods-Hinds_Justin_DestinyAppTests */,
+				D971B9FC43E9408C239C1A4A4BD4A7B5 /* Pods-Hinds_Justin_DestinyAppUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C116C31BAE424153AD00D6BFFC07ED1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ECCE3402153259021AF24C923F9DB31 /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF97C7EDFFA70747B61E62BDEC953BA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD6CD03E824E22035B7E8DC0CDA0A5EE /* Pods_Hinds_Justin_DestinyApp.framework */,
+				6E6CE62CA01F70E5D2273D94B12BBF78 /* Pods_Hinds_Justin_DestinyAppTests.framework */,
+				601C3E35FB2471DF675E6962AB313BB8 /* Pods_Hinds_Justin_DestinyAppUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D019297FC3F595D3EECFADA365A2C945 /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				D9872C8C9F7733E75624E2EFACAC9A3B /* Frameworks */,
+			);
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		D747591A8FEEFD8CD1042642C4C3A35F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				863D8178306DF5EA35115F54FE9DB8DC /* Firebase */,
+				2C152434E318BDFC6AAA4637635C92CB /* FirebaseAnalytics */,
+				E823C0D24FE746E423D1637619881E01 /* FirebaseAuth */,
+				BCE09D42006DAF8C572748336E33FF2D /* FirebaseDatabase */,
+				A294C616288F5AF3B947A787E60310EF /* FirebaseInstanceID */,
+				EA217487184645F1182E6A15A6593A6F /* FirebaseStorage */,
+				A6AD1E8361F23DD7FC20CF1F5F6193F0 /* GoogleInterchangeUtilities */,
+				D019297FC3F595D3EECFADA365A2C945 /* GoogleNetworkingUtilities */,
+				89C482C500CAC5298583C8F231C91FDB /* GoogleParsingUtilities */,
+				453639F77B3EB6B4CF18A5FD54CDAE71 /* GoogleSymbolUtilities */,
+				6260985D180B8FEB7FC63E1953C6BB6B /* GoogleUtilities */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D834C6EF200379E11394034658824740 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				AADD2F12C1FAD840D8463ABD9313FD6F /* Firebase.h */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		D971B9FC43E9408C239C1A4A4BD4A7B5 /* Pods-Hinds_Justin_DestinyAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1404D721154D3A20A4A42DC7D1C58B5C /* Info.plist */,
+				B94D7435CA8C95B710D6C38CBB138AEA /* Pods-Hinds_Justin_DestinyAppUITests.modulemap */,
+				1C1C5206525BB29E8202EBF35F27DECB /* Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.markdown */,
+				15102490FA5037512340C84B46911F9E /* Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.plist */,
+				76A25CC52E6F124B5ED0A8D93884E6DA /* Pods-Hinds_Justin_DestinyAppUITests-dummy.m */,
+				A3E19C7523F5FC629F2B7915090020AA /* Pods-Hinds_Justin_DestinyAppUITests-frameworks.sh */,
+				6DEAC21D4808B818FCB12C030C00B482 /* Pods-Hinds_Justin_DestinyAppUITests-resources.sh */,
+				33E2A0BA6C89499900EAD89B903DA421 /* Pods-Hinds_Justin_DestinyAppUITests-umbrella.h */,
+				D6306FB4B90A105A5ADD61E3B30F0005 /* Pods-Hinds_Justin_DestinyAppUITests.debug.xcconfig */,
+				04FF0E5EB8C4137B05891CE8F60D4005 /* Pods-Hinds_Justin_DestinyAppUITests.release.xcconfig */,
+			);
+			name = "Pods-Hinds_Justin_DestinyAppUITests";
+			path = "Target Support Files/Pods-Hinds_Justin_DestinyAppUITests";
+			sourceTree = "<group>";
+		};
+		D9872C8C9F7733E75624E2EFACAC9A3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28E068939D9EE20C8EF10B07D3E31F4C /* GoogleNetworkingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E823C0D24FE746E423D1637619881E01 /* FirebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				6580F1087CB9A5ADBF554447B2181AC5 /* Frameworks */,
+			);
+			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		EA217487184645F1182E6A15A6593A6F /* FirebaseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				FBA08AD981711F6DFD38019600C22D7D /* Frameworks */,
+			);
+			path = FirebaseStorage;
+			sourceTree = "<group>";
+		};
+		ED95977A669984D9A1D4265992675740 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1815D2A3010404CD543E84C5268BCABC /* FirebaseDatabase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4165ED857874553CD1CDC90E0ECC575 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63DDFEFC1970DD137BD9F7846F09ECAB /* GoogleParsingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBA08AD981711F6DFD38019600C22D7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85745E7D437459B31A5864C3F32C9317 /* FirebaseStorage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		68C298295CDD01196CAE3949C684A9E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CD7183B5967B5129E60A67F39FAF162 /* Pods-Hinds_Justin_DestinyAppUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8E71484EB8C063C5DA7C29CC58CCDFC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53644C1CC995669C2DF2F3C6A701EBBE /* Pods-Hinds_Justin_DestinyAppTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFC589D4B93E421DCD92D936EC8670B4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B8F7279DE7E264F6EAA71EF04D0B399 /* Pods-Hinds_Justin_DestinyApp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9448A261A20305C8226DD14314A5020F /* Pods-Hinds_Justin_DestinyAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44D5C11C6729FA02DC602D74579C3813 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyAppUITests" */;
+			buildPhases = (
+				19B720AA1FD5290AB8ADF56F3D9A5269 /* Sources */,
+				D548DDF63AEF51479C9CCA7A3EE06AF9 /* Frameworks */,
+				68C298295CDD01196CAE3949C684A9E0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Hinds_Justin_DestinyAppUITests";
+			productName = "Pods-Hinds_Justin_DestinyAppUITests";
+			productReference = 601C3E35FB2471DF675E6962AB313BB8 /* Pods_Hinds_Justin_DestinyAppUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D5AB63DDCE3E23CEF452E6CEDCF7A2A9 /* Pods-Hinds_Justin_DestinyApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2132F55C8DC1793352B8BED2B1C0C46 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyApp" */;
+			buildPhases = (
+				6535EDB0054A10A7B7A56D2DEC9B572A /* Sources */,
+				915C1DD736ACED08DF2B281AA5453FAF /* Frameworks */,
+				CFC589D4B93E421DCD92D936EC8670B4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Hinds_Justin_DestinyApp";
+			productName = "Pods-Hinds_Justin_DestinyApp";
+			productReference = BD6CD03E824E22035B7E8DC0CDA0A5EE /* Pods_Hinds_Justin_DestinyApp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D99818833085464971CF244D882A3B4C /* Pods-Hinds_Justin_DestinyAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9ADF2AFB028B56C0209D310659474843 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyAppTests" */;
+			buildPhases = (
+				093DEA3CB51B04198D0561831618B926 /* Sources */,
+				0BCC3BB89E1B8709223ACE7EEB4C682A /* Frameworks */,
+				A8E71484EB8C063C5DA7C29CC58CCDFC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Hinds_Justin_DestinyAppTests";
+			productName = "Pods-Hinds_Justin_DestinyAppTests";
+			productReference = 6E6CE62CA01F70E5D2273D94B12BBF78 /* Pods_Hinds_Justin_DestinyAppTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CF97C7EDFFA70747B61E62BDEC953BA5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5AB63DDCE3E23CEF452E6CEDCF7A2A9 /* Pods-Hinds_Justin_DestinyApp */,
+				D99818833085464971CF244D882A3B4C /* Pods-Hinds_Justin_DestinyAppTests */,
+				9448A261A20305C8226DD14314A5020F /* Pods-Hinds_Justin_DestinyAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		093DEA3CB51B04198D0561831618B926 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C2B4FAF4A4AADE46071533D7E2CF5D6 /* Pods-Hinds_Justin_DestinyAppTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19B720AA1FD5290AB8ADF56F3D9A5269 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F3BAF604E995F952DE9869554C9F855 /* Pods-Hinds_Justin_DestinyAppUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6535EDB0054A10A7B7A56D2DEC9B572A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A661327E7F467062E94EE4D768ECCB /* Pods-Hinds_Justin_DestinyApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0CB64A85958A050B66DC55FB200689F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04FF0E5EB8C4137B05891CE8F60D4005 /* Pods-Hinds_Justin_DestinyAppUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyAppUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyAppUITests/Pods-Hinds_Justin_DestinyAppUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Hinds_Justin_DestinyAppUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3FA451D268613890FA8A5A03801E11D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		48D686A1866297A1E39C81DCB0A8FD32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FA1BAAA6595104D12731FB985EA13BF /* Pods-Hinds_Justin_DestinyAppTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyAppTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyAppTests/Pods-Hinds_Justin_DestinyAppTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Hinds_Justin_DestinyAppTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5E62115DE8C09934BF8D2FE5D15FED1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		834D91F05C7484C582B025D78DC62A1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A14FEE4CCDBADC5593AB7B445978395F /* Pods-Hinds_Justin_DestinyApp.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyApp/Pods-Hinds_Justin_DestinyApp.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Hinds_Justin_DestinyApp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C00EDF817EF73F24B964DA444F891782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BEF1717F85D5EE325A7724FA4D601B7 /* Pods-Hinds_Justin_DestinyAppTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyAppTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyAppTests/Pods-Hinds_Justin_DestinyAppTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Hinds_Justin_DestinyAppTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DB658C409D8923A89D3AC7E6FF6D7CCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6306FB4B90A105A5ADD61E3B30F0005 /* Pods-Hinds_Justin_DestinyAppUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyAppUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyAppUITests/Pods-Hinds_Justin_DestinyAppUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Hinds_Justin_DestinyAppUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F7D74B49E2A55BA5D1FCF7CBBFD5C530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83BA34C434153606D12B9D218F48B75F /* Pods-Hinds_Justin_DestinyApp.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyApp/Pods-Hinds_Justin_DestinyApp.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Hinds_Justin_DestinyApp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E62115DE8C09934BF8D2FE5D15FED1E /* Debug */,
+				3FA451D268613890FA8A5A03801E11D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44D5C11C6729FA02DC602D74579C3813 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB658C409D8923A89D3AC7E6FF6D7CCD /* Debug */,
+				0CB64A85958A050B66DC55FB200689F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9ADF2AFB028B56C0209D310659474843 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48D686A1866297A1E39C81DCB0A8FD32 /* Debug */,
+				C00EDF817EF73F24B964DA444F891782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2132F55C8DC1793352B8BED2B1C0C46 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				834D91F05C7484C582B025D78DC62A1F /* Debug */,
+				F7D74B49E2A55BA5D1FCF7CBBFD5C530 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

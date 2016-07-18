@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginView" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -32,7 +32,7 @@
                                 <rect key="frame" x="186" y="193" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="Vm3-6E-aoo" kind="presentation" id="6nR-iI-tg5"/>
+                                    <segue destination="Vm3-6E-aoo" kind="presentation" identifier="toView" id="C9r-Sz-hwY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,12 +67,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyi-S0-uBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765" y="802"/>
+            <point key="canvasLocation" x="1163" y="985"/>
         </scene>
-        <!--Item-->
+        <!--Character-->
         <scene sceneID="GtO-U7-ryf">
             <objects>
-                <viewController id="mZQ-Tj-CMz" sceneMemberID="viewController">
+                <viewController id="mZQ-Tj-CMz" customClass="DestinyInfo" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Yc-31-kto"/>
                         <viewControllerLayoutGuide type="bottom" id="MpE-xO-nXb"/>
@@ -82,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LP9-lp-UMi">
-                                <rect key="frame" x="0.0" y="20" width="414" height="667"/>
+                                <rect key="frame" x="0.0" y="107" width="414" height="667"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TAJ-H3-RKt">
                                     <size key="itemSize" width="343" height="139"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -112,10 +112,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYq-dh-vbY">
+                                <rect key="frame" x="169" y="53" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="HPk-kY-LdI"/>
+                    <tabBarItem key="tabBarItem" title="Character" id="HPk-kY-LdI"/>
+                    <connections>
+                        <outlet property="myLabel" destination="gYq-dh-vbY" id="Kwl-IT-Mmq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9up-hn-WVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="2350" y="-419"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Destiny View Controller-->
         <scene sceneID="Tc7-07-pOb">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Vm3-6E-aoo" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Vm3-6E-aoo" customClass="DestinyViewController" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="YcS-fJ-bSG">
@@ -150,13 +159,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="mZQ-Tj-CMz" kind="relationship" relationship="viewControllers" id="naw-H7-CNS"/>
                         <segue destination="RLk-uf-tGL" kind="relationship" relationship="viewControllers" id="ZA7-fe-np5"/>
+                        <segue destination="mZQ-Tj-CMz" kind="relationship" relationship="viewControllers" id="uJX-s3-cqa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCh-Ld-Cci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137" y="229"/>
+            <point key="canvasLocation" x="1163" y="-33"/>
         </scene>
     </scenes>
 </document>

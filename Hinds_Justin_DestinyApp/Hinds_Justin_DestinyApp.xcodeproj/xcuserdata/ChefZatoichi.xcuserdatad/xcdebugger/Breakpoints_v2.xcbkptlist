@@ -39,13 +39,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Hinds_Justin_DestinyApp/DestinyInfo.swift"
-            timestampString = "490327103.179509"
+            filePath = "Hinds_Justin_DestinyApp/LoginView.swift"
+            timestampString = "490503403.394078"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "getDestinyInfo()"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "LoginView"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hinds_Justin_DestinyApp/LoginView.swift"
+            timestampString = "490499705.66383"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -55,13 +71,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Hinds_Justin_DestinyApp/DestinyInfo.swift"
-            timestampString = "490327103.179509"
+            filePath = "Hinds_Justin_DestinyApp/LoginView.swift"
+            timestampString = "490503403.394078"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "getDestinyInfo()"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "arrayMaker()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

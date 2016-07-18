@@ -1,0 +1,6 @@
+framework module Pods_Hinds_Justin_DestinyAppTests {
+  umbrella header "Pods-Hinds_Justin_DestinyAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
