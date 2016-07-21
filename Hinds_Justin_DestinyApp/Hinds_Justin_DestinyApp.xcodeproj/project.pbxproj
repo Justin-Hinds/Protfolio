@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		054812731D4029A2003285C1 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812721D4029A2003285C1 /* CustomCell.swift */; };
+		054812761D408EB1003285C1 /* CharacterSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812751D408EB1003285C1 /* CharacterSelect.swift */; };
+		0548127A1D416DC5003285C1 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812791D416DC5003285C1 /* ChatView.swift */; };
 		05853EC31D245E5800FBD9B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05853EC21D245E5800FBD9B6 /* AppDelegate.swift */; };
 		05853EC51D245E5800FBD9B6 /* DestinyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05853EC41D245E5800FBD9B6 /* DestinyViewController.swift */; };
 		05853EC81D245E5800FBD9B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05853EC61D245E5800FBD9B6 /* Main.storyboard */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		054812721D4029A2003285C1 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		054812751D408EB1003285C1 /* CharacterSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterSelect.swift; sourceTree = "<group>"; };
+		054812791D416DC5003285C1 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		05853EBF1D245E5800FBD9B6 /* Hinds_Justin_DestinyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinds_Justin_DestinyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05853EC21D245E5800FBD9B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05853EC41D245E5800FBD9B6 /* DestinyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +105,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		054812741D4029AD003285C1 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				05913E0F1D3466F4002D477B /* DestinyInfo.swift */,
+				054812751D408EB1003285C1 /* CharacterSelect.swift */,
+				054812721D4029A2003285C1 /* CustomCell.swift */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
 		05853EB61D245E5700FBD9B6 = {
 			isa = PBXGroup;
 			children = (
@@ -126,13 +142,14 @@
 			children = (
 				05853EC21D245E5800FBD9B6 /* AppDelegate.swift */,
 				05853EC41D245E5800FBD9B6 /* DestinyViewController.swift */,
+				054812791D416DC5003285C1 /* ChatView.swift */,
 				05913E111D370694002D477B /* DestinyCharacter.swift */,
-				05913E0F1D3466F4002D477B /* DestinyInfo.swift */,
 				05913E131D3768E6002D477B /* LoginView.swift */,
 				05853EC61D245E5800FBD9B6 /* Main.storyboard */,
+				054812741D4029AD003285C1 /* CollectionView */,
 				05853ECC1D245E5800FBD9B6 /* Assets.xcassets */,
-				05853ECE1D245E5800FBD9B6 /* LaunchScreen.storyboard */,
 				05853ED11D245E5800FBD9B6 /* Info.plist */,
+				05853ECE1D245E5800FBD9B6 /* LaunchScreen.storyboard */,
 				05913E151D39E7B8002D477B /* GoogleService-Info.plist */,
 				05853EC91D245E5800FBD9B6 /* Hinds_Justin_DestinyApp.xcdatamodeld */,
 			);
@@ -450,7 +467,10 @@
 				05913E121D370694002D477B /* DestinyCharacter.swift in Sources */,
 				05853EC51D245E5800FBD9B6 /* DestinyViewController.swift in Sources */,
 				05853ECB1D245E5800FBD9B6 /* Hinds_Justin_DestinyApp.xcdatamodeld in Sources */,
+				0548127A1D416DC5003285C1 /* ChatView.swift in Sources */,
 				05913E141D3768E6002D477B /* LoginView.swift in Sources */,
+				054812761D408EB1003285C1 /* CharacterSelect.swift in Sources */,
+				054812731D4029A2003285C1 /* CustomCell.swift in Sources */,
 				05853EC31D245E5800FBD9B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

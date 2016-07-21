@@ -12,7 +12,24 @@ import UIKit
 class LoginView: UIViewController{
     var characterArray : [DestinyCharacter] = [DestinyCharacter]()
     var array1  = [DestinyCharacter]()
+    var gamingPlatform : Int = 0
 
+    @IBOutlet weak var segmentedController: UISegmentedControl!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var tagID: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+
+    @IBAction func platformChoice(sender: AnyObject) {
+        switch segmentedController.selectedSegmentIndex {
+        case 0:
+            gamingPlatform = 2
+        case 1:
+            gamingPlatform = 1
+        default:
+            break
+        }
+        
+    }
     
     override func viewDidLoad() {
         let host = "http://www.bungie.net"
@@ -59,14 +76,14 @@ class LoginView: UIViewController{
                     let backgroundPath = character.objectForKey("backgroundPath") as! String
                     let backgroundURL = NSURL(string: host + backgroundPath)
                     let baseCharacterLevel = character.objectForKey("baseCharacterLevel") as! Int
-                    //print(powerLevel)
-                    let myCharacter : DestinyCharacter = DestinyCharacter(level: powerLevel, light: lightLevel, strength: strengthLevel, discipline: disciplineLevel, intellect: intellectLevel, characterClass: classHash)
+                    let BGImage = UIImage(data: NSData(contentsOfURL: backgroundURL!)!)
+                    let emblem = UIImage(data: NSData(contentsOfURL: emblemURL!)!)
+                    let myCharacter : DestinyCharacter = DestinyCharacter(background: BGImage!, emblem: emblem!, level: baseCharacterLevel, light: lightLevel, strength: strengthLevel, discipline: disciplineLevel, intellect: intellectLevel, characterClass: classHash)
                     self.array1.append(myCharacter)
+
                 }
                 self.performSelectorOnMainThread( #selector(LoginView.arrayMaker),  withObject: nil, waitUntilDone: true)
 
-                //self.characterArray = array1
-                print("\(self.characterArray) - cArray")
 
             }catch{
                 print("bad stuff")
@@ -81,7 +98,7 @@ class LoginView: UIViewController{
         #selector(prepareForSegue)
         if (segue.identifier == "toView"){
             let detailView : DestinyViewController = segue.destinationViewController as! DestinyViewController
-            detailView.helpMe = characterArray
+            detailView.myArray = characterArray
             
         }
     }

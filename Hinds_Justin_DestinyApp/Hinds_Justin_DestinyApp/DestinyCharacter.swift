@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class DestinyCharacter  {
     var myArray: [DestinyCharacter] = [DestinyCharacter]()
-  //  var background : UIImage?
-  //  var emblem : UIImage?
+    var background : UIImage?
+    var emblem : UIImage?
     var level : Int?
     var light : Int?
     var strength : Int?
@@ -19,7 +20,7 @@ class DestinyCharacter  {
     var intellect : Int?
     var characterClass : Int?
     
-    init(/*background: UIImage, emblem : UIImage,*/ level : Int, light : Int, strength : Int, discipline : Int, intellect : Int, characterClass : Int) {
+    init(background: UIImage, emblem : UIImage, level : Int, light : Int, strength : Int, discipline : Int, intellect : Int, characterClass : Int) {
         self.level = level
         self.light = light
         self.strength = strength

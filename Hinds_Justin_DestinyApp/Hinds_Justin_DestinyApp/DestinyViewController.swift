@@ -9,13 +9,12 @@
 import UIKit
 
 class DestinyViewController: UITabBarController {
-    var helpMe = [DestinyCharacter]()
-    
+     var myArray = [DestinyCharacter]()
+     var currentCharacter = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(helpMe) Help......MEE!!")
+        print("\(currentCharacter) current character")
         let destinyInfo = DestinyInfo()
-        //destinyInfo.getDestinyInfo()
         let host = "http://www.bungie.net/Platform/Destiny"
         let myID = "4611686018428897716"
         let characterId = "2305843009215786186"
@@ -34,86 +33,82 @@ class DestinyViewController: UITabBarController {
         inventoryRequest.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
         request.HTTPMethod = "GET"
         inventoryRequest.HTTPMethod = "GET"
-        var myArray: [DestinyCharacter] = [DestinyCharacter]()
 
-       let task = session.dataTaskWithRequest(request, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) in
-
-            guard let realResponse = response as? NSHTTPURLResponse where
-            realResponse.statusCode == 200 else {
-                print("Not a 200 response ")
-                return
-            }
-            do{
-           let response = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
-            let info = response.objectForKey("Response") as! NSDictionary
-            let infoData = info.objectForKey("data") as! NSDictionary
-            let infoCharacters = infoData.objectForKey("characters") as! NSArray
-                var characterArray = [DestinyCharacter]()
-                for character in infoCharacters{
-                    let characterBase = character.objectForKey("characterBase") as! NSDictionary
-                    let characterStats = characterBase.objectForKey("stats") as! NSDictionary
-                    let classHash =  characterBase.objectForKey("classHash") as! Int
-                    let powerLevel = characterBase.objectForKey("powerLevel") as! Int
-                    let raceHash = characterBase.objectForKey("raceHash") as! Int
-                    let characterID = characterBase.objectForKey("characterId")
-                    let strength = characterStats.objectForKey("STAT_STRENGTH") as! NSDictionary
-                    let strengthLevel = strength.objectForKey("value") as! Int
-                    let intellect = characterStats.objectForKey("STAT_INTELLECT") as! NSDictionary
-                    let intellectLevel = intellect.objectForKey("value") as! Int
-                    let discipline = characterStats.objectForKey("STAT_DISCIPLINE") as! NSDictionary
-                    let disciplineLevel = discipline.objectForKey("value") as! Int
-                    let light = characterStats.objectForKey("STAT_LIGHT") as! NSDictionary
-                    let lightLevel = light.objectForKey("value") as! Int
-                    let emblemPath = character.objectForKey("emblemPath") as! String
-                    let emblemURL = NSURL(string: host + emblemPath)
-                    let backgroundPath = character.objectForKey("backgroundPath") as! String
-                    let backgroundURL = NSURL(string: host + backgroundPath)
-//                    let baseCharacterLevel = character.objectForKey("baseCharacterLevel") as! Int
+//       let task = session.dataTaskWithRequest(request, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) in
+//
+//            guard let realResponse = response as? NSHTTPURLResponse where
+//            realResponse.statusCode == 200 else {
+//                print("Not a 200 response ")
+//                return
+//            }
+//            do{
+//           let response = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
+//            let info = response.objectForKey("Response") as! NSDictionary
+//            let infoData = info.objectForKey("data") as! NSDictionary
+//            let infoCharacters = infoData.objectForKey("characters") as! NSArray
+//                var characterArray = [DestinyCharacter]()
+//                for character in infoCharacters{
+//                    let characterBase = character.objectForKey("characterBase") as! NSDictionary
+//                    let characterStats = characterBase.objectForKey("stats") as! NSDictionary
+//                    let classHash =  characterBase.objectForKey("classHash") as! Int
+//                    let powerLevel = characterBase.objectForKey("powerLevel") as! Int
+//                    let raceHash = characterBase.objectForKey("raceHash") as! Int
+//                    let characterID = characterBase.objectForKey("characterId")
+//                    let strength = characterStats.objectForKey("STAT_STRENGTH") as! NSDictionary
+//                    let strengthLevel = strength.objectForKey("value") as! Int
+//                    let intellect = characterStats.objectForKey("STAT_INTELLECT") as! NSDictionary
+//                    let intellectLevel = intellect.objectForKey("value") as! Int
+//                    let discipline = characterStats.objectForKey("STAT_DISCIPLINE") as! NSDictionary
+//                    let disciplineLevel = discipline.objectForKey("value") as! Int
+//                    let light = characterStats.objectForKey("STAT_LIGHT") as! NSDictionary
+//                    let lightLevel = light.objectForKey("value") as! Int
+//                    let emblemPath = character.objectForKey("emblemPath") as! String
+//                    let emblemURL = NSURL(string: host + emblemPath)
+//                    let backgroundPath = character.objectForKey("backgroundPath") as! String
+//                    let backgroundURL = NSURL(string: host + backgroundPath)
+////                    let baseCharacterLevel = character.objectForKey("baseCharacterLevel") as! Int
 //                    var character = DestinyCharacter(level: powerLevel, light: lightLevel, strength: strengthLevel, discipline: disciplineLevel, intellect: intellectLevel, characterClass: classHash)
 //                    characterArray.append(character)
-                }
-            }catch{
-                print("bad stuff")
-            }
-        
-        })
-        task.resume()
-        let inventoryTask = session.dataTaskWithRequest(inventoryRequest, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) in
-            
-            guard let realResponse = response as? NSHTTPURLResponse where
-                realResponse.statusCode == 200 else {
-                    print("Not a 200 response  \(inventoryRequest) ")
-                    return
-            }
-            do{
-                let response = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
-                let info = response.objectForKey("Response") as! NSDictionary
-                let infoData = info.objectForKey("data") as! NSDictionary
-                let inventoryArray = infoData.objectForKey("items") as! NSArray
-                for item in inventoryArray{
-                    let hash = item.objectForKey("bucketHash") as! Int
-                    let manifestURL = NSURL(string: "http://www.bungie.net/Platform/Destiny/Manifest/5/\(hash)/")
-                    let manifestRequest = NSMutableURLRequest(URL: manifestURL!)
-                    manifestRequest.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
-                    let manifestTask = session.dataTaskWithRequest(manifestRequest, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) in
-                        
-                        guard let realResponse = response as? NSHTTPURLResponse where
-                            realResponse.statusCode == 200 else {
-                                print("Not a 200 response  \(inventoryRequest) ")
-                                return
-                        }
-                        do{
-                            let manifestResponse = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
-                            
-//                        print(manifestResponse)
-                        }catch{
-                        //print(response)
-                    }
-                        })
-                    manifestTask.resume()
-                    //print(item)
-                    
-                }
+//                }
+//            }catch{
+//                print("bad stuff")
+//            }
+//        
+//        })
+//        task.resume()
+//        let inventoryTask = session.dataTaskWithRequest(inventoryRequest, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) in
+//            
+//            guard let realResponse = response as? NSHTTPURLResponse where
+//                realResponse.statusCode == 200 else {
+//                    print("Not a 200 response  \(inventoryRequest) ")
+//                    return
+//            }
+//            do{
+//                let response = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
+//                let info = response.objectForKey("Response") as! NSDictionary
+//                let infoData = info.objectForKey("data") as! NSDictionary
+//                let inventoryArray = infoData.objectForKey("items") as! NSArray
+//                for item in inventoryArray{
+//                    let hash = item.objectForKey("bucketHash") as! Int
+//                    let manifestURL = NSURL(string: "http://www.bungie.net/Platform/Destiny/Manifest/5/\(hash)/")
+//                    let manifestRequest = NSMutableURLRequest(URL: manifestURL!)
+//                    manifestRequest.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
+//                    let manifestTask = session.dataTaskWithRequest(manifestRequest, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) in
+//                        
+//                        guard let realResponse = response as? NSHTTPURLResponse where
+//                            realResponse.statusCode == 200 else {
+//                                print("Not a 200 response  \(inventoryRequest) ")
+//                                return
+//                        }
+//                        do{
+//                            let manifestResponse = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
+//                            
+//                        }catch{
+//                    }
+//                        })
+//                    manifestTask.resume()
+//                    
+//                }
                 //let infoCharacters = infoData.objectForKey("characters") as! NSArray
 //                for character in infoCharacters{
 //                    let characterBase = character.objectForKey("characterBase") as! NSDictionary
@@ -137,20 +132,20 @@ class DestinyViewController: UITabBarController {
 //                    let baseCharacterLevel = character.objectForKey("baseCharacterLevel") as! Int
 //                    print(response)
 //                }
-            }catch{
-                print(response)
-            }
-            
-        })
-inventoryTask.resume()
+//            }catch{
+//                print(response)
+//            }
+//            
+//        })
+//inventoryTask.resume()
     }
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // logic for multiple segues
-//        if (segue.identifier == "toDestiny"){
-//            let detailView : DestinyInfo = segue.destinationViewController as! DestinyInfo
-//            detailView.infoArray = helpMe
-//        }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // logic for multiple segues
+        if (segue.identifier == "toDestiny"){
+            let detailView : DestinyInfo = segue.destinationViewController as! DestinyInfo
+            detailView.myArray = self.myArray
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

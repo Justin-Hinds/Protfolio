@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   type = "1"
+   type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
@@ -9,28 +9,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Hinds_Justin_DestinyApp/DestinyCharacter.swift"
-            timestampString = "490749205.954021"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "DestinyCharacter"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Hinds_Justin_DestinyApp/DestinyInfo.swift"
-            timestampString = "490171471.415232"
+            timestampString = "490771842.361076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "9"
-            endingLineNumber = "9">
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hinds_Justin_DestinyApp/DestinyViewController.swift"
+            timestampString = "490752232.2773"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -43,10 +45,10 @@
             timestampString = "490830039.384801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "LoginView"
-            landmarkType = "3">
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -56,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hinds_Justin_DestinyApp/LoginView.swift"
-            timestampString = "490830039.384801"
+            timestampString = "490830813.97861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "arrayMaker()"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "platformChoice(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -6,10 +6,10 @@ target 'Hinds_Justin_DestinyApp' do
   use_frameworks!
 
   # Pods for Hinds_Justin_DestinyApp
-pod “Firebase/Core”
-pod “Firebase/Database”
-pod “Firebase/Auth”	
-pod “Firebase/Storage”
+pod ‘Firebase/Core’
+pod ‘Firebase/Database’
+pod ‘Firebase/Auth’	
+pod ‘Firebase/Storage’
 
   target 'Hinds_Justin_DestinyAppTests' do
     inherit! :search_paths
