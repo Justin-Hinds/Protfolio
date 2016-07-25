@@ -27,7 +27,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="olF-Hs-keU">
                                 <rect key="frame" x="151" y="293" width="149" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FUw-bv-bQ2">
                                 <rect key="frame" x="151" y="255" width="149" height="30"/>
@@ -39,21 +39,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qo-Z9-w7a">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Qo-Z9-w7a">
                                 <rect key="frame" x="165" y="331" width="121" height="29"/>
                                 <segments>
                                     <segment title="PSN"/>
                                     <segment title="XBOX"/>
                                 </segments>
+                                <color key="tintColor" red="0.86666666670000003" green="0.82352941180000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="platformChoice:" destination="BYZ-38-t0r" eventType="valueChanged" id="7ec-j2-JjQ"/>
-                                    <action selector="platformSelector:" destination="BYZ-38-t0r" eventType="valueChanged" id="PKw-kF-c0c"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="nkX-AF-YsN">
+                                <rect key="frame" x="161" y="173" width="129" height="29"/>
+                                <segments>
+                                    <segment title="Login"/>
+                                    <segment title="Register"/>
+                                </segments>
+                                <color key="tintColor" red="0.86666666670000003" green="0.82352941180000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="loginRegisterToggleAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="H2M-vr-m3Y"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeF-5h-kzp">
-                                <rect key="frame" x="202" y="372" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="197" y="372" width="57" height="30"/>
+                                <color key="tintColor" red="0.86666666670000003" green="0.82352941180000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Register"/>
                                 <connections>
+                                    <action selector="registerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BdE-L3-lsN"/>
                                     <segue destination="Vm3-6E-aoo" kind="presentation" identifier="toView" id="C9r-Sz-hwY"/>
                                 </connections>
                             </button>
@@ -63,6 +76,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="emailTextField" destination="FUw-bv-bQ2" id="OSA-zf-DYX"/>
+                        <outlet property="loginRegisterButton" destination="LeF-5h-kzp" id="DVv-Om-SCp"/>
+                        <outlet property="loginRegisterToggle" destination="nkX-AF-YsN" id="VzY-a5-Mj3"/>
                         <outlet property="passwordTextField" destination="olF-Hs-keU" id="AgP-XZ-Uzd"/>
                         <outlet property="segmentedController" destination="3Qo-Z9-w7a" id="zoa-kZ-Jv2"/>
                         <outlet property="tagID" destination="gTl-1v-4m2" id="kyD-bE-WjQ"/>
@@ -72,7 +87,7 @@
             </objects>
             <point key="canvasLocation" x="577" y="-339"/>
         </scene>
-        <!--Character-->
+        <!--Destiny Info-->
         <scene sceneID="GtO-U7-ryf">
             <objects>
                 <viewController id="mZQ-Tj-CMz" customClass="DestinyInfo" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +109,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="characterCell" id="2or-f5-BJI" customClass="CustomCell" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target">
-                                        <rect key="frame" x="22" y="0.0" width="370" height="139"/>
+                                        <rect key="frame" x="22" y="64" width="370" height="139"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="370" height="139"/>
@@ -162,14 +177,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Character" id="HPk-kY-LdI"/>
+                    <navigationItem key="navigationItem" id="BcP-Va-db8"/>
                     <connections>
                         <outlet property="mainCollectionView" destination="LP9-lp-UMi" id="Qam-EM-tUR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9up-hn-WVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681" y="-339"/>
+            <point key="canvasLocation" x="2307" y="-339"/>
         </scene>
         <!--Character Select-->
         <scene sceneID="dZh-hE-OSI">
@@ -210,7 +225,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7Z-eV-hGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2282" y="-339"/>
+            <point key="canvasLocation" x="2782" y="-213"/>
+        </scene>
+        <!--Video-->
+        <scene sceneID="PdE-9y-aEq">
+            <objects>
+                <collectionViewController id="boV-ry-UZG" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="TQD-fY-L2t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kAa-vI-NXW">
+                            <size key="itemSize" width="400.5" height="204"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="ar0-XY-Okp">
+                                <rect key="frame" x="7" y="0.0" width="400.5" height="204"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="400.5" height="204"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.82352941180000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="boV-ry-UZG" id="MSU-x2-GPa"/>
+                            <outlet property="delegate" destination="boV-ry-UZG" id="taH-9N-bYR"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Video" id="W8Z-lG-fU6"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWV-jI-vtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1587" y="-1536"/>
         </scene>
         <!--Destiny View Controller-->
         <scene sceneID="Tc7-07-pOb">
@@ -223,18 +274,19 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="mZQ-Tj-CMz" kind="relationship" relationship="viewControllers" id="uJX-s3-cqa"/>
+                        <segue destination="7I1-Y8-Sjn" kind="relationship" relationship="viewControllers" id="uJX-s3-cqa"/>
                         <segue destination="Fxk-Jy-5o9" kind="relationship" relationship="viewControllers" id="WPh-d6-k8H"/>
+                        <segue destination="boV-ry-UZG" kind="relationship" relationship="viewControllers" id="QmD-te-lV9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCh-Ld-Cci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1111" y="-339"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Chat-->
         <scene sceneID="xor-z0-HDi">
             <objects>
-                <tableViewController id="MON-sK-nDD" sceneMemberID="viewController">
+                <tableViewController id="MON-sK-nDD" customClass="ChatView" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="azo-Gr-NwN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,11 +306,133 @@
                             <outlet property="delegate" destination="MON-sK-nDD" id="Bg3-gk-Tkn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="geO-N2-cal"/>
+                    <navigationItem key="navigationItem" title="Chat" id="vAN-Gj-Bp2">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="KOi-aL-B5g">
+                            <connections>
+                                <action selector="logoutButton:" destination="MON-sK-nDD" id="GWv-pC-pQt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Members" id="EpS-nw-tWT">
+                            <connections>
+                                <segue destination="u5V-Zw-UhF" kind="show" id="E9K-t5-Wzw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="titleView" destination="vAN-Gj-Bp2" id="fup-7X-xTT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XR8-rF-tg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926" y="461"/>
+            <point key="canvasLocation" x="1712" y="597"/>
+        </scene>
+        <!--Chat Log-->
+        <scene sceneID="chp-jb-fwP">
+            <objects>
+                <viewController id="ijT-OG-D3R" customClass="ChatLog" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m31-d2-Zzp"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Rv-Pp-fMh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xwd-Mr-cXD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcj-nw-Cbs">
+                                <rect key="frame" x="0.0" y="635" width="414" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="1Nr-KX-22e"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="zB4-Tg-cVe" kind="embed" identifier="textInput" id="coj-kC-CSS"/>
+                                </connections>
+                            </containerView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NJL-HQ-I9h">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lU8-YZ-DA8">
+                                    <size key="itemSize" width="177" height="98"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="message" id="H6h-9w-wsm" customClass="MessageCell" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="64" width="177" height="98"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="177" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3Q-uc-rKs">
+                                                    <rect key="frame" x="67" y="38" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="message" destination="g3Q-uc-rKs" id="jJP-mU-hUn"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ijT-OG-D3R" id="mlN-pn-hiF"/>
+                                    <outlet property="delegate" destination="ijT-OG-D3R" id="ijU-0G-Drr"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="NJL-HQ-I9h" secondAttribute="bottom" constant="49" id="3nM-zn-wlr"/>
+                            <constraint firstItem="Rcj-nw-Cbs" firstAttribute="leading" secondItem="NJL-HQ-I9h" secondAttribute="leading" id="4ZB-Ox-5tC"/>
+                            <constraint firstItem="NJL-HQ-I9h" firstAttribute="top" secondItem="m31-d2-Zzp" secondAttribute="bottom" id="F5z-b0-GII"/>
+                            <constraint firstItem="Rcj-nw-Cbs" firstAttribute="top" secondItem="m31-d2-Zzp" secondAttribute="bottom" constant="571" id="GhT-y3-XAM"/>
+                            <constraint firstItem="Rcj-nw-Cbs" firstAttribute="trailing" secondItem="NJL-HQ-I9h" secondAttribute="trailing" id="J8J-RV-6ft"/>
+                            <constraint firstItem="Rcj-nw-Cbs" firstAttribute="centerX" secondItem="xwd-Mr-cXD" secondAttribute="centerX" id="NPv-RJ-p65"/>
+                            <constraint firstItem="3Rv-Pp-fMh" firstAttribute="top" secondItem="Rcj-nw-Cbs" secondAttribute="bottom" id="V9l-qn-1de"/>
+                            <constraint firstItem="3Rv-Pp-fMh" firstAttribute="top" secondItem="Rcj-nw-Cbs" secondAttribute="bottom" id="deN-gT-jX2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageCollectionView" destination="NJL-HQ-I9h" id="pKk-VZ-u40"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Fa-KL-lmK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2270" y="1576"/>
+        </scene>
+        <!--New Message Controller-->
+        <scene sceneID="3JU-RR-876">
+            <objects>
+                <tableViewController id="u5V-Zw-UhF" customClass="newMessageController" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="M6W-e4-QJm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memberCell" id="p2m-rZ-Evp" customClass="ChatMemberCell" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p2m-rZ-Evp" id="CxV-3u-g7c">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ijT-OG-D3R" kind="show" identifier="toMessage" id="Qc0-qJ-P0L"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="u5V-Zw-UhF" id="VYN-0V-vwF"/>
+                            <outlet property="delegate" destination="u5V-Zw-UhF" id="5oc-14-CiR"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IAu-3G-fBZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2290" y="577"/>
         </scene>
         <!--Chat-->
         <scene sceneID="7Vz-Gn-rhy">
@@ -275,7 +449,75 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdi-QR-4CT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="461"/>
+            <point key="canvasLocation" x="1111" y="577"/>
+        </scene>
+        <!--Character-->
+        <scene sceneID="vo8-cj-mnD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7I1-Y8-Sjn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Character" id="HPk-kY-LdI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kh3-kv-8kc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mZQ-Tj-CMz" kind="relationship" relationship="rootViewController" id="zeG-ZD-9k1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fh7-jf-zf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1681" y="-339"/>
+        </scene>
+        <!--Text Input-->
+        <scene sceneID="bQN-Vi-rJe">
+            <objects>
+                <viewController id="zB4-Tg-cVe" customClass="TextInput" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0a3-JQ-g21">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p8h-6R-hY5">
+                                <rect key="frame" x="20" y="11" width="325" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="1V2-1e-g2X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEI-Sr-H6r">
+                                <rect key="frame" x="353" y="11" width="36" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendButton:" destination="zB4-Tg-cVe" eventType="touchUpInside" id="9Ix-JS-HWk"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="860-bw-URM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                <color key="backgroundColor" red="0.75662878787878785" green="0.75662878787878785" blue="0.75662878787878785" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98009390782828287" green="0.10370495454261716" blue="0.21917537682657096" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="LEI-Sr-H6r" firstAttribute="leading" secondItem="p8h-6R-hY5" secondAttribute="trailing" constant="8" symbolic="YES" id="CsR-lc-onJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LEI-Sr-H6r" secondAttribute="trailing" constant="5" id="EyV-x6-o3H"/>
+                            <constraint firstItem="LEI-Sr-H6r" firstAttribute="centerY" secondItem="0a3-JQ-g21" secondAttribute="centerY" id="M4E-oC-Drg"/>
+                            <constraint firstItem="p8h-6R-hY5" firstAttribute="top" secondItem="860-bw-URM" secondAttribute="bottom" constant="10" id="ObA-0s-aBn"/>
+                            <constraint firstItem="p8h-6R-hY5" firstAttribute="centerY" secondItem="0a3-JQ-g21" secondAttribute="centerY" id="PWq-90-Dne"/>
+                            <constraint firstItem="860-bw-URM" firstAttribute="top" secondItem="0a3-JQ-g21" secondAttribute="top" id="ZJh-Mj-EwT"/>
+                            <constraint firstItem="860-bw-URM" firstAttribute="leading" secondItem="0a3-JQ-g21" secondAttribute="leading" id="axA-s8-UMm"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="p8h-6R-hY5" secondAttribute="bottom" constant="11" id="dl8-rh-UhD"/>
+                            <constraint firstAttribute="trailing" secondItem="860-bw-URM" secondAttribute="trailing" id="yfU-a8-IDt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageTextField" destination="p8h-6R-hY5" id="9QQ-bm-QxV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xju-ob-b8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2270" y="2135"/>
         </scene>
     </scenes>
 </document>

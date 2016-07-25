@@ -7,36 +7,29 @@
 
 import Foundation
 import UIKit
+protocol CharacterDelegate {
+    func setUpCurrentCharacter(selectedCharacter: Int)
+}
 
 class CharacterSelect: UIViewController {
     var CurrentCharacter = 0
+    var delegate : CharacterDelegate! = nil
+
     
     @IBAction func C1(sender: AnyObject) {
-        self.CurrentCharacter = 0
-        let divc = DestinyInfo() as DestinyInfo
-        divc.currentCharacter = self.CurrentCharacter
-        print(divc.currentCharacter)
-        self.dismissViewControllerAnimated(true, completion: {
-        })
+        delegate.setUpCurrentCharacter(0)
+        self.navigationController?.popToRootViewControllerAnimated(true)
 
     }
     
     @IBAction func C2(sender: AnyObject) {
-        self.CurrentCharacter = 1
-        let divc = DestinyInfo() as DestinyInfo
-        divc.currentCharacter = self.CurrentCharacter
-        self.dismissViewControllerAnimated(true, completion: {
-            print(divc.currentCharacter)
-        })
+        delegate.setUpCurrentCharacter(1)
+        self.navigationController?.popToRootViewControllerAnimated(true)
 
     }
     @IBAction func C3(sender: AnyObject) {
-        self.CurrentCharacter = 2
-        let divc = DestinyInfo() as DestinyInfo
-        divc.currentCharacter = self.CurrentCharacter
-        self.dismissViewControllerAnimated(true, completion: {
-        print(divc.currentCharacter)
-        })
+        delegate.setUpCurrentCharacter(2)
+        self.navigationController?.popToRootViewControllerAnimated(true)
 
 
     }

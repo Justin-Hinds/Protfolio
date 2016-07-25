@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hinds_Justin_DestinyApp/LoginView.swift"
-            timestampString = "490830039.384801"
+            timestampString = "490940791.342608"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "LoginView"
             landmarkType = "3">
          </BreakpointContent>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hinds_Justin_DestinyApp/LoginView.swift"
-            timestampString = "490830039.384801"
+            timestampString = "490940791.342608"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "arrayMaker()"
             landmarkType = "5">
          </BreakpointContent>

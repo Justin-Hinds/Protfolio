@@ -10,6 +10,12 @@
 		054812731D4029A2003285C1 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812721D4029A2003285C1 /* CustomCell.swift */; };
 		054812761D408EB1003285C1 /* CharacterSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812751D408EB1003285C1 /* CharacterSelect.swift */; };
 		0548127A1D416DC5003285C1 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812791D416DC5003285C1 /* ChatView.swift */; };
+		0548127C1D433662003285C1 /* newMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0548127B1D433662003285C1 /* newMessageController.swift */; };
+		0548127E1D433807003285C1 /* ChatMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0548127D1D433807003285C1 /* ChatMemberCell.swift */; };
+		054812801D433A9C003285C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0548127F1D433A9C003285C1 /* User.swift */; };
+		054812831D447DF6003285C1 /* ChatLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812821D447DF6003285C1 /* ChatLog.swift */; };
+		054812851D44800E003285C1 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812841D44800E003285C1 /* MessageCell.swift */; };
+		054812871D449040003285C1 /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812861D449040003285C1 /* TextInputViewController.swift */; };
 		05853EC31D245E5800FBD9B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05853EC21D245E5800FBD9B6 /* AppDelegate.swift */; };
 		05853EC51D245E5800FBD9B6 /* DestinyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05853EC41D245E5800FBD9B6 /* DestinyViewController.swift */; };
 		05853EC81D245E5800FBD9B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05853EC61D245E5800FBD9B6 /* Main.storyboard */; };
@@ -48,6 +54,12 @@
 		054812721D4029A2003285C1 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		054812751D408EB1003285C1 /* CharacterSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterSelect.swift; sourceTree = "<group>"; };
 		054812791D416DC5003285C1 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		0548127B1D433662003285C1 /* newMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newMessageController.swift; sourceTree = "<group>"; };
+		0548127D1D433807003285C1 /* ChatMemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMemberCell.swift; sourceTree = "<group>"; };
+		0548127F1D433A9C003285C1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		054812821D447DF6003285C1 /* ChatLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLog.swift; sourceTree = "<group>"; };
+		054812841D44800E003285C1 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		054812861D449040003285C1 /* TextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
 		05853EBF1D245E5800FBD9B6 /* Hinds_Justin_DestinyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinds_Justin_DestinyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05853EC21D245E5800FBD9B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05853EC41D245E5800FBD9B6 /* DestinyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +127,19 @@
 			name = CollectionView;
 			sourceTree = "<group>";
 		};
+		054812811D447475003285C1 /* ChatFiles */ = {
+			isa = PBXGroup;
+			children = (
+				054812821D447DF6003285C1 /* ChatLog.swift */,
+				054812791D416DC5003285C1 /* ChatView.swift */,
+				0548127D1D433807003285C1 /* ChatMemberCell.swift */,
+				0548127B1D433662003285C1 /* newMessageController.swift */,
+				054812841D44800E003285C1 /* MessageCell.swift */,
+				054812861D449040003285C1 /* TextInputViewController.swift */,
+			);
+			name = ChatFiles;
+			sourceTree = "<group>";
+		};
 		05853EB61D245E5700FBD9B6 = {
 			isa = PBXGroup;
 			children = (
@@ -142,10 +167,11 @@
 			children = (
 				05853EC21D245E5800FBD9B6 /* AppDelegate.swift */,
 				05853EC41D245E5800FBD9B6 /* DestinyViewController.swift */,
-				054812791D416DC5003285C1 /* ChatView.swift */,
 				05913E111D370694002D477B /* DestinyCharacter.swift */,
 				05913E131D3768E6002D477B /* LoginView.swift */,
 				05853EC61D245E5800FBD9B6 /* Main.storyboard */,
+				0548127F1D433A9C003285C1 /* User.swift */,
+				054812811D447475003285C1 /* ChatFiles */,
 				054812741D4029AD003285C1 /* CollectionView */,
 				05853ECC1D245E5800FBD9B6 /* Assets.xcassets */,
 				05853ED11D245E5800FBD9B6 /* Info.plist */,
@@ -465,13 +491,19 @@
 			files = (
 				05913E101D3466F4002D477B /* DestinyInfo.swift in Sources */,
 				05913E121D370694002D477B /* DestinyCharacter.swift in Sources */,
+				054812831D447DF6003285C1 /* ChatLog.swift in Sources */,
+				0548127C1D433662003285C1 /* newMessageController.swift in Sources */,
+				054812871D449040003285C1 /* TextInputViewController.swift in Sources */,
 				05853EC51D245E5800FBD9B6 /* DestinyViewController.swift in Sources */,
+				054812801D433A9C003285C1 /* User.swift in Sources */,
 				05853ECB1D245E5800FBD9B6 /* Hinds_Justin_DestinyApp.xcdatamodeld in Sources */,
 				0548127A1D416DC5003285C1 /* ChatView.swift in Sources */,
 				05913E141D3768E6002D477B /* LoginView.swift in Sources */,
 				054812761D408EB1003285C1 /* CharacterSelect.swift in Sources */,
 				054812731D4029A2003285C1 /* CustomCell.swift in Sources */,
 				05853EC31D245E5800FBD9B6 /* AppDelegate.swift in Sources */,
+				0548127E1D433807003285C1 /* ChatMemberCell.swift in Sources */,
+				054812851D44800E003285C1 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

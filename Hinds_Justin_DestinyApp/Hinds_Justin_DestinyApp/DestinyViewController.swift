@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class DestinyViewController: UITabBarController {
      var myArray = [DestinyCharacter]()
      var currentCharacter = 0
+     var currentUser = FIRAuth.auth()?.currentUser
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(currentCharacter) current character")
+        print("tab bar current user \(self.currentUser)")
         let destinyInfo = DestinyInfo()
         let host = "http://www.bungie.net/Platform/Destiny"
         let myID = "4611686018428897716"

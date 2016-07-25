@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import Firebase
 
-class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CharacterDelegate{
     var myArray = [DestinyCharacter]()
     var nameArray = ["Tasks", "Activity", "Inventory", "Weapons"]
     var currentCharacter = 0
@@ -19,6 +20,7 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
     mainCollectionView.backgroundColor = UIColor.whiteColor()
   let svc = self.tabBarController  as! DestinyViewController
     self.myArray = svc.myArray
+
     print(currentCharacter)
     }
      func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
@@ -34,19 +36,28 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
             cell.title.text = "\(nameArray[indexPath.item - 1])"
         }else{
         cell.classTitle.text = "\(myArray[currentCharacter].characterClass!)"
-        cell.lightLevel.text = "\(myArray[currentCharacter].light!)"
-        cell.baseLevel.text = "\(myArray[currentCharacter].level!)"
+        cell.lightLevel.text = "Light: \(myArray[currentCharacter].light!)"
+        cell.baseLevel.text = "Level: \(myArray[currentCharacter].level!)"
         cell.title.text = ""
         }
 
         return cell
     }
+//    override func viewWillAppear(animated: Bool) {
+//        print(currentCharacter)
+//        mainCollectionView.reloadData()
+//    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // logic for multiple segues
-//        if (segue.identifier == "characters"){
-//            let detailView : CharacterSelect = segue.destinationViewController as! CharacterSelect
-//            
-//        }
+//         logic for multiple segues
+        if (segue.identifier == "characters"){
+            let detailView : CharacterSelect = segue.destinationViewController as! CharacterSelect
+            detailView.delegate = self
+            
+        }
+    }
+    func setUpCurrentCharacter(selectedCharacter: Int) {
+        self.currentCharacter = selectedCharacter
+        mainCollectionView.reloadData()
     }
 
 
