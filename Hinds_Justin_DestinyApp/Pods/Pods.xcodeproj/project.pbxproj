@@ -7,100 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		003615E51D9E008D0EE5E4CF15E375A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		2351B40785D8A538E89859EA3E0D1D68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		4F85DCEAB32AA8A259C808A53921A12A /* Swift-YouTube-Player-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF45D42463C7ADF5939EE77A4B7E12 /* Swift-YouTube-Player-dummy.m */; };
 		53644C1CC995669C2DF2F3C6A701EBBE /* Pods-Hinds_Justin_DestinyAppTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 110BC3BD3B8DD7AF7514A9C6D5D57C51 /* Pods-Hinds_Justin_DestinyAppTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B08C8D66B32D0B342D7B144F25B13A7 /* Swift-YouTube-Player-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E89A7577E972610BB1DEA720E42303D1 /* Swift-YouTube-Player-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CD7183B5967B5129E60A67F39FAF162 /* Pods-Hinds_Justin_DestinyAppUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 33E2A0BA6C89499900EAD89B903DA421 /* Pods-Hinds_Justin_DestinyAppUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5CEDCF5BAC4D505DF83E71B515DAD382 /* Pods-Hinds_Justin_DestinyApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44FD67CFE456EB22093A6CE6FD35832D /* Pods-Hinds_Justin_DestinyApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F3BAF604E995F952DE9869554C9F855 /* Pods-Hinds_Justin_DestinyAppUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A25CC52E6F124B5ED0A8D93884E6DA /* Pods-Hinds_Justin_DestinyAppUITests-dummy.m */; };
-		859A44E7BE85FA063FC30E2EE104F9E1 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A68F73A53607804D6FCB74455342C54 /* VideoPlayerView.swift */; };
-		8DE9104BFE942DB2A3EE9340391F99D1 /* Pods-Hinds_Justin_DestinyApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 427A81BD3FD5309F4DBDEE292404B15F /* Pods-Hinds_Justin_DestinyApp-dummy.m */; };
+		87DE3F9B8647883B510C75E8D2F157C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		96A661327E7F467062E94EE4D768ECCB /* Pods-Hinds_Justin_DestinyApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 427A81BD3FD5309F4DBDEE292404B15F /* Pods-Hinds_Justin_DestinyApp-dummy.m */; };
+		9B8F7279DE7E264F6EAA71EF04D0B399 /* Pods-Hinds_Justin_DestinyApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44FD67CFE456EB22093A6CE6FD35832D /* Pods-Hinds_Justin_DestinyApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C2B4FAF4A4AADE46071533D7E2CF5D6 /* Pods-Hinds_Justin_DestinyAppTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E40F68B889940EDED21327EB25DA7CF /* Pods-Hinds_Justin_DestinyAppTests-dummy.m */; };
 		A61D413C49351200EBD6CC51CBD5AF64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		B5A1EE6DE3754AD41BC827CC885C7231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		E1756C9898E03956909F143AAC416F47 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = 102A6883C3B0C9548426E9581BB403B0 /* YTPlayer.html */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6DD2ED7F7F90A203406996988620949B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 71DA0568ACD49941707950A2C13045B0;
-			remoteInfo = "Swift-YouTube-Player";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		046E7AD140BB5B35C5EB5B81C7EA61BA /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
 		04FF0E5EB8C4137B05891CE8F60D4005 /* Pods-Hinds_Justin_DestinyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		09E0FCF0A36BBB6E03D2A4E1650A7C00 /* Pods_Hinds_Justin_DestinyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0690B02DA41066CE1F1798BCF565E222 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		0FA1BAAA6595104D12731FB985EA13BF /* Pods-Hinds_Justin_DestinyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		102A6883C3B0C9548426E9581BB403B0 /* YTPlayer.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = YTPlayer.html; path = YouTubePlayer/YouTubePlayer/YTPlayer.html; sourceTree = "<group>"; };
 		110BC3BD3B8DD7AF7514A9C6D5D57C51 /* Pods-Hinds_Justin_DestinyAppTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hinds_Justin_DestinyAppTests-umbrella.h"; sourceTree = "<group>"; };
 		1404D721154D3A20A4A42DC7D1C58B5C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15102490FA5037512340C84B46911F9E /* Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		15F460E66B1CB651A874EF0716375D01 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		1815D2A3010404CD543E84C5268BCABC /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
 		1C1C5206525BB29E8202EBF35F27DECB /* Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hinds_Justin_DestinyAppUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1FDF4FA5BEE4F94EF0BCB8BC8F37C487 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Headers/Firebase.h; sourceTree = "<group>"; };
 		209D3890E0E260419D24C8B1AB3A2BCF /* Pods-Hinds_Justin_DestinyAppTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyAppTests-frameworks.sh"; sourceTree = "<group>"; };
+		28E068939D9EE20C8EF10B07D3E31F4C /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		29B9644E08D7268C34F79C7F819C7D26 /* Pods-Hinds_Justin_DestinyApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyApp-resources.sh"; sourceTree = "<group>"; };
 		2C99D04463C3DAB8A8DFDE49871D47DC /* Pods-Hinds_Justin_DestinyApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hinds_Justin_DestinyApp-acknowledgements.plist"; sourceTree = "<group>"; };
 		2E40F68B889940EDED21327EB25DA7CF /* Pods-Hinds_Justin_DestinyAppTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hinds_Justin_DestinyAppTests-dummy.m"; sourceTree = "<group>"; };
 		33E2A0BA6C89499900EAD89B903DA421 /* Pods-Hinds_Justin_DestinyAppUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hinds_Justin_DestinyAppUITests-umbrella.h"; sourceTree = "<group>"; };
-		38E5C135899EB4E34162003BB7AF7B57 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
 		4200DE35743BF9858284AF88385C2797 /* Pods-Hinds_Justin_DestinyAppTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyAppTests-resources.sh"; sourceTree = "<group>"; };
 		427A81BD3FD5309F4DBDEE292404B15F /* Pods-Hinds_Justin_DestinyApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hinds_Justin_DestinyApp-dummy.m"; sourceTree = "<group>"; };
 		44FD67CFE456EB22093A6CE6FD35832D /* Pods-Hinds_Justin_DestinyApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hinds_Justin_DestinyApp-umbrella.h"; sourceTree = "<group>"; };
 		47085CE1DDC811244E53B42A9740EF8D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A216F3B22A281BBDD1D066FD4B89669 /* Swift-YouTube-Player.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Swift-YouTube-Player.xcconfig"; sourceTree = "<group>"; };
-		4AD30DF15F57E891B21F3B2A72E348AD /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Frameworks/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
-		549F413B27D6E592B609E97B434C82E4 /* Swift-YouTube-Player-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swift-YouTube-Player-prefix.pch"; sourceTree = "<group>"; };
-		5C7DD4F2310FD94868B619973043D6CF /* Swift_YouTube_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swift_YouTube_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E0D3C8F2DB6DC53FB538C486DE60D44 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
-		6257DE099A53F301F1B2470560BF2C48 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
-		6A68F73A53607804D6FCB74455342C54 /* VideoPlayerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoPlayerView.swift; path = YouTubePlayer/YouTubePlayer/VideoPlayerView.swift; sourceTree = "<group>"; };
+		4ECCE3402153259021AF24C923F9DB31 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		57E91500719F61D3165E3FF6E368D2E9 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		601C3E35FB2471DF675E6962AB313BB8 /* Pods_Hinds_Justin_DestinyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63DDFEFC1970DD137BD9F7846F09ECAB /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Frameworks/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
 		6DE806336BCDA1FF18322CE4293BD9C2 /* Pods-Hinds_Justin_DestinyApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyApp-frameworks.sh"; sourceTree = "<group>"; };
 		6DEAC21D4808B818FCB12C030C00B482 /* Pods-Hinds_Justin_DestinyAppUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyAppUITests-resources.sh"; sourceTree = "<group>"; };
+		6E6CE62CA01F70E5D2273D94B12BBF78 /* Pods_Hinds_Justin_DestinyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A25CC52E6F124B5ED0A8D93884E6DA /* Pods-Hinds_Justin_DestinyAppUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hinds_Justin_DestinyAppUITests-dummy.m"; sourceTree = "<group>"; };
-		7818080E9EB9EDEF9FDBD7EE0C394D87 /* Pods_Hinds_Justin_DestinyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7AF06C10794D28CA48332FC24AEC248A /* Swift-YouTube-Player.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Swift-YouTube-Player.modulemap"; sourceTree = "<group>"; };
-		7BD5C718BCCE1AE20AAE0CCE490E3DF6 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Headers/Public/FIRInstanceID.h; sourceTree = "<group>"; };
-		7E7F0F4706AEE7EA3BAF09404BA4785A /* Pods_Hinds_Justin_DestinyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8108B4AA7DA919542FC128151CF6C607 /* Pods-Hinds_Justin_DestinyApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hinds_Justin_DestinyApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		83BA34C434153606D12B9D218F48B75F /* Pods-Hinds_Justin_DestinyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyApp.release.xcconfig"; sourceTree = "<group>"; };
 		84DEBA593EF4D8E2D59B2B24CE17BD4C /* Pods-Hinds_Justin_DestinyApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Hinds_Justin_DestinyApp.modulemap"; sourceTree = "<group>"; };
+		85745E7D437459B31A5864C3F32C9317 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
 		8698D6E9CB13DD2FBC7399A824831CF9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		935F1F9F6A63196F33CD221FF2865879 /* Pods-Hinds_Justin_DestinyAppTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hinds_Justin_DestinyAppTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97F35DC54E78EDFF33E7BD71A244690B /* Pods-Hinds_Justin_DestinyAppTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hinds_Justin_DestinyAppTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9BEF1717F85D5EE325A7724FA4D601B7 /* Pods-Hinds_Justin_DestinyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		A099185732880F03733313ADFA45EB64 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Headers/Public/FIRInstanceID.h; sourceTree = "<group>"; };
 		A14FEE4CCDBADC5593AB7B445978395F /* Pods-Hinds_Justin_DestinyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A3E19C7523F5FC629F2B7915090020AA /* Pods-Hinds_Justin_DestinyAppUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hinds_Justin_DestinyAppUITests-frameworks.sh"; sourceTree = "<group>"; };
-		B6DF45D42463C7ADF5939EE77A4B7E12 /* Swift-YouTube-Player-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Swift-YouTube-Player-dummy.m"; sourceTree = "<group>"; };
-		B7B92C78723F768F95CCD3E5471D1F23 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		AADD2F12C1FAD840D8463ABD9313FD6F /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Headers/Firebase.h; sourceTree = "<group>"; };
+		B07914CE61B45E2BCCE466D2E4FCE05F /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		B4681D183129176945E0774B09EC4ECC /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
 		B94D7435CA8C95B710D6C38CBB138AEA /* Pods-Hinds_Justin_DestinyAppUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Hinds_Justin_DestinyAppUITests.modulemap"; sourceTree = "<group>"; };
+		BD6CD03E824E22035B7E8DC0CDA0A5EE /* Pods_Hinds_Justin_DestinyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD224ABC4CEE7C14AB69FDA3630D24B1 /* Pods-Hinds_Justin_DestinyAppTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Hinds_Justin_DestinyAppTests.modulemap"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D6306FB4B90A105A5ADD61E3B30F0005 /* Pods-Hinds_Justin_DestinyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hinds_Justin_DestinyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D6ECD0E05DBBCDBD748E838F8C79ADFA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E0FB1587CABC34A82BD3DD33B85C0073 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
-		E3BAEBF30E737794501160E31A074CD9 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		E89A7577E972610BB1DEA720E42303D1 /* Swift-YouTube-Player-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swift-YouTube-Player-umbrella.h"; sourceTree = "<group>"; };
-		FB68A15117B3E8D11D7B44FE4979BD27 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		F49019F577398D68950086920B7B7783 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0037B0B47F71F096E07093AE0B679491 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				003615E51D9E008D0EE5E4CF15E375A5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0BCC3BB89E1B8709223ACE7EEB4C682A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,11 +77,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA98A52B75909281EEF545033F6733A0 /* Frameworks */ = {
+		915C1DD736ACED08DF2B281AA5453FAF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5A1EE6DE3754AD41BC827CC885C7231 /* Foundation.framework in Frameworks */,
+				87DE3F9B8647883B510C75E8D2F157C1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,18 +96,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2204646E3EAF28B4B1AC1C267B1C7D57 /* FirebaseAuth */ = {
+		2C152434E318BDFC6AAA4637635C92CB /* FirebaseAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				D22AFACF224ECA4727BD55D89E9FFC90 /* Frameworks */,
+				34A0684B5AC997FEE0A96FA25B4950BF /* Frameworks */,
 			);
-			path = FirebaseAuth;
+			path = FirebaseAnalytics;
 			sourceTree = "<group>";
 		};
-		3436F1987A6EE6A4FB37969DF460E753 /* Frameworks */ = {
+		34A0684B5AC997FEE0A96FA25B4950BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B7B92C78723F768F95CCD3E5471D1F23 /* GoogleSymbolUtilities.framework */,
+				0690B02DA41066CE1F1798BCF565E222 /* FirebaseAnalytics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,28 +120,36 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		3FBD78317DC174934902A989C9A7556C /* GoogleNetworkingUtilities */ = {
+		453639F77B3EB6B4CF18A5FD54CDAE71 /* GoogleSymbolUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				C0773DF99839B9B54D7BE78C53A17C18 /* Frameworks */,
+				48FDA7781B212532661B34258760D0BC /* Frameworks */,
 			);
-			path = GoogleNetworkingUtilities;
+			path = GoogleSymbolUtilities;
 			sourceTree = "<group>";
 		};
-		45E13D7054F011ACBBA87AA421A24942 /* GoogleUtilities */ = {
+		48FDA7781B212532661B34258760D0BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9C4B5DCC83BE5FA4C3C97150C7F39A09 /* Frameworks */,
+				F49019F577398D68950086920B7B7783 /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6260985D180B8FEB7FC63E1953C6BB6B /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				C116C31BAE424153AD00D6BFFC07ED1C /* Frameworks */,
 			);
 			path = GoogleUtilities;
 			sourceTree = "<group>";
 		};
-		5F9F004AAA34780C5F0B96D4F51CFC16 /* FirebaseDatabase */ = {
+		6580F1087CB9A5ADBF554447B2181AC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B6AF91821B6A169B9FF3392B3F378E0D /* Frameworks */,
+				B4681D183129176945E0774B09EC4ECC /* FirebaseAuth.framework */,
 			);
-			path = FirebaseDatabase;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6F53415AD5BCEF2B24A4F69E1163ABC2 /* Pods-Hinds_Justin_DestinyApp */ = {
@@ -194,39 +170,31 @@
 			path = "Target Support Files/Pods-Hinds_Justin_DestinyApp";
 			sourceTree = "<group>";
 		};
-		74CDA539E3EA1CECAE4D6CBF5E960233 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				102A6883C3B0C9548426E9581BB403B0 /* YTPlayer.html */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		79070FD3048488F2B912B24D8909EC33 /* FirebaseAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				9B31A4FFFE49B1C797037500AE3F0F51 /* Frameworks */,
-			);
-			path = FirebaseAnalytics;
-			sourceTree = "<group>";
-		};
-		7CF6EBA459EBFE11C6ECE6691B8A4CED /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4AD30DF15F57E891B21F3B2A72E348AD /* GoogleParsingUtilities.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				B9A50C869ABF5D4AAAE5FF7145C6299A /* Pods */,
-				C74EA1663D8FF1586E31ABA834E209D7 /* Products */,
+				D747591A8FEEFD8CD1042642C4C3A35F /* Pods */,
+				CF97C7EDFFA70747B61E62BDEC953BA5 /* Products */,
 				BEEEBA24E0D2BA7E809B56809B7E98A8 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		863D8178306DF5EA35115F54FE9DB8DC /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				D834C6EF200379E11394034658824740 /* Analytics */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		89C482C500CAC5298583C8F231C91FDB /* GoogleParsingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				F4165ED857874553CD1CDC90E0ECC575 /* Frameworks */,
+			);
+			path = GoogleParsingUtilities;
 			sourceTree = "<group>";
 		};
 		92C7D5306D272D4E1C0A58168CEF693C /* Pods-Hinds_Justin_DestinyAppTests */ = {
@@ -247,102 +215,37 @@
 			path = "Target Support Files/Pods-Hinds_Justin_DestinyAppTests";
 			sourceTree = "<group>";
 		};
-		98B26A4DA6B150DE749245794A9084BF /* FirebaseStorage */ = {
+		A294C616288F5AF3B947A787E60310EF /* FirebaseInstanceID */ = {
 			isa = PBXGroup;
 			children = (
-				BD695F22EA860640C8FBD51F391AA0DD /* Frameworks */,
-			);
-			path = FirebaseStorage;
-			sourceTree = "<group>";
-		};
-		9B31A4FFFE49B1C797037500AE3F0F51 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				15F460E66B1CB651A874EF0716375D01 /* FirebaseAnalytics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9C4B5DCC83BE5FA4C3C97150C7F39A09 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5E0D3C8F2DB6DC53FB538C486DE60D44 /* GoogleUtilities.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A0838C71E20948D1B6F0B5BCC838F879 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				046E7AD140BB5B35C5EB5B81C7EA61BA /* GoogleInterchangeUtilities.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A18C39BB58A4F0FA92734C8C1B46883C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D6ECD0E05DBBCDBD748E838F8C79ADFA /* Info.plist */,
-				7AF06C10794D28CA48332FC24AEC248A /* Swift-YouTube-Player.modulemap */,
-				4A216F3B22A281BBDD1D066FD4B89669 /* Swift-YouTube-Player.xcconfig */,
-				B6DF45D42463C7ADF5939EE77A4B7E12 /* Swift-YouTube-Player-dummy.m */,
-				549F413B27D6E592B609E97B434C82E4 /* Swift-YouTube-Player-prefix.pch */,
-				E89A7577E972610BB1DEA720E42303D1 /* Swift-YouTube-Player-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Swift-YouTube-Player";
-			sourceTree = "<group>";
-		};
-		A81C6834A53C8B6763FF74A2E82B9C49 /* FirebaseInstanceID */ = {
-			isa = PBXGroup;
-			children = (
-				7BD5C718BCCE1AE20AAE0CCE490E3DF6 /* FIRInstanceID.h */,
-				FFAAACE6A0D9F8C067B4F63ECF2B987C /* Frameworks */,
+				A099185732880F03733313ADFA45EB64 /* FIRInstanceID.h */,
+				A6E98D106C7587CF744C8756BCFC9142 /* Frameworks */,
 			);
 			path = FirebaseInstanceID;
 			sourceTree = "<group>";
 		};
-		AEE37592B1D60CABC20BE4D64CCA8A6B /* GoogleSymbolUtilities */ = {
+		A6AD1E8361F23DD7FC20CF1F5F6193F0 /* GoogleInterchangeUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				3436F1987A6EE6A4FB37969DF460E753 /* Frameworks */,
-			);
-			path = GoogleSymbolUtilities;
-			sourceTree = "<group>";
-		};
-		B42D875C3B127B4781FA5AA4A1B63344 /* GoogleInterchangeUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				A0838C71E20948D1B6F0B5BCC838F879 /* Frameworks */,
+				BA74169EA2E244B7BF9E5C173AC728CD /* Frameworks */,
 			);
 			path = GoogleInterchangeUtilities;
 			sourceTree = "<group>";
 		};
-		B6AF91821B6A169B9FF3392B3F378E0D /* Frameworks */ = {
+		A6E98D106C7587CF744C8756BCFC9142 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E0FB1587CABC34A82BD3DD33B85C0073 /* FirebaseDatabase.framework */,
+				57E91500719F61D3165E3FF6E368D2E9 /* FirebaseInstanceID.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B9A50C869ABF5D4AAAE5FF7145C6299A /* Pods */ = {
+		BA74169EA2E244B7BF9E5C173AC728CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E235D5528372B2EC98BCF34EFA1B6BE3 /* Firebase */,
-				79070FD3048488F2B912B24D8909EC33 /* FirebaseAnalytics */,
-				2204646E3EAF28B4B1AC1C267B1C7D57 /* FirebaseAuth */,
-				5F9F004AAA34780C5F0B96D4F51CFC16 /* FirebaseDatabase */,
-				A81C6834A53C8B6763FF74A2E82B9C49 /* FirebaseInstanceID */,
-				98B26A4DA6B150DE749245794A9084BF /* FirebaseStorage */,
-				B42D875C3B127B4781FA5AA4A1B63344 /* GoogleInterchangeUtilities */,
-				3FBD78317DC174934902A989C9A7556C /* GoogleNetworkingUtilities */,
-				E24F60EBEF058F913AC693C54B41B6F7 /* GoogleParsingUtilities */,
-				AEE37592B1D60CABC20BE4D64CCA8A6B /* GoogleSymbolUtilities */,
-				45E13D7054F011ACBBA87AA421A24942 /* GoogleUtilities */,
-				E0C3D3C01662D674B17C8C82C3F19AF5 /* Swift-YouTube-Player */,
+				B07914CE61B45E2BCCE466D2E4FCE05F /* GoogleInterchangeUtilities.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -353,12 +256,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BD695F22EA860640C8FBD51F391AA0DD /* Frameworks */ = {
+		BCE09D42006DAF8C572748336E33FF2D /* FirebaseDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				38E5C135899EB4E34162003BB7AF7B57 /* FirebaseStorage.framework */,
+				ED95977A669984D9A1D4265992675740 /* Frameworks */,
 			);
-			name = Frameworks;
+			path = FirebaseDatabase;
 			sourceTree = "<group>";
 		};
 		BEEEBA24E0D2BA7E809B56809B7E98A8 /* Targets Support Files */ = {
@@ -371,39 +274,56 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		C0773DF99839B9B54D7BE78C53A17C18 /* Frameworks */ = {
+		C116C31BAE424153AD00D6BFFC07ED1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FB68A15117B3E8D11D7B44FE4979BD27 /* GoogleNetworkingUtilities.framework */,
+				4ECCE3402153259021AF24C923F9DB31 /* GoogleUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C74EA1663D8FF1586E31ABA834E209D7 /* Products */ = {
+		CF97C7EDFFA70747B61E62BDEC953BA5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09E0FCF0A36BBB6E03D2A4E1650A7C00 /* Pods_Hinds_Justin_DestinyApp.framework */,
-				7E7F0F4706AEE7EA3BAF09404BA4785A /* Pods_Hinds_Justin_DestinyAppTests.framework */,
-				7818080E9EB9EDEF9FDBD7EE0C394D87 /* Pods_Hinds_Justin_DestinyAppUITests.framework */,
-				5C7DD4F2310FD94868B619973043D6CF /* Swift_YouTube_Player.framework */,
+				BD6CD03E824E22035B7E8DC0CDA0A5EE /* Pods_Hinds_Justin_DestinyApp.framework */,
+				6E6CE62CA01F70E5D2273D94B12BBF78 /* Pods_Hinds_Justin_DestinyAppTests.framework */,
+				601C3E35FB2471DF675E6962AB313BB8 /* Pods_Hinds_Justin_DestinyAppUITests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D153A2F2322F07344B9F7B57FA342C54 /* Analytics */ = {
+		D019297FC3F595D3EECFADA365A2C945 /* GoogleNetworkingUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				1FDF4FA5BEE4F94EF0BCB8BC8F37C487 /* Firebase.h */,
+				D9872C8C9F7733E75624E2EFACAC9A3B /* Frameworks */,
 			);
-			name = Analytics;
+			path = GoogleNetworkingUtilities;
 			sourceTree = "<group>";
 		};
-		D22AFACF224ECA4727BD55D89E9FFC90 /* Frameworks */ = {
+		D747591A8FEEFD8CD1042642C4C3A35F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6257DE099A53F301F1B2470560BF2C48 /* FirebaseAuth.framework */,
+				863D8178306DF5EA35115F54FE9DB8DC /* Firebase */,
+				2C152434E318BDFC6AAA4637635C92CB /* FirebaseAnalytics */,
+				E823C0D24FE746E423D1637619881E01 /* FirebaseAuth */,
+				BCE09D42006DAF8C572748336E33FF2D /* FirebaseDatabase */,
+				A294C616288F5AF3B947A787E60310EF /* FirebaseInstanceID */,
+				EA217487184645F1182E6A15A6593A6F /* FirebaseStorage */,
+				A6AD1E8361F23DD7FC20CF1F5F6193F0 /* GoogleInterchangeUtilities */,
+				D019297FC3F595D3EECFADA365A2C945 /* GoogleNetworkingUtilities */,
+				89C482C500CAC5298583C8F231C91FDB /* GoogleParsingUtilities */,
+				453639F77B3EB6B4CF18A5FD54CDAE71 /* GoogleSymbolUtilities */,
+				6260985D180B8FEB7FC63E1953C6BB6B /* GoogleUtilities */,
 			);
-			name = Frameworks;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D834C6EF200379E11394034658824740 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				AADD2F12C1FAD840D8463ABD9313FD6F /* Firebase.h */,
+			);
+			name = Analytics;
 			sourceTree = "<group>";
 		};
 		D971B9FC43E9408C239C1A4A4BD4A7B5 /* Pods-Hinds_Justin_DestinyAppUITests */ = {
@@ -424,36 +344,50 @@
 			path = "Target Support Files/Pods-Hinds_Justin_DestinyAppUITests";
 			sourceTree = "<group>";
 		};
-		E0C3D3C01662D674B17C8C82C3F19AF5 /* Swift-YouTube-Player */ = {
+		D9872C8C9F7733E75624E2EFACAC9A3B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A68F73A53607804D6FCB74455342C54 /* VideoPlayerView.swift */,
-				74CDA539E3EA1CECAE4D6CBF5E960233 /* Resources */,
-				A18C39BB58A4F0FA92734C8C1B46883C /* Support Files */,
+				28E068939D9EE20C8EF10B07D3E31F4C /* GoogleNetworkingUtilities.framework */,
 			);
-			path = "Swift-YouTube-Player";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E235D5528372B2EC98BCF34EFA1B6BE3 /* Firebase */ = {
+		E823C0D24FE746E423D1637619881E01 /* FirebaseAuth */ = {
 			isa = PBXGroup;
 			children = (
-				D153A2F2322F07344B9F7B57FA342C54 /* Analytics */,
+				6580F1087CB9A5ADBF554447B2181AC5 /* Frameworks */,
 			);
-			path = Firebase;
+			path = FirebaseAuth;
 			sourceTree = "<group>";
 		};
-		E24F60EBEF058F913AC693C54B41B6F7 /* GoogleParsingUtilities */ = {
+		EA217487184645F1182E6A15A6593A6F /* FirebaseStorage */ = {
 			isa = PBXGroup;
 			children = (
-				7CF6EBA459EBFE11C6ECE6691B8A4CED /* Frameworks */,
+				FBA08AD981711F6DFD38019600C22D7D /* Frameworks */,
 			);
-			path = GoogleParsingUtilities;
+			path = FirebaseStorage;
 			sourceTree = "<group>";
 		};
-		FFAAACE6A0D9F8C067B4F63ECF2B987C /* Frameworks */ = {
+		ED95977A669984D9A1D4265992675740 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E3BAEBF30E737794501160E31A074CD9 /* FirebaseInstanceID.framework */,
+				1815D2A3010404CD543E84C5268BCABC /* FirebaseDatabase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4165ED857874553CD1CDC90E0ECC575 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63DDFEFC1970DD137BD9F7846F09ECAB /* GoogleParsingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBA08AD981711F6DFD38019600C22D7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85745E7D437459B31A5864C3F32C9317 /* FirebaseStorage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -477,61 +411,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8C4509658334EC2D3F05D7F935B414D /* Headers */ = {
+		CFC589D4B93E421DCD92D936EC8670B4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CEDCF5BAC4D505DF83E71B515DAD382 /* Pods-Hinds_Justin_DestinyApp-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B94AB0A673BB5BB90B46335970ADF76F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5B08C8D66B32D0B342D7B144F25B13A7 /* Swift-YouTube-Player-umbrella.h in Headers */,
+				9B8F7279DE7E264F6EAA71EF04D0B399 /* Pods-Hinds_Justin_DestinyApp-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		70160EB0BB3922E2A0E8D181D8000D77 /* Pods-Hinds_Justin_DestinyApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4805F0319E82EA41021BA570ED541514 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyApp" */;
-			buildPhases = (
-				C14E3EFA52685B77E2AB96E37CAA8BD4 /* Sources */,
-				0037B0B47F71F096E07093AE0B679491 /* Frameworks */,
-				B8C4509658334EC2D3F05D7F935B414D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0358CEC4E2CCFD0D9BF6943A4811103F /* PBXTargetDependency */,
-			);
-			name = "Pods-Hinds_Justin_DestinyApp";
-			productName = "Pods-Hinds_Justin_DestinyApp";
-			productReference = 09E0FCF0A36BBB6E03D2A4E1650A7C00 /* Pods_Hinds_Justin_DestinyApp.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		71DA0568ACD49941707950A2C13045B0 /* Swift-YouTube-Player */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A3FD81D66C79CA94517E4FA3C669D81A /* Build configuration list for PBXNativeTarget "Swift-YouTube-Player" */;
-			buildPhases = (
-				4B6E80BD985B26FD0295F797866EC4BF /* Sources */,
-				CA98A52B75909281EEF545033F6733A0 /* Frameworks */,
-				A115D6DDD8D5E3AEFADA7BEC5E8EF9E3 /* Resources */,
-				B94AB0A673BB5BB90B46335970ADF76F /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Swift-YouTube-Player";
-			productName = "Swift-YouTube-Player";
-			productReference = 5C7DD4F2310FD94868B619973043D6CF /* Swift_YouTube_Player.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		9448A261A20305C8226DD14314A5020F /* Pods-Hinds_Justin_DestinyAppUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44D5C11C6729FA02DC602D74579C3813 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyAppUITests" */;
@@ -546,7 +436,24 @@
 			);
 			name = "Pods-Hinds_Justin_DestinyAppUITests";
 			productName = "Pods-Hinds_Justin_DestinyAppUITests";
-			productReference = 7818080E9EB9EDEF9FDBD7EE0C394D87 /* Pods_Hinds_Justin_DestinyAppUITests.framework */;
+			productReference = 601C3E35FB2471DF675E6962AB313BB8 /* Pods_Hinds_Justin_DestinyAppUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D5AB63DDCE3E23CEF452E6CEDCF7A2A9 /* Pods-Hinds_Justin_DestinyApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2132F55C8DC1793352B8BED2B1C0C46 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyApp" */;
+			buildPhases = (
+				6535EDB0054A10A7B7A56D2DEC9B572A /* Sources */,
+				915C1DD736ACED08DF2B281AA5453FAF /* Frameworks */,
+				CFC589D4B93E421DCD92D936EC8670B4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Hinds_Justin_DestinyApp";
+			productName = "Pods-Hinds_Justin_DestinyApp";
+			productReference = BD6CD03E824E22035B7E8DC0CDA0A5EE /* Pods_Hinds_Justin_DestinyApp.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D99818833085464971CF244D882A3B4C /* Pods-Hinds_Justin_DestinyAppTests */ = {
@@ -563,7 +470,7 @@
 			);
 			name = "Pods-Hinds_Justin_DestinyAppTests";
 			productName = "Pods-Hinds_Justin_DestinyAppTests";
-			productReference = 7E7F0F4706AEE7EA3BAF09404BA4785A /* Pods_Hinds_Justin_DestinyAppTests.framework */;
+			productReference = 6E6CE62CA01F70E5D2273D94B12BBF78 /* Pods_Hinds_Justin_DestinyAppTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -583,28 +490,16 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = C74EA1663D8FF1586E31ABA834E209D7 /* Products */;
+			productRefGroup = CF97C7EDFFA70747B61E62BDEC953BA5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				70160EB0BB3922E2A0E8D181D8000D77 /* Pods-Hinds_Justin_DestinyApp */,
+				D5AB63DDCE3E23CEF452E6CEDCF7A2A9 /* Pods-Hinds_Justin_DestinyApp */,
 				D99818833085464971CF244D882A3B4C /* Pods-Hinds_Justin_DestinyAppTests */,
 				9448A261A20305C8226DD14314A5020F /* Pods-Hinds_Justin_DestinyAppUITests */,
-				71DA0568ACD49941707950A2C13045B0 /* Swift-YouTube-Player */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		A115D6DDD8D5E3AEFADA7BEC5E8EF9E3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E1756C9898E03956909F143AAC416F47 /* YTPlayer.html in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		093DEA3CB51B04198D0561831618B926 /* Sources */ = {
@@ -623,33 +518,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B6E80BD985B26FD0295F797866EC4BF /* Sources */ = {
+		6535EDB0054A10A7B7A56D2DEC9B572A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F85DCEAB32AA8A259C808A53921A12A /* Swift-YouTube-Player-dummy.m in Sources */,
-				859A44E7BE85FA063FC30E2EE104F9E1 /* VideoPlayerView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C14E3EFA52685B77E2AB96E37CAA8BD4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DE9104BFE942DB2A3EE9340391F99D1 /* Pods-Hinds_Justin_DestinyApp-dummy.m in Sources */,
+				96A661327E7F467062E94EE4D768ECCB /* Pods-Hinds_Justin_DestinyApp-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0358CEC4E2CCFD0D9BF6943A4811103F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Swift-YouTube-Player";
-			target = 71DA0568ACD49941707950A2C13045B0 /* Swift-YouTube-Player */;
-			targetProxy = 6DD2ED7F7F90A203406996988620949B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0CB64A85958A050B66DC55FB200689F9 /* Release */ = {
@@ -677,69 +554,6 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_Hinds_Justin_DestinyAppUITests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		259F3221BD4145247E148567B1DAC85B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A14FEE4CCDBADC5593AB7B445978395F /* Pods-Hinds_Justin_DestinyApp.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyApp/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyApp/Pods-Hinds_Justin_DestinyApp.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Hinds_Justin_DestinyApp;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		37CE0575A9A30C4548651B8844F538FF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A216F3B22A281BBDD1D066FD4B89669 /* Swift-YouTube-Player.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Swift-YouTube-Player/Swift-YouTube-Player-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Swift-YouTube-Player/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Swift-YouTube-Player/Swift-YouTube-Player.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Swift_YouTube_Player;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -861,13 +675,13 @@
 			};
 			name = Debug;
 		};
-		719E3FCC69125C42C6648038350C77E3 /* Release */ = {
+		834D91F05C7484C582B025D78DC62A1F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83BA34C434153606D12B9D218F48B75F /* Pods-Hinds_Justin_DestinyApp.release.xcconfig */;
+			baseConfigurationReference = A14FEE4CCDBADC5593AB7B445978395F /* Pods-Hinds_Justin_DestinyApp.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -880,7 +694,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyApp/Pods-Hinds_Justin_DestinyApp.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -888,36 +702,6 @@
 				PRODUCT_NAME = Pods_Hinds_Justin_DestinyApp;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		BDFC6DB23D5E52C4396F02D0F6EEEE71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A216F3B22A281BBDD1D066FD4B89669 /* Swift-YouTube-Player.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Swift-YouTube-Player/Swift-YouTube-Player-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Swift-YouTube-Player/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Swift-YouTube-Player/Swift-YouTube-Player.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Swift_YouTube_Player;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -990,6 +774,39 @@
 			};
 			name = Debug;
 		};
+		F7D74B49E2A55BA5D1FCF7CBBFD5C530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83BA34C434153606D12B9D218F48B75F /* Pods-Hinds_Justin_DestinyApp.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hinds_Justin_DestinyApp/Pods-Hinds_Justin_DestinyApp.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Hinds_Justin_DestinyApp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1011,15 +828,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4805F0319E82EA41021BA570ED541514 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				259F3221BD4145247E148567B1DAC85B /* Debug */,
-				719E3FCC69125C42C6648038350C77E3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		9ADF2AFB028B56C0209D310659474843 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1029,11 +837,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3FD81D66C79CA94517E4FA3C669D81A /* Build configuration list for PBXNativeTarget "Swift-YouTube-Player" */ = {
+		F2132F55C8DC1793352B8BED2B1C0C46 /* Build configuration list for PBXNativeTarget "Pods-Hinds_Justin_DestinyApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BDFC6DB23D5E52C4396F02D0F6EEEE71 /* Debug */,
-				37CE0575A9A30C4548651B8844F538FF /* Release */,
+				834D91F05C7484C582B025D78DC62A1F /* Debug */,
+				F7D74B49E2A55BA5D1FCF7CBBFD5C530 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

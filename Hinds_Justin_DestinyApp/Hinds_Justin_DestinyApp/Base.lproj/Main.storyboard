@@ -230,7 +230,7 @@
         <!--Video-->
         <scene sceneID="PdE-9y-aEq">
             <objects>
-                <collectionViewController id="boV-ry-UZG" sceneMemberID="viewController">
+                <collectionViewController id="boV-ry-UZG" customClass="VideoController" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="TQD-fY-L2t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,7 +357,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="message" id="H6h-9w-wsm" customClass="MessageCell" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="177" height="98"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="98"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="177" height="98"/>
@@ -474,6 +474,10 @@
         <scene sceneID="bQN-Vi-rJe">
             <objects>
                 <viewController id="zB4-Tg-cVe" customClass="TextInput" customModule="Hinds_Justin_DestinyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HKD-9d-MpI"/>
+                        <viewControllerLayoutGuide type="bottom" id="HR6-MQ-iId"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0a3-JQ-g21">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

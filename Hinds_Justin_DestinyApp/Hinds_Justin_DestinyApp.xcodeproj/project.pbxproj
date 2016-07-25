@@ -16,6 +16,7 @@
 		054812831D447DF6003285C1 /* ChatLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812821D447DF6003285C1 /* ChatLog.swift */; };
 		054812851D44800E003285C1 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812841D44800E003285C1 /* MessageCell.swift */; };
 		054812871D449040003285C1 /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812861D449040003285C1 /* TextInputViewController.swift */; };
+		054812891D45AEF0003285C1 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054812881D45AEF0003285C1 /* VideoController.swift */; };
 		05853EC31D245E5800FBD9B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05853EC21D245E5800FBD9B6 /* AppDelegate.swift */; };
 		05853EC51D245E5800FBD9B6 /* DestinyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05853EC41D245E5800FBD9B6 /* DestinyViewController.swift */; };
 		05853EC81D245E5800FBD9B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05853EC61D245E5800FBD9B6 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		054812821D447DF6003285C1 /* ChatLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLog.swift; sourceTree = "<group>"; };
 		054812841D44800E003285C1 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		054812861D449040003285C1 /* TextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
+		054812881D45AEF0003285C1 /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		05853EBF1D245E5800FBD9B6 /* Hinds_Justin_DestinyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinds_Justin_DestinyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05853EC21D245E5800FBD9B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05853EC41D245E5800FBD9B6 /* DestinyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				05913E131D3768E6002D477B /* LoginView.swift */,
 				05853EC61D245E5800FBD9B6 /* Main.storyboard */,
 				0548127F1D433A9C003285C1 /* User.swift */,
+				054812881D45AEF0003285C1 /* VideoController.swift */,
 				054812811D447475003285C1 /* ChatFiles */,
 				054812741D4029AD003285C1 /* CollectionView */,
 				05853ECC1D245E5800FBD9B6 /* Assets.xcassets */,
@@ -500,6 +503,7 @@
 				0548127A1D416DC5003285C1 /* ChatView.swift in Sources */,
 				05913E141D3768E6002D477B /* LoginView.swift in Sources */,
 				054812761D408EB1003285C1 /* CharacterSelect.swift in Sources */,
+				054812891D45AEF0003285C1 /* VideoController.swift in Sources */,
 				054812731D4029A2003285C1 /* CustomCell.swift in Sources */,
 				05853EC31D245E5800FBD9B6 /* AppDelegate.swift in Sources */,
 				0548127E1D433807003285C1 /* ChatMemberCell.swift in Sources */,
