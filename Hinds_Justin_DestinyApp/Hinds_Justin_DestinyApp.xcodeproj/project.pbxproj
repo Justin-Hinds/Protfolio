@@ -29,6 +29,9 @@
 		05913E121D370694002D477B /* DestinyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05913E111D370694002D477B /* DestinyCharacter.swift */; };
 		05913E141D3768E6002D477B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05913E131D3768E6002D477B /* LoginView.swift */; };
 		05913E161D39E7B8002D477B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05913E151D39E7B8002D477B /* GoogleService-Info.plist */; };
+		05FE01C51D4726F8003191F1 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE01C41D4726F8003191F1 /* Activity.swift */; };
+		05FE01C71D472D75003191F1 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE01C61D472D75003191F1 /* ActivityController.swift */; };
+		05FE01C91D48A998003191F1 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE01C81D48A998003191F1 /* Messages.swift */; };
 		31A81C98D52F32EE078F5176 /* Pods_Hinds_Justin_DestinyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BD7328DED1C2FA0F06F265 /* Pods_Hinds_Justin_DestinyAppUITests.framework */; };
 		62A03F5F61D6AF4C7FEB2C23 /* Pods_Hinds_Justin_DestinyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97110320CB06361FE2DEDC53 /* Pods_Hinds_Justin_DestinyAppTests.framework */; };
 		76BE6391E612C75CFC176404 /* Pods_Hinds_Justin_DestinyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C72DB46E3875EE1A2CAD7ED /* Pods_Hinds_Justin_DestinyApp.framework */; };
@@ -80,6 +83,9 @@
 		05913E111D370694002D477B /* DestinyCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinyCharacter.swift; sourceTree = "<group>"; };
 		05913E131D3768E6002D477B /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		05913E151D39E7B8002D477B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		05FE01C41D4726F8003191F1 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		05FE01C61D472D75003191F1 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		05FE01C81D48A998003191F1 /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		34627CEAAC160FE50614EEA6 /* Pods-Hinds_Justin_DestinyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hinds_Justin_DestinyAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hinds_Justin_DestinyAppTests/Pods-Hinds_Justin_DestinyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		34906648CC5B9E3C116BF726 /* Pods-Hinds_Justin_DestinyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hinds_Justin_DestinyAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hinds_Justin_DestinyAppTests/Pods-Hinds_Justin_DestinyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C72DB46E3875EE1A2CAD7ED /* Pods_Hinds_Justin_DestinyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_DestinyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +144,7 @@
 				0548127B1D433662003285C1 /* newMessageController.swift */,
 				054812841D44800E003285C1 /* MessageCell.swift */,
 				054812861D449040003285C1 /* TextInputViewController.swift */,
+				05FE01C81D48A998003191F1 /* Messages.swift */,
 			);
 			name = ChatFiles;
 			sourceTree = "<group>";
@@ -169,11 +176,13 @@
 			children = (
 				05853EC21D245E5800FBD9B6 /* AppDelegate.swift */,
 				05853EC41D245E5800FBD9B6 /* DestinyViewController.swift */,
+				05FE01C61D472D75003191F1 /* ActivityController.swift */,
 				05913E111D370694002D477B /* DestinyCharacter.swift */,
 				05913E131D3768E6002D477B /* LoginView.swift */,
 				05853EC61D245E5800FBD9B6 /* Main.storyboard */,
 				0548127F1D433A9C003285C1 /* User.swift */,
 				054812881D45AEF0003285C1 /* VideoController.swift */,
+				05FE01C41D4726F8003191F1 /* Activity.swift */,
 				054812811D447475003285C1 /* ChatFiles */,
 				054812741D4029AD003285C1 /* CollectionView */,
 				05853ECC1D245E5800FBD9B6 /* Assets.xcassets */,
@@ -492,9 +501,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FE01C91D48A998003191F1 /* Messages.swift in Sources */,
+				05FE01C51D4726F8003191F1 /* Activity.swift in Sources */,
 				05913E101D3466F4002D477B /* DestinyInfo.swift in Sources */,
 				05913E121D370694002D477B /* DestinyCharacter.swift in Sources */,
 				054812831D447DF6003285C1 /* ChatLog.swift in Sources */,
+				05FE01C71D472D75003191F1 /* ActivityController.swift in Sources */,
 				0548127C1D433662003285C1 /* newMessageController.swift in Sources */,
 				054812871D449040003285C1 /* TextInputViewController.swift in Sources */,
 				05853EC51D245E5800FBD9B6 /* DestinyViewController.swift in Sources */,

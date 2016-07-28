@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hinds_Justin_DestinyApp/DestinyCharacter.swift"
-            timestampString = "490749205.954021"
+            timestampString = "491192359.969566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "DestinyCharacter"
             landmarkType = "3">
          </BreakpointContent>
@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hinds_Justin_DestinyApp/LoginView.swift"
-            timestampString = "490940791.342608"
+            timestampString = "491192359.969566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "LoginView"
             landmarkType = "3">
          </BreakpointContent>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hinds_Justin_DestinyApp/LoginView.swift"
-            timestampString = "490940791.342608"
+            timestampString = "491192359.969566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "arrayMaker()"
             landmarkType = "5">
          </BreakpointContent>

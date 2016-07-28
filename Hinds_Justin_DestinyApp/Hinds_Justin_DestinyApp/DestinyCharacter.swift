@@ -19,13 +19,15 @@ class DestinyCharacter  {
     var discipline : Int?
     var intellect : Int?
     var characterClass : Int?
+    var characterID: String?
     
-    init(background: UIImage, emblem : UIImage, level : Int, light : Int, strength : Int, discipline : Int, intellect : Int, characterClass : Int) {
+    init(background: UIImage, emblem : UIImage, level : Int, light : Int, strength : Int, discipline : Int, intellect : Int, characterClass : Int, characterID : String) {
         self.level = level
         self.light = light
         self.strength = strength
         self.discipline = discipline
         self.intellect = intellect
         self.characterClass = characterClass
+        self.characterID = characterID
     }
 }

@@ -17,11 +17,21 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
    override func viewDidLoad() {
-    mainCollectionView.backgroundColor = UIColor.whiteColor()
+       mainCollectionView.backgroundColor = UIColor.whiteColor()
   let svc = self.tabBarController  as! DestinyViewController
     self.myArray = svc.myArray
+   
+    }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row {
+        case 0:
+            performSegueWithIdentifier("characterSelect", sender: self)
+        case 1:
+            performSegueWithIdentifier("activityList", sender: self)
 
-    print(currentCharacter)
+        default:
+            break
+        }
     }
      func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return 5
@@ -43,17 +53,26 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
 
         return cell
     }
+    
 //    override func viewWillAppear(animated: Bool) {
 //        print(currentCharacter)
 //        mainCollectionView.reloadData()
 //    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //         logic for multiple segues
-        if (segue.identifier == "characters"){
+        switch segue.identifier!{
+        case "characterSelect":
             let detailView : CharacterSelect = segue.destinationViewController as! CharacterSelect
             detailView.delegate = self
-            
+        case "activityLest":
+            let detailView : ActivityController = segue.destinationViewController as! ActivityController
+        default:
+            break
         }
+//        if (segue.identifier == "characters"){
+//           
+//            
+//        }
     }
     func setUpCurrentCharacter(selectedCharacter: Int) {
         self.currentCharacter = selectedCharacter

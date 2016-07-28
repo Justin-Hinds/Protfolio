@@ -31,8 +31,20 @@ class TextInput: UIViewController {
     }
     let toId = self.user!.id!
     let senderId = FIRAuth.auth()!.currentUser!.uid
-    let time: NSNumber = NSDate().timeIntervalSince1970
+    let time: NSNumber = Int(NSDate().timeIntervalSince1970)
     let values = ["text": messageText, "toId": toId, "senderId": senderId, "time": time]
-    childRef.updateChildValues(values)
+    childRef.updateChildValues(values) { (error, ref) in
+        if error != nil{
+            print(error)
+            return
+        }
+        let userMessagesRef = FIRDatabase.database().reference().child("user_messages").child(senderId)
+        let messageID = childRef.key
+        
+        userMessagesRef.updateChildValues([messageID : 1])
+        let recipientMessageRef = FIRDatabase.database().reference().child("user_messages").child(toId)
+        recipientMessageRef.updateChildValues([messageID : 1])
+    }
+    
     }
 }

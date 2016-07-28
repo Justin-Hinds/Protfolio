@@ -14,6 +14,12 @@ class LoginView: UIViewController{
     var characterArray : [DestinyCharacter] = [DestinyCharacter]()
     var array1  = [DestinyCharacter]()
     var gamingPlatform : Int = 0
+    var ID: String?
+    var  myId: String?
+    var gamerTag: String?
+    
+    
+
     //current user variable
     var currentUser = FIRAuth.auth()?.currentUser
     @IBOutlet weak var segmentedController: UISegmentedControl!
@@ -54,10 +60,8 @@ class LoginView: UIViewController{
     func handleLoginOrRegister(){
         if loginRegisterToggle.selectedSegmentIndex == 0{
             handleLogin()
-            print("\(currentUser)")
         }else{
             handleRegister()
-            print("R")
         }
     }
     func handleLogin(){
@@ -68,11 +72,12 @@ class LoginView: UIViewController{
         FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
             if  error != nil {
                 print("Sign in error = \(error)")
+                return
             }
             // login was sucessful
-            print("logged in as \(email)")
-        })
 
+        })
+        print(gamerTag)
     }
     func handleRegister(){
         guard let email = emailTextField.text, password = passwordTextField.text, name = tagID.text else{
@@ -103,21 +108,43 @@ class LoginView: UIViewController{
         })
     }
     override func viewDidLoad() {
-        print(FIRAuth.auth()?.currentUser)
         getCharacterInfo()
-
+        getMyID()
         
           }
+    func getMyID(){
+        let idURLString = "http://www.bungie.net/Platform/Destiny/2/Stats/GetMembershipIdByDisplayName/cakepimp101/"
+        let idURL = NSURL(string: idURLString)
+        let session = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(URL: idURL!)
+        request.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            guard let realResponse = response as? NSHTTPURLResponse where
+                realResponse.statusCode == 200 else{
+                    print("not 200")
+                   return
+            }
+            do{
+                //parsing destiny api info
+                let response = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                 let myID = response.objectForKey("Response") as! String
+                print(myID)
+                self.myId = myID
+                self.performSelectorOnMainThread( #selector(self.setMyID),  withObject: nil, waitUntilDone: true)
+
+            }catch{
+                print("bad stuff happened")
+            }
+        }
+        task.resume()
+    }
+    // function to get character information
     func getCharacterInfo(){
         
         // Variables for destiny api request for character info
         let host = "http://www.bungie.net"
         let myID = "4611686018428897716"
-        let sonyAuth = "https://auth.api.sonyentertainmentnetwork.com/login.jsp"
         let destinyAPI : String = "http://www.bungie.net/Platform/Destiny/2/Account/\(myID)/Summary/"
-        let sonyLoginUrl = NSURL(string: sonyAuth)
-        let idURLString = "http://www.bungie.net/Platform/Destiny/2/Stats/GetMembershipIdByDisplayName/cakepimp101/"
-        let idURL = NSURL(string: idURLString)
         let destiny = NSURL(string: destinyAPI)
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: destiny!)
@@ -144,7 +171,7 @@ class LoginView: UIViewController{
                     let classHash =  characterBase.objectForKey("classHash") as! Int
                     let powerLevel = characterBase.objectForKey("powerLevel") as! Int
                     let raceHash = characterBase.objectForKey("raceHash") as! Int
-                    let characterID = characterBase.objectForKey("characterId")
+                    let characterID = characterBase.objectForKey("characterId") as! String
                     let strength = characterStats.objectForKey("STAT_STRENGTH") as! NSDictionary
                     let strengthLevel = strength.objectForKey("value") as! Int
                     let intellect = characterStats.objectForKey("STAT_INTELLECT") as! NSDictionary
@@ -161,7 +188,7 @@ class LoginView: UIViewController{
                     let BGImage = UIImage(data: NSData(contentsOfURL: backgroundURL!)!)
                     let emblem = UIImage(data: NSData(contentsOfURL: emblemURL!)!)
                     // Initializing character objects
-                    let myCharacter : DestinyCharacter = DestinyCharacter(background: BGImage!, emblem: emblem!, level: baseCharacterLevel, light: lightLevel, strength: strengthLevel, discipline: disciplineLevel, intellect: intellectLevel, characterClass: classHash)
+                    let myCharacter : DestinyCharacter = DestinyCharacter(background: BGImage!, emblem: emblem!, level: baseCharacterLevel, light: lightLevel, strength: strengthLevel, discipline: disciplineLevel, intellect: intellectLevel, characterClass: classHash, characterID: characterID)
                     // Adding characters to array
                     self.array1.append(myCharacter)
                     
@@ -177,7 +204,6 @@ class LoginView: UIViewController{
         // resumes task(nothing happens without this)
         task.resume()
         
-
     }
     
     // segue function
@@ -187,7 +213,12 @@ class LoginView: UIViewController{
         if (segue.identifier == "toView"){
             let detailView : DestinyViewController = segue.destinationViewController as! DestinyViewController
             detailView.myArray = characterArray
+            detailView.memberID = ID
         }
+    }
+    func setMyID(){
+        #selector(self.setMyID)
+        self.ID = myId
     }
     // function for populating character array from inside the do catch
     func arrayMaker(){
