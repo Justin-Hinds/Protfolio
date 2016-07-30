@@ -24,7 +24,7 @@ class ChatView: UITableViewController {
     override func viewDidLoad() {
         grabUser()
         let uid = FIRAuth.auth()?.currentUser?.uid
-        print(FIRAuth.auth()?.currentUser)
+        print(FIRAuth.auth()?.currentUser?.uid)
         FIRDatabase.database().reference().child("users").child(uid!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject]{
@@ -106,13 +106,12 @@ class ChatView: UITableViewController {
             }
             let user = User()
             user.setValuesForKeysWithDictionary(dict)
-            let newView = ChatLog() as ChatLog
-            newView.user = user
+//            let newView = ChatLog() as ChatLog
+//            newView.user = user
             self.currentUser = user
-            //self.presentChatLog(user)
-
+            print(self.currentUser.name)
             }, withCancelBlock: nil)
-       // self.performSegueWithIdentifier("message", sender: self)
+       print("current user id: \(self.currentUser.id)")
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -122,12 +121,6 @@ class ChatView: UITableViewController {
         
         
         return cell
-    }
-// function to present chat log
-    func presentChatLog(user: User){
-        let chatLog = ChatLog() as ChatLog
-        chatLog.user = user
-        navigationController?.pushViewController(chatLog, animated: true)
     }
     // Function for loging out
     func handleLogout(){
@@ -140,21 +133,7 @@ class ChatView: UITableViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
 
     }
-//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-//        while self.currentUser.id == nil {
-//            if identifier == "message"{
-//                if self.currentUser.id != nil{
-//                    return true
-//                }else{
-//                    return false
-//                }
-//            }else{
-//                return false
-//            }
-//
-//        }
-//        return true
-//    }
+
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "message"{

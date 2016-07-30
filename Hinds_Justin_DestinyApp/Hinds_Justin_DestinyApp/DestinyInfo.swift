@@ -22,10 +22,7 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
        mainCollectionView.backgroundColor = UIColor.whiteColor()
   let svc = self.tabBarController  as! DestinyViewController
     self.myArray = svc.myArray
-    print(svc.myArray.count)
-    print(svc.array1.count)
     self.activityArray = svc.array1
-    print(activityArray.count)
    
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

@@ -95,7 +95,7 @@ class LoginView: UIViewController{
             // reference to firebase database
             let ref = FIRDatabase.database().referenceFromURL("https://destiny-app-83ada.firebaseio.com/")
             let usersReference = ref.child("users").child(uid)
-            let values = ["name": name, "email": email]
+            let values = ["name": name, "email": email, "id":uid]
             usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil{
                     print("Saving Error = \(err)")
@@ -168,8 +168,6 @@ class LoginView: UIViewController{
                     let characterBase = character.objectForKey("characterBase") as! NSDictionary
                     let characterStats = characterBase.objectForKey("stats") as! NSDictionary
                     let classHash =  characterBase.objectForKey("classHash") as! Int
-                    let powerLevel = characterBase.objectForKey("powerLevel") as! Int
-                    let raceHash = characterBase.objectForKey("raceHash") as! Int
                     let characterID = characterBase.objectForKey("characterId") as! String
                     let strength = characterStats.objectForKey("STAT_STRENGTH") as! NSDictionary
                     let strengthLevel = strength.objectForKey("value") as! Int
@@ -198,8 +196,6 @@ class LoginView: UIViewController{
             }catch{
                 print("bad stuff")
             }
-//            print(self.array1.count)
-            self.dummy()
 
         })
         // resumes task(nothing happens without this)
@@ -220,6 +216,7 @@ class LoginView: UIViewController{
             print(realResponse)
             do{
                 let response = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                print(response)
 
             }catch{
                 
