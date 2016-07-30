@@ -397,13 +397,13 @@
                                                 <constraint firstAttribute="width" constant="197" id="m6v-09-igb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7p-Xi-bla">
                                             <rect key="frame" x="35" y="65" width="358" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-cb-RyN">
@@ -412,7 +412,7 @@
                                                 <constraint firstAttribute="width" constant="153" id="9Wb-Iy-8Ay"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -472,15 +472,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcj-nw-Cbs">
-                                <rect key="frame" x="0.0" y="635" width="414" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="sjK-Xv-vG9"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="zB4-Tg-cVe" kind="embed" identifier="textInput" id="coj-kC-CSS"/>
-                                </connections>
-                            </containerView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NJL-HQ-I9h">
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <constraints>
@@ -525,6 +516,15 @@
                                     <outlet property="delegate" destination="ijT-OG-D3R" id="ijU-0G-Drr"/>
                                 </connections>
                             </collectionView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcj-nw-Cbs">
+                                <rect key="frame" x="0.0" y="635" width="414" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="sjK-Xv-vG9"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="zB4-Tg-cVe" kind="embed" identifier="textInput" id="coj-kC-CSS"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
