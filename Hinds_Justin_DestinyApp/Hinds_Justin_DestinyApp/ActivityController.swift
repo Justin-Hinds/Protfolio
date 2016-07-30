@@ -9,13 +9,20 @@
 import UIKit
 
 class ActivityController: UITableViewController {
-    var activityArray : [Activity]?
+    var activityArray = [Activity]()
+    
+    override func viewDidLoad() {
+//        let divc = DestinyInfo as! DestinyInfo()
+//        self.activityArray = divc.activityArray
+        
+//print(activityArray.count)
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return activityArray!.count
+        return activityArray.count
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let activ = activityArray![indexPath.row]
+        let activ = activityArray[indexPath.row]
         let cell =  tableView.dequeueReusableCellWithIdentifier("activityCell")
         cell!.textLabel?.text = activ.activityName
         return cell!

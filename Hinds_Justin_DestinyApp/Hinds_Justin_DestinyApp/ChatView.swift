@@ -32,11 +32,11 @@ class ChatView: UITableViewController {
              
             }
             
-            print(snapshot)
             
             }, withCancelBlock: nil)
         
         observeUserMessages()
+
     }
     func observeUserMessages(){
         guard let uid = FIRAuth.auth()?.currentUser?.uid else{
@@ -51,8 +51,8 @@ class ChatView: UITableViewController {
                     let message = Messages()
                     message.setValuesForKeysWithDictionary(dict)
                     //self.messageArray.append(message)
-                    if let toId = message.toId{
-                        self.messageDict[toId] = message
+                    if let buddyId = message.chatBuddy(){
+                        self.messageDict[buddyId] = message
                         self.messageArray = Array(self.messageDict.values)
                         self.messageArray.sortInPlace({ (m1, m2) -> Bool in
                             return m1.time?.intValue > m2.time?.intValue
@@ -88,6 +88,7 @@ class ChatView: UITableViewController {
             
             }, withCancelBlock: nil)
     }
+
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return self.messageArray.count
@@ -100,16 +101,20 @@ class ChatView: UITableViewController {
         }
         let ref = FIRDatabase.database().reference().child("users").child(chatBuddy)
         ref.observeEventType(.Value, withBlock: { (snapshot) in
-            print(snapshot)
             guard let dict = snapshot.value as? [String:AnyObject] else{
                 return
             }
             let user = User()
             user.setValuesForKeysWithDictionary(dict)
+            let newView = ChatLog() as ChatLog
+            newView.user = user
             self.currentUser = user
+            //self.presentChatLog(user)
+
             }, withCancelBlock: nil)
-//        presentChatLog()
+       // self.performSegueWithIdentifier("message", sender: self)
     }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let message = messageArray[indexPath.row]
         let cell : ChatMemberCell = tableView.dequeueReusableCellWithIdentifier("chatter") as! ChatMemberCell
@@ -118,10 +123,11 @@ class ChatView: UITableViewController {
         
         return cell
     }
-
+// function to present chat log
     func presentChatLog(user: User){
         let chatLog = ChatLog() as ChatLog
-        navigationController?.presentViewController(chatLog, animated: true, completion: nil)
+        chatLog.user = user
+        navigationController?.pushViewController(chatLog, animated: true)
     }
     // Function for loging out
     func handleLogout(){
@@ -134,18 +140,33 @@ class ChatView: UITableViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
 
     }
+//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+//        while self.currentUser.id == nil {
+//            if identifier == "message"{
+//                if self.currentUser.id != nil{
+//                    return true
+//                }else{
+//                    return false
+//                }
+//            }else{
+//                return false
+//            }
+//
+//        }
+//        return true
+//    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "message"{
             let messageView = segue.destinationViewController as! ChatLog
-            let indexPath = self.tableView.indexPathForSelectedRow
-            let user = usersArray[(indexPath?.row)!]
-            messageView.user = user
+           // let indexPath = self.tableView.indexPathForSelectedRow
+            messageView.user = self.currentUser
         }
     }
 
     func handleChatTable(){
-        messageArray.removeAll()
-        messageDict.removeAll()
+//        messageArray.removeAll()
+//        messageDict.removeAll()
         self.tableView.reloadData()
         observeUserMessages()
 

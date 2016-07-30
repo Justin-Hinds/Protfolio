@@ -77,7 +77,6 @@ class LoginView: UIViewController{
             // login was sucessful
 
         })
-        print(gamerTag)
     }
     func handleRegister(){
         guard let email = emailTextField.text, password = passwordTextField.text, name = tagID.text else{
@@ -128,8 +127,8 @@ class LoginView: UIViewController{
                 //parsing destiny api info
                 let response = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
                  let myID = response.objectForKey("Response") as! String
-                print(myID)
                 self.myId = myID
+                print(myID)
                 self.performSelectorOnMainThread( #selector(self.setMyID),  withObject: nil, waitUntilDone: true)
 
             }catch{
@@ -190,22 +189,46 @@ class LoginView: UIViewController{
                     // Initializing character objects
                     let myCharacter : DestinyCharacter = DestinyCharacter(background: BGImage!, emblem: emblem!, level: baseCharacterLevel, light: lightLevel, strength: strengthLevel, discipline: disciplineLevel, intellect: intellectLevel, characterClass: classHash, characterID: characterID)
                     // Adding characters to array
-                    self.array1.append(myCharacter)
-                    
+                    self.characterArray.append(myCharacter)
                 }
                 // performing selector to transfer array to tabView
-                self.performSelectorOnMainThread( #selector(LoginView.arrayMaker),  withObject: nil, waitUntilDone: true)
+                //self.performSelectorOnMainThread( #selector(LoginView.arrayMaker),  withObject: nil, waitUntilDone: true)
                 
                 
             }catch{
                 print("bad stuff")
             }
+//            print(self.array1.count)
+            self.dummy()
+
         })
         // resumes task(nothing happens without this)
         task.resume()
-        
     }
-    
+    func getId(){
+        let urlString = "http://www.bungie.net/platform/User/GetBungieAccount/lunch-box_223/254/"
+        let url = NSURL(string: urlString)
+        let request = NSMutableURLRequest(URL: url!)
+        request.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+                guard let realResponse = response as? NSHTTPURLResponse where
+                realResponse.statusCode == 200 else {
+                    print("Not a 200 response ")
+                    return
+            }
+            print(realResponse)
+            do{
+                let response = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
+
+            }catch{
+                
+            }
+
+            
+        }
+        task.resume()
+    }
     // segue function
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // logic for multiple segues
@@ -215,6 +238,9 @@ class LoginView: UIViewController{
             detailView.myArray = characterArray
             detailView.memberID = ID
         }
+    }
+    func dummy(){
+        print(characterArray.count)
     }
     func setMyID(){
         #selector(self.setMyID)

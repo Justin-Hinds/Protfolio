@@ -29,5 +29,7 @@ class DestinyCharacter  {
         self.intellect = intellect
         self.characterClass = characterClass
         self.characterID = characterID
+        self.background = background
+        self.emblem = emblem
     }
 }

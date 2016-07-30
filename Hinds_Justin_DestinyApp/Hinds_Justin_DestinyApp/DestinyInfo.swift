@@ -13,6 +13,8 @@ import Firebase
 class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CharacterDelegate{
     var myArray = [DestinyCharacter]()
     var nameArray = ["Tasks", "Activity", "Inventory", "Weapons"]
+    var activityArray = [Activity]()
+    
     var currentCharacter = 0
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
@@ -20,6 +22,10 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
        mainCollectionView.backgroundColor = UIColor.whiteColor()
   let svc = self.tabBarController  as! DestinyViewController
     self.myArray = svc.myArray
+    print(svc.myArray.count)
+    print(svc.array1.count)
+    self.activityArray = svc.array1
+    print(activityArray.count)
    
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -34,7 +40,7 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
         }
     }
      func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return 5
+        return nameArray.count + 1
     }
      func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         
@@ -48,6 +54,7 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
         cell.classTitle.text = "\(myArray[currentCharacter].characterClass!)"
         cell.lightLevel.text = "Light: \(myArray[currentCharacter].light!)"
         cell.baseLevel.text = "Level: \(myArray[currentCharacter].level!)"
+        cell.backgroundImage.image = myArray[currentCharacter].background
         cell.title.text = ""
         }
 
@@ -66,13 +73,11 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
             detailView.delegate = self
         case "activityLest":
             let detailView : ActivityController = segue.destinationViewController as! ActivityController
+            detailView.activityArray = activityArray
         default:
             break
         }
-//        if (segue.identifier == "characters"){
-//           
-//            
-//        }
+ 
     }
     func setUpCurrentCharacter(selectedCharacter: Int) {
         self.currentCharacter = selectedCharacter

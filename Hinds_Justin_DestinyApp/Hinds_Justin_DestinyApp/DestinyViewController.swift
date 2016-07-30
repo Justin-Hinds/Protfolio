@@ -15,6 +15,7 @@ class DestinyViewController: UITabBarController {
      var currentCharacter = 0
      var currentUser = FIRAuth.auth()?.currentUser
     var activityArray = [Activity]()
+    var array1 = [Activity]()
     override func viewDidLoad() {
         getActivityList()
         super.viewDidLoad()
@@ -134,21 +135,20 @@ inventoryTask.resume()
                             let activitiyCompletion = activity.objectForKey("completionFlagHash") as! Int
                             let activityDesc = activity.objectForKey("activityDescription") as! String
                             let act: Activity = Activity(name: activityName, desc: activityDesc, complete: activitiyCompletion)
-                            self.activityArray.append(act)
-                            //print(activityData2Manifest)
-                            
-                            
+                            self.array1.append(act)
+                            //self.performSelectorOnMainThread(#selector(self.arrayMaker), withObject: nil, waitUntilDone: true)
                         }catch{
                         }
+                        
                     })
                     manifestTask.resume()
-                    
+
                 }
                 
-                //print(activityResponse)
             }catch{
                 print(error)
             }
+            
         })
         task.resume()
     }
@@ -157,7 +157,11 @@ inventoryTask.resume()
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func arrayMaker(){
+        #selector(self.arrayMaker)
+        self.activityArray = array1
+    }
+
 // function to switch keys for dictionary
     func switchKey<T, U>(inout myDict: [T:U], fromKey: T, toKey: T) {
         if let entry = myDict.removeValueForKey(fromKey) {
