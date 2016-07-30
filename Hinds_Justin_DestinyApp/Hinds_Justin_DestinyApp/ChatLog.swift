@@ -15,19 +15,24 @@ class ChatLog: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     @IBOutlet weak var messageCollectionView: UICollectionView!
     var user : User?{
         didSet{
+           // print(navigationItem.title)
             navigationItem.title = user!.name
             dispatch_async(dispatch_get_main_queue()) { 
-                self.messageCollectionView.reloadData()
+                //self.messageCollectionView.reloadData()
             }
         }
     }
     var messageArray = [Messages]()
     var messageDict = [String:Messages]()
+    var num = 0
     override func viewDidAppear(animated: Bool) {
         
     }
     override func viewDidLoad() {
-    print(messageArray.count)
+        for _ in 1...5{
+            print(user?.name)
+
+        }
         messageCollectionView.backgroundColor = UIColor.whiteColor()
         observeMessages()
         messageCollectionView.reloadData()
@@ -39,20 +44,8 @@ class ChatLog: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell : MessageCell = messageCollectionView.dequeueReusableCellWithReuseIdentifier("message", forIndexPath: indexPath) as! MessageCell
         cell.message.text = messageArray[indexPath.row].text
-        chatCellSetup(cell, message: messageArray[indexPath.row])
 return cell
     }
-    func chatCellSetup(cell:MessageCell, message:Messages){
-        if message.senderId == FIRAuth.auth()?.currentUser?.uid {
-            cell.backgroundColor = UIColor.blueColor()
-            cell.message.textColor = UIColor.whiteColor()
-        }else{
-            cell.backgroundColor = UIColor.lightGrayColor()
-            cell.message.textColor = UIColor.blackColor()
-        }
-        
-    }
-
     func observeMessages(){
         guard let uid = FIRAuth.auth()?.currentUser?.uid else{
             return
