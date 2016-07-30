@@ -187,6 +187,7 @@
             continueAfterRunningActions = "No"
             filePath = "Hinds_Justin_DestinyApp/ChatLog.swift"
 <<<<<<< HEAD
+<<<<<<< HEAD
             timestampString = "491536852.672312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -199,6 +200,13 @@
             startingLineNumber = "45"
             endingLineNumber = "45"
 >>>>>>> parent of 4e7b88c... semi working state
+=======
+            timestampString = "491536095.657096"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+>>>>>>> parent of 0cf71b4... broken constraints
             landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -610,11 +618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hinds_Justin_DestinyApp/ChatLog.swift"
-            timestampString = "491536852.672312"
+            timestampString = "491449019.717531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "ChatLog"
             landmarkType = "3">
             <Locations>
