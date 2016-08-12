@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05302D201D5A907A00D1527D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D1F1D5A907A00D1527D /* FeedViewController.swift */; };
+		05302D221D5C209E00D1527D /* NewsPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D211D5C209E00D1527D /* NewsPost.swift */; };
 		05643FCD1D590E1E0014DD58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FCC1D590E1E0014DD58 /* AppDelegate.swift */; };
-		05643FCF1D590E1E0014DD58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FCE1D590E1E0014DD58 /* ViewController.swift */; };
+		05643FCF1D590E1E0014DD58 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FCE1D590E1E0014DD58 /* LoginView.swift */; };
 		05643FD21D590E1E0014DD58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05643FD01D590E1E0014DD58 /* Main.storyboard */; };
 		05643FD51D590E1E0014DD58 /* Hinds_Justin_Sticks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05643FD31D590E1E0014DD58 /* Hinds_Justin_Sticks.xcdatamodeld */; };
 		05643FD71D590E1E0014DD58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05643FD61D590E1E0014DD58 /* Assets.xcassets */; };
 		05643FDA1D590E1E0014DD58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05643FD81D590E1E0014DD58 /* LaunchScreen.storyboard */; };
 		05643FE51D590E1E0014DD58 /* Hinds_Justin_SticksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FE41D590E1E0014DD58 /* Hinds_Justin_SticksTests.swift */; };
 		05643FF01D590E1E0014DD58 /* Hinds_Justin_SticksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FEF1D590E1E0014DD58 /* Hinds_Justin_SticksUITests.swift */; };
+		05643FFE1D5913E80014DD58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05643FFD1D5913E80014DD58 /* GoogleService-Info.plist */; };
+		2A361BB458F25B9A00F9754F /* Pods_Hinds_Justin_SticksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861992ECA0A14DAD5C760F4B /* Pods_Hinds_Justin_SticksTests.framework */; };
+		4C1168F193420F8CF16DC9F7 /* Pods_Hinds_Justin_SticksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A956C7CE59BAEB6D8321A7 /* Pods_Hinds_Justin_SticksUITests.framework */; };
+		F33A5E1E34CF3486FA040C3A /* Pods_Hinds_Justin_Sticks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8475810E77B1BED142305B75 /* Pods_Hinds_Justin_Sticks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05302D1F1D5A907A00D1527D /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		05302D211D5C209E00D1527D /* NewsPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsPost.swift; sourceTree = "<group>"; };
 		05643FC91D590E1E0014DD58 /* Hinds_Justin_Sticks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinds_Justin_Sticks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05643FCC1D590E1E0014DD58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		05643FCE1D590E1E0014DD58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05643FCE1D590E1E0014DD58 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		05643FD11D590E1E0014DD58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05643FD41D590E1E0014DD58 /* Hinds_Justin_Sticks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hinds_Justin_Sticks.xcdatamodel; sourceTree = "<group>"; };
 		05643FD61D590E1E0014DD58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +57,16 @@
 		05643FEB1D590E1E0014DD58 /* Hinds_Justin_SticksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hinds_Justin_SticksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05643FEF1D590E1E0014DD58 /* Hinds_Justin_SticksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hinds_Justin_SticksUITests.swift; sourceTree = "<group>"; };
 		05643FF11D590E1E0014DD58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05643FFD1D5913E80014DD58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		06A956C7CE59BAEB6D8321A7 /* Pods_Hinds_Justin_SticksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_SticksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		129C3B8EEC54CDB25C11A4D6 /* Pods-Hinds_Justin_SticksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hinds_Justin_SticksTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hinds_Justin_SticksTests/Pods-Hinds_Justin_SticksTests.debug.xcconfig"; sourceTree = "<group>"; };
+		181B7445425A42A389F3A0C5 /* Pods-Hinds_Justin_Sticks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hinds_Justin_Sticks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hinds_Justin_Sticks/Pods-Hinds_Justin_Sticks.debug.xcconfig"; sourceTree = "<group>"; };
+		3304CE86B269C53C03C8611A /* Pods-Hinds_Justin_SticksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hinds_Justin_SticksUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hinds_Justin_SticksUITests/Pods-Hinds_Justin_SticksUITests.release.xcconfig"; sourceTree = "<group>"; };
+		47E0C9CB546C65379B1D72B1 /* Pods-Hinds_Justin_Sticks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hinds_Justin_Sticks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hinds_Justin_Sticks/Pods-Hinds_Justin_Sticks.release.xcconfig"; sourceTree = "<group>"; };
+		66FEF343EAE811B8BA87B3F5 /* Pods-Hinds_Justin_SticksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hinds_Justin_SticksUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hinds_Justin_SticksUITests/Pods-Hinds_Justin_SticksUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F7770BE748019A95D34EB03 /* Pods-Hinds_Justin_SticksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hinds_Justin_SticksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hinds_Justin_SticksTests/Pods-Hinds_Justin_SticksTests.release.xcconfig"; sourceTree = "<group>"; };
+		8475810E77B1BED142305B75 /* Pods_Hinds_Justin_Sticks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_Sticks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		861992ECA0A14DAD5C760F4B /* Pods_Hinds_Justin_SticksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hinds_Justin_SticksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F33A5E1E34CF3486FA040C3A /* Pods_Hinds_Justin_Sticks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A361BB458F25B9A00F9754F /* Pods_Hinds_Justin_SticksTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C1168F193420F8CF16DC9F7 /* Pods_Hinds_Justin_SticksUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +104,8 @@
 				05643FE31D590E1E0014DD58 /* Hinds_Justin_SticksTests */,
 				05643FEE1D590E1E0014DD58 /* Hinds_Justin_SticksUITests */,
 				05643FCA1D590E1E0014DD58 /* Products */,
+				C57A4A3221BDA27A326B8C50 /* Pods */,
+				43BC130F123E073BE3917B82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,11 +123,14 @@
 			isa = PBXGroup;
 			children = (
 				05643FCC1D590E1E0014DD58 /* AppDelegate.swift */,
-				05643FCE1D590E1E0014DD58 /* ViewController.swift */,
+				05302D1F1D5A907A00D1527D /* FeedViewController.swift */,
+				05302D211D5C209E00D1527D /* NewsPost.swift */,
+				05643FCE1D590E1E0014DD58 /* LoginView.swift */,
 				05643FD01D590E1E0014DD58 /* Main.storyboard */,
 				05643FD61D590E1E0014DD58 /* Assets.xcassets */,
 				05643FD81D590E1E0014DD58 /* LaunchScreen.storyboard */,
 				05643FDB1D590E1E0014DD58 /* Info.plist */,
+				05643FFD1D5913E80014DD58 /* GoogleService-Info.plist */,
 				05643FD31D590E1E0014DD58 /* Hinds_Justin_Sticks.xcdatamodeld */,
 			);
 			path = Hinds_Justin_Sticks;
@@ -128,6 +154,29 @@
 			path = Hinds_Justin_SticksUITests;
 			sourceTree = "<group>";
 		};
+		43BC130F123E073BE3917B82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8475810E77B1BED142305B75 /* Pods_Hinds_Justin_Sticks.framework */,
+				861992ECA0A14DAD5C760F4B /* Pods_Hinds_Justin_SticksTests.framework */,
+				06A956C7CE59BAEB6D8321A7 /* Pods_Hinds_Justin_SticksUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C57A4A3221BDA27A326B8C50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				181B7445425A42A389F3A0C5 /* Pods-Hinds_Justin_Sticks.debug.xcconfig */,
+				47E0C9CB546C65379B1D72B1 /* Pods-Hinds_Justin_Sticks.release.xcconfig */,
+				129C3B8EEC54CDB25C11A4D6 /* Pods-Hinds_Justin_SticksTests.debug.xcconfig */,
+				7F7770BE748019A95D34EB03 /* Pods-Hinds_Justin_SticksTests.release.xcconfig */,
+				66FEF343EAE811B8BA87B3F5 /* Pods-Hinds_Justin_SticksUITests.debug.xcconfig */,
+				3304CE86B269C53C03C8611A /* Pods-Hinds_Justin_SticksUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05643FF41D590E1E0014DD58 /* Build configuration list for PBXNativeTarget "Hinds_Justin_Sticks" */;
 			buildPhases = (
+				BCCC924F8CD343E3C7A9BC06 /* 📦 Check Pods Manifest.lock */,
 				05643FC51D590E1E0014DD58 /* Sources */,
 				05643FC61D590E1E0014DD58 /* Frameworks */,
 				05643FC71D590E1E0014DD58 /* Resources */,
+				5C87A240EA7BF1BB298B7681 /* 📦 Embed Pods Frameworks */,
+				538F08D6A6C84A598E6924A8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05643FF71D590E1E0014DD58 /* Build configuration list for PBXNativeTarget "Hinds_Justin_SticksTests" */;
 			buildPhases = (
+				0144BE9FE22F7893606C493A /* 📦 Check Pods Manifest.lock */,
 				05643FDC1D590E1E0014DD58 /* Sources */,
 				05643FDD1D590E1E0014DD58 /* Frameworks */,
 				05643FDE1D590E1E0014DD58 /* Resources */,
+				C32B8DF5B50071158C7B2ED4 /* 📦 Embed Pods Frameworks */,
+				E927F1B06674016E7F8C0C59 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05643FFA1D590E1E0014DD58 /* Build configuration list for PBXNativeTarget "Hinds_Justin_SticksUITests" */;
 			buildPhases = (
+				55C3354950971487A508A124 /* 📦 Check Pods Manifest.lock */,
 				05643FE71D590E1E0014DD58 /* Sources */,
 				05643FE81D590E1E0014DD58 /* Frameworks */,
 				05643FE91D590E1E0014DD58 /* Resources */,
+				970DF4E45A1C4B49AEFC83AB /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05643FFE1D5913E80014DD58 /* GoogleService-Info.plist in Resources */,
 				05643FDA1D590E1E0014DD58 /* LaunchScreen.storyboard in Resources */,
 				05643FD71D590E1E0014DD58 /* Assets.xcassets in Resources */,
 				05643FD21D590E1E0014DD58 /* Main.storyboard in Resources */,
@@ -257,13 +315,138 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0144BE9FE22F7893606C493A /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		538F08D6A6C84A598E6924A8 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hinds_Justin_Sticks/Pods-Hinds_Justin_Sticks-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55C3354950971487A508A124 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5C87A240EA7BF1BB298B7681 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hinds_Justin_Sticks/Pods-Hinds_Justin_Sticks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		970DF4E45A1C4B49AEFC83AB /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hinds_Justin_SticksUITests/Pods-Hinds_Justin_SticksUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCCC924F8CD343E3C7A9BC06 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C32B8DF5B50071158C7B2ED4 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hinds_Justin_SticksTests/Pods-Hinds_Justin_SticksTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E927F1B06674016E7F8C0C59 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hinds_Justin_SticksTests/Pods-Hinds_Justin_SticksTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		05643FC51D590E1E0014DD58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				05643FD51D590E1E0014DD58 /* Hinds_Justin_Sticks.xcdatamodeld in Sources */,
-				05643FCF1D590E1E0014DD58 /* ViewController.swift in Sources */,
+				05302D221D5C209E00D1527D /* NewsPost.swift in Sources */,
+				05643FCF1D590E1E0014DD58 /* LoginView.swift in Sources */,
+				05302D201D5A907A00D1527D /* FeedViewController.swift in Sources */,
 				05643FCD1D590E1E0014DD58 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +587,7 @@
 		};
 		05643FF51D590E1E0014DD58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 181B7445425A42A389F3A0C5 /* Pods-Hinds_Justin_Sticks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hinds_Justin_Sticks/Info.plist;
@@ -415,6 +599,7 @@
 		};
 		05643FF61D590E1E0014DD58 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47E0C9CB546C65379B1D72B1 /* Pods-Hinds_Justin_Sticks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hinds_Justin_Sticks/Info.plist;
@@ -426,6 +611,7 @@
 		};
 		05643FF81D590E1E0014DD58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 129C3B8EEC54CDB25C11A4D6 /* Pods-Hinds_Justin_SticksTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Hinds_Justin_SticksTests/Info.plist;
@@ -438,6 +624,7 @@
 		};
 		05643FF91D590E1E0014DD58 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F7770BE748019A95D34EB03 /* Pods-Hinds_Justin_SticksTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Hinds_Justin_SticksTests/Info.plist;
@@ -450,6 +637,7 @@
 		};
 		05643FFB1D590E1E0014DD58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66FEF343EAE811B8BA87B3F5 /* Pods-Hinds_Justin_SticksUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Hinds_Justin_SticksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -461,6 +649,7 @@
 		};
 		05643FFC1D590E1E0014DD58 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3304CE86B269C53C03C8611A /* Pods-Hinds_Justin_SticksUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Hinds_Justin_SticksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -489,6 +678,7 @@
 				05643FF61D590E1E0014DD58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05643FF71D590E1E0014DD58 /* Build configuration list for PBXNativeTarget "Hinds_Justin_SticksTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +687,7 @@
 				05643FF91D590E1E0014DD58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05643FFA1D590E1E0014DD58 /* Build configuration list for PBXNativeTarget "Hinds_Justin_SticksUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +696,7 @@
 				05643FFC1D590E1E0014DD58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
