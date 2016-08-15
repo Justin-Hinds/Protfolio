@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		05302D201D5A907A00D1527D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D1F1D5A907A00D1527D /* FeedViewController.swift */; };
 		05302D221D5C209E00D1527D /* NewsPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D211D5C209E00D1527D /* NewsPost.swift */; };
+		05302D241D5EA57F00D1527D /* StickUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D231D5EA57F00D1527D /* StickUser.swift */; };
+		05302D261D5ED62400D1527D /* LoginViewHandles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D251D5ED62400D1527D /* LoginViewHandles.swift */; };
+		05302D281D61444C00D1527D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D271D61444C00D1527D /* PostView.swift */; };
+		05302D2A1D615A9C00D1527D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D291D615A9C00D1527D /* Post.swift */; };
+		05302D2C1D6163C500D1527D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D2B1D6163C500D1527D /* PostCell.swift */; };
 		05643FCD1D590E1E0014DD58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FCC1D590E1E0014DD58 /* AppDelegate.swift */; };
 		05643FCF1D590E1E0014DD58 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FCE1D590E1E0014DD58 /* LoginView.swift */; };
 		05643FD21D590E1E0014DD58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05643FD01D590E1E0014DD58 /* Main.storyboard */; };
@@ -43,6 +48,11 @@
 /* Begin PBXFileReference section */
 		05302D1F1D5A907A00D1527D /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		05302D211D5C209E00D1527D /* NewsPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsPost.swift; sourceTree = "<group>"; };
+		05302D231D5EA57F00D1527D /* StickUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickUser.swift; sourceTree = "<group>"; };
+		05302D251D5ED62400D1527D /* LoginViewHandles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewHandles.swift; sourceTree = "<group>"; };
+		05302D271D61444C00D1527D /* PostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		05302D291D615A9C00D1527D /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		05302D2B1D6163C500D1527D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		05643FC91D590E1E0014DD58 /* Hinds_Justin_Sticks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinds_Justin_Sticks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05643FCC1D590E1E0014DD58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05643FCE1D590E1E0014DD58 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -123,7 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				05643FCC1D590E1E0014DD58 /* AppDelegate.swift */,
+				05302D291D615A9C00D1527D /* Post.swift */,
 				05302D1F1D5A907A00D1527D /* FeedViewController.swift */,
+				05302D251D5ED62400D1527D /* LoginViewHandles.swift */,
+				05302D231D5EA57F00D1527D /* StickUser.swift */,
 				05302D211D5C209E00D1527D /* NewsPost.swift */,
 				05643FCE1D590E1E0014DD58 /* LoginView.swift */,
 				05643FD01D590E1E0014DD58 /* Main.storyboard */,
@@ -132,6 +145,8 @@
 				05643FDB1D590E1E0014DD58 /* Info.plist */,
 				05643FFD1D5913E80014DD58 /* GoogleService-Info.plist */,
 				05643FD31D590E1E0014DD58 /* Hinds_Justin_Sticks.xcdatamodeld */,
+				05302D271D61444C00D1527D /* PostView.swift */,
+				05302D2B1D6163C500D1527D /* PostCell.swift */,
 			);
 			path = Hinds_Justin_Sticks;
 			sourceTree = "<group>";
@@ -444,10 +459,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				05643FD51D590E1E0014DD58 /* Hinds_Justin_Sticks.xcdatamodeld in Sources */,
+				05302D241D5EA57F00D1527D /* StickUser.swift in Sources */,
+				05302D281D61444C00D1527D /* PostView.swift in Sources */,
 				05302D221D5C209E00D1527D /* NewsPost.swift in Sources */,
 				05643FCF1D590E1E0014DD58 /* LoginView.swift in Sources */,
+				05302D261D5ED62400D1527D /* LoginViewHandles.swift in Sources */,
+				05302D2A1D615A9C00D1527D /* Post.swift in Sources */,
 				05302D201D5A907A00D1527D /* FeedViewController.swift in Sources */,
 				05643FCD1D590E1E0014DD58 /* AppDelegate.swift in Sources */,
+				05302D2C1D6163C500D1527D /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

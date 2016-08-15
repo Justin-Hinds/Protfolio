@@ -51,7 +51,7 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
             cell.lightLevel.text = ""
             cell.title.text = "\(nameArray[indexPath.item - 1])"
         }else{
-        cell.classTitle.text = "\(myArray[currentCharacter].characterClass!)"
+        cell.cladssTitle.text = "\(myArray[currentCharacter].characterClass!)"
         cell.lightLevel.text = "Light: \(myArray[currentCharacter].light!)"
         cell.baseLevel.text = "Level: \(myArray[currentCharacter].level!)"
         cell.backgroundImage.image = myArray[currentCharacter].background

@@ -20,6 +20,15 @@ class LoginView: UIViewController {
         sc.addTarget(self, action: #selector(handleLoginOrRegisterChange), forControlEvents: .ValueChanged)
         return sc
     }()
+    var profileImageHeightAnchor: NSLayoutConstraint?
+    lazy var profileImage: UIImageView = {
+        let pi = UIImageView()
+        pi.translatesAutoresizingMaskIntoConstraints = false
+        pi.image = UIImage(named: "Profile_Pic")
+        pi.userInteractionEnabled = true
+        pi.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profilePicSelector)))
+        return pi
+    }()
     var inputContainerHeightAnchor: NSLayoutConstraint?
     let inputContainer: UIView = {
         let view = UIView()
@@ -70,50 +79,7 @@ class LoginView: UIViewController {
         return label
     }()
     
-    func handleRegister(){
-        guard let email = emailInput.text, password = passwordInput.text, name = nameInput.text else{
-            print("email or password error before register")
-            return
-        }
-        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user , error) in
-            if error != nil{
-                print("create user error = \(error)")
-                return
-            }
-            // Successful authentication
-            guard let uid = user?.uid else{
-                return
-            }
-            // reference to firebase database
-            let usersReference = self.ref.child("users").child(uid)
-            let values = ["name": name, "email": email]
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                if err != nil{
-                    print("Saving Error = \(err)")
-                }
-                // User saved into database
-                self.navigationController?.presentViewController(FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true, completion: nil)
-            })
-            
-        })
-    }
-    func handleLogin(){
-        guard let email = emailInput.text, password = passwordInput.text else{
-            print("error error")
-            return
-        }
-        FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
-            if  error != nil {
-                print("Sign in error = \(error)")
-                return
-            }
-            // login was sucessful
-self.navigationController?.pushViewController(FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true) })
-    }
-    
-
-
-
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blueColor()
@@ -121,10 +87,12 @@ self.navigationController?.pushViewController(FeedViewController(collectionViewL
         view.addSubview(loginRegisterButton)
         view.addSubview(appTitle)
         view.addSubview(loginRegisterToggle)
+        view.addSubview(profileImage)
         inputsContainerSetup()
         registerButtonSetup()
         titleSetup()
         loginSCSetup()
+        profilePicSetup()
            }
     
     func loginSCSetup() {
@@ -152,17 +120,12 @@ self.navigationController?.pushViewController(FeedViewController(collectionViewL
         passwordInputHeightAnchor?.active = false
         passwordInputHeightAnchor =  passwordInput.heightAnchor.constraintEqualToAnchor(inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 1/2 : 1/3)
         passwordInputHeightAnchor?.active = true
+        // profile pic height
+        profileImageHeightAnchor?.active = false
+        profileImageHeightAnchor = profileImage.heightAnchor.constraintEqualToAnchor(inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 0 : 5/6)
+        profileImageHeightAnchor?.active = true
     }
-    func handleLoginOrRegister(){
-        if loginRegisterToggle.selectedSegmentIndex == 0{
-            handleLogin()
-        }else{
-            handleRegister()
-        }
-
-    }
-    
-    func inputsContainerSetup(){
+       func inputsContainerSetup(){
         //iOS 9+ constraints(x,y,width, height) input Container
         inputContainer.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
         inputContainer.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
@@ -199,7 +162,13 @@ self.navigationController?.pushViewController(FeedViewController(collectionViewL
         appTitle.widthAnchor.constraintEqualToAnchor(inputContainer.widthAnchor, multiplier: 1/4).active = true
         appTitle.heightAnchor.constraintEqualToConstant(20).active = true
     }
-    
+    func profilePicSetup() {
+        profileImage.bottomAnchor.constraintEqualToAnchor(appTitle.topAnchor, constant: -12).active = true
+        profileImage.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        profileImage.widthAnchor.constraintEqualToConstant(100).active = true
+        profileImageHeightAnchor = profileImage.heightAnchor.constraintEqualToConstant(100)
+        profileImageHeightAnchor!.active = true
+    }
     func registerButtonSetup() {
         //Constraints
         loginRegisterButton.topAnchor.constraintEqualToAnchor(inputContainer.bottomAnchor, constant: 8).active = true
