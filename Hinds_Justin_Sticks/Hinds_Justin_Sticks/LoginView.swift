@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginView: UIViewController {
+class LoginView: UIViewController , UITextFieldDelegate{
     
     let ref = FIRDatabase.database().referenceFromURL("https://sticks-12d93.firebaseio.com/")
     lazy var loginRegisterToggle: UISegmentedControl = {
@@ -63,10 +63,11 @@ class LoginView: UIViewController {
         return tf
     }()
     var passwordInputHeightAnchor: NSLayoutConstraint?
-    let passwordInput: UITextField = {
+    lazy var passwordInput: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
         tf.secureTextEntry = true
+        tf.delegate = self
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
@@ -177,9 +178,9 @@ class LoginView: UIViewController {
         loginRegisterButton.heightAnchor.constraintEqualToConstant(40).active = true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        handleLoginOrRegister()
+        return true
     }
 }
 

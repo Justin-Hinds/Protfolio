@@ -12,16 +12,20 @@ import Firebase
 class FeedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, PostDelegate {
     var userArray = [StickUser]()
     var posts = [Post]()
-    let queryURLString: String = "https://webhose.io/search?token=53c94167-efaf-426a-8228-b10c4342b062&format=json&q=smartphones%20language%3A(english)%20site_category%3Atech%20(site_type%3Anews%20OR%20site_type%3Ablogs)"
+    let queryURLString: String = "https://webhose.io/search?token=53c94167-efaf-426a-8228-b10c4342b062&format=json&q=smartphones%20language%3A(english)%20site_category%3Atech%20(site_type%3Anews%20OR%20site_type%3Ablogs)&ts=1471200930721"
     var newsArray = [NewsPost]()
+    var newsArray2 = [NewsPost]()
+    override func viewWillAppear(animated: Bool) {
+    }
     
     override func viewDidLoad() {
                 collectionView?.backgroundColor = UIColor.whiteColor()
             collectionView?.registerClass(PostCell.self, forCellWithReuseIdentifier: "postCell")
               // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Inbox", style: .Plain, target: self, action: <#T##Selector#>)
         handleLogout()
-        getNewsFeed()
         grabUsers()
+        getNewsFeed()
+
     }
 
     func getNewsFeed() {
@@ -53,15 +57,17 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
                     dispatch_async(dispatch_get_main_queue()) {
                         self.collectionView?.reloadData()
                     }
-
-                    print(thread)
                     
                 }
+         
+
             }catch{
                 
             }
+            self.newsArray2 = self.newsArray
         }
         task.resume()
+
             }
     func grabCurrentUserAndSetupNavBar() {
         guard let uid = FIRAuth.auth()?.currentUser?.uid else{
@@ -73,7 +79,6 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
                 let user = StickUser()
                 user.setValuesForKeysWithDictionary(dictionary)
                 self.setUpNavBar(user)
-                print(snapshot)
             }
             
             
@@ -96,18 +101,22 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 100)
+    func collectionView(collecionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 400)
     }
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: PostCell = collectionView.dequeueReusableCellWithReuseIdentifier("postCell", forIndexPath: indexPath) as! PostCell
-        //let post = posts[indexPath.item]
-        //cell.textView.text = post.text
+        if newsArray.count > 0 {
+            let post = newsArray[indexPath.item]
+            cell.textView.text = post.text
+
+
+        }
         //cell.backgroundColor = UIColor.blueColor()
         return cell
     }
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newsArray.count
+        return 20
     }
     func grabUsers() {
         FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in

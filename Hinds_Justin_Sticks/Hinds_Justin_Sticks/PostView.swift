@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 
 protocol PostDelegate {
-    func sendPost()}
+    func sendPost()
+}
 
 class PostView: UIViewController, UITextFieldDelegate{
     lazy var postTextfield: UITextField = {
