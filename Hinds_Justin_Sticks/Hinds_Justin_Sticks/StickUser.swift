@@ -12,5 +12,5 @@ class StickUser: NSObject {
     var id: String?
     var name: String?
     var email: String?
-    var profileImagURL: String?
+    var profileImageURL: NSURL?
 }

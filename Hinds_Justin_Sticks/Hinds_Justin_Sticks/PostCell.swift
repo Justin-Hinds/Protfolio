@@ -59,10 +59,17 @@ class PostCell: UICollectionViewCell {
         pv.backgroundColor = UIColor.blueColor()
         return pv
     }()
+    var postImageView: UIImageView = {
+        let pi = UIImageView()
+        pi.contentMode = .ScaleAspectFit
+        pi.translatesAutoresizingMaskIntoConstraints = false
+        return pi
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         //add subviews to collection cell
         postView.addSubview(textView)
+        postView.addSubview(postImageView)
         addSubview(approveButton)
         addSubview(disapproveButton)
         addSubview(downVoteButton)
@@ -80,6 +87,11 @@ class PostCell: UICollectionViewCell {
         postView.heightAnchor.constraintEqualToConstant(300).active = true
         postView.widthAnchor.constraintEqualToAnchor(self.widthAnchor).active = true
         postView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
+        //image view constraints
+        postImageView.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 60).active = true
+        postImageView.heightAnchor.constraintEqualToConstant(240).active = true
+        postImageView.widthAnchor.constraintEqualToAnchor(self.widthAnchor).active = true
+        postImageView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
         //ios constraints
         approveButton.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -8).active = true
         approveButton.leftAnchor.constraintEqualToAnchor(self.leftAnchor, constant: 8).active = true

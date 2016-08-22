@@ -79,7 +79,6 @@ class LoginView: UIViewController , UITextFieldDelegate{
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
    
     override func viewDidLoad() {
         super.viewDidLoad()

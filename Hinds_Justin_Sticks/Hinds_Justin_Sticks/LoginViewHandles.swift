@@ -52,7 +52,7 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
                 print("Saving Error = \(err)")
             }
             // User saved into database
-            self.navigationController?.presentViewController(FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true, completion: nil)
+            self.navigationController?.pushViewController(FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
         })
         
 
@@ -94,7 +94,7 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {    var selectedImage = UIImage?()
         if let originalImage = info["UIImagePickerControllerOriginalImage"]{
-            selectedImage = originalImage as! UIImage
+            selectedImage = (originalImage as! UIImage)
         }
         if let profilePic = selectedImage{
             profileImage.image = profilePic

@@ -13,12 +13,19 @@ class NewMessageController: UITableViewController {
     var stickUsersArray = [StickUser]()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         grabUser()
+        tableView.registerClass(StickUserCell.self, forCellReuseIdentifier: "cellID")
+        print("view did load")
+        print(stickUsersArray.count)
     }
     func grabUser() {
+
         FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            print(snapshot)
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 let user = StickUser()
+                print(snapshot)
                 user.id = snapshot.key
                 user.setValuesForKeysWithDictionary(dictionary)
                 self.stickUsersArray.append(user)
@@ -28,13 +35,19 @@ class NewMessageController: UITableViewController {
             }
             }, withCancelBlock: nil)
     }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let chatLog = ChatLog(collectionViewLayout: UICollectionViewFlowLayout())
+        let user = stickUsersArray[indexPath.row]
+        chatLog.user = user
+        navigationController?.pushViewController(chatLog, animated: true)
+    }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return stickUsersArray.count
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let user = stickUsersArray[indexPath.row]
-        let cell =  tableView.dequeueReusableCellWithIdentifier("memberCell")
-        cell!.textLabel?.text = user.name
+        let cell =  tableView.dequeueReusableCellWithIdentifier("cellID")
+        cell!.textLabel!.text = user.name
         return cell!
     }
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -46,4 +59,14 @@ class NewMessageController: UITableViewController {
 //        }
 //    }
 
+}
+
+class StickUserCell: UITableViewCell{
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

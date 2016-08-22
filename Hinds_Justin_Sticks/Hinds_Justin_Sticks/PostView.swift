@@ -23,20 +23,58 @@ class PostView: UIViewController, UITextFieldDelegate{
     }()
     
     override func viewDidLoad() {
-        inputComponetsSetUp()
+        //inputComponetsSetUp()
+        dismissPostView()
+        view.backgroundColor = UIColor.whiteColor()
     }
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    override var inputAccessoryView: UIView?{
+        get{
+            return inputComponetsSetUp
+        }
+    }
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+
+func dismissPostView() {
+    let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftAction))
+    swipeLeft.direction = .Left
+    view.addGestureRecognizer(swipeLeft)
+}
+func swipeLeftAction() {
+    self.dismissViewControllerAnimated(true, completion:  nil)
+    }
+    func setupKeyboard(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        
+    }
+    func keyboardWillHide(notification: NSNotification) {
+        let keyboardAnimationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey]?.doubleValue
+        containerViewBottomAnchor?.constant = 0
+        UIView.animateWithDuration(keyboardAnimationDuration!) {
+            self.view.layoutIfNeeded()
+        }
+        
+    }
+    func keyboardWillShow(notification: NSNotification){
+        let keyboardFrame = notification.userInfo![UIKeyboardFrameEndUserInfoKey]?.CGRectValue()
+        let keyboardAnimationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey]?.doubleValue
+        containerViewBottomAnchor?.constant = keyboardFrame!.height
+        UIView.animateWithDuration(keyboardAnimationDuration!) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    var containerViewBottomAnchor: NSLayoutConstraint?
     
-    func inputComponetsSetUp() {
+    lazy var inputComponetsSetUp: UIView = {
         let containerView = UIView()
         containerView.backgroundColor = UIColor.grayColor()
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(containerView)
-        // iOS9 constraints
-        containerView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        containerView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
-        containerView.widthAnchor.constraintEqualToAnchor(view.widthAnchor).active = true
-        containerView.heightAnchor.constraintEqualToConstant(40).active = true
-        
+        containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
         let sendButton = UIButton(type: .System)
         sendButton.setTitle("Send", forState: .Normal)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
@@ -47,14 +85,16 @@ class PostView: UIViewController, UITextFieldDelegate{
         sendButton.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor).active = true
         sendButton.heightAnchor.constraintEqualToAnchor(containerView.heightAnchor).active = true
         sendButton.widthAnchor.constraintEqualToConstant(60).active = true
-        containerView.addSubview(postTextfield)
+        containerView.addSubview(self.postTextfield)
         //iOS 9 Constraints
-        postTextfield.leftAnchor.constraintEqualToAnchor(containerView.leftAnchor, constant: 8)
-        postTextfield.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor)
-        postTextfield.heightAnchor.constraintEqualToAnchor(containerView.heightAnchor)
-        postTextfield.widthAnchor.constraintEqualToAnchor(sendButton.leftAnchor)
+        self.postTextfield.leftAnchor.constraintEqualToAnchor(containerView.leftAnchor, constant: 8).active = true
+        self.postTextfield.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor).active = true
+        self.postTextfield.heightAnchor.constraintEqualToAnchor(containerView.heightAnchor).active = true
+        self.postTextfield.widthAnchor.constraintEqualToAnchor(containerView.widthAnchor, multiplier: 4/5).active = true
+        return containerView
+    }()
+    
 
-    }
     func handleSend(){
         let ref = FIRDatabase.database().reference().child("posts")
         let childRef = ref.childByAutoId()

@@ -12,23 +12,58 @@ import Firebase
 class FeedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, PostDelegate {
     var userArray = [StickUser]()
     var posts = [Post]()
-    let queryURLString: String = "https://webhose.io/search?token=53c94167-efaf-426a-8228-b10c4342b062&format=json&q=smartphones%20language%3A(english)%20site_category%3Atech%20(site_type%3Anews%20OR%20site_type%3Ablogs)&ts=1471200930721"
+    let time: NSNumber = Int(NSDate().timeIntervalSince1970)
+   
     var newsArray = [NewsPost]()
     var newsArray2 = [NewsPost]()
     override func viewWillAppear(animated: Bool) {
+        getNewsFeed()
+
     }
     
     override func viewDidLoad() {
                 collectionView?.backgroundColor = UIColor.whiteColor()
             collectionView?.registerClass(PostCell.self, forCellWithReuseIdentifier: "postCell")
-              // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Inbox", style: .Plain, target: self, action: <#T##Selector#>)
-        handleLogout()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Inbox", style: .Plain, target: self, action: #selector(presentInbox))
         grabUsers()
-        getNewsFeed()
-
+        launchPostView()
+    }
+    
+    func launchPostView() {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightAction))
+        swipeRight.direction = .Right
+        view.addGestureRecognizer(swipeRight)
+    }
+    func swipeRightAction() {
+        self.presentViewController(PostView(), animated: true, completion: nil)
     }
 
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let webView = WebViewController()
+        if newsArray.count > 0 {
+            let post = newsArray[indexPath.item]
+            let postUrl = post.linkUrl
+            let request = NSURLRequest(URL: postUrl!)
+            webView.postWebView.loadRequest(request)
+            navigationController?.pushViewController(webView, animated: true)
+            
+            
+        }
+
+    }
+    // Function to present inbox
+    func presentInbox() {
+        let inboxController = NewMessageController()
+        if self.userArray.count != 0 {
+            inboxController.stickUsersArray = userArray
+
+
+        }
+        navigationController?.pushViewController(inboxController, animated: true)
+    }
     func getNewsFeed() {
+         let queryURLString: String = "https://webhose.io/search?token=53c94167-efaf-426a-8228-b10c4342b062&format=json&q=smartphones%20language%3A(english)%20site_category%3Atech%20(site_type%3Anews%20OR%20site_type%3Ablogs)&ts=\(time)"
         let queryURL: NSURL = NSURL(string: queryURLString)!
         let session = NSURLSession.sharedSession()
         let request = NSURLRequest(URL: queryURL)
@@ -48,11 +83,16 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
                     let entryURL = thread.objectForKey("url") as! String
                     let url = NSURL(string: entryURL)
                     let entryUUID = thread.objectForKey("uuid") as! String
-                   // let image = thread.objectForKey("main_image") as! String
-//                    guard let mainImage = UIImage(data: NSData(contentsOfURL: NSURL(string: image)!)!) else{
-//                        return
-//                    }
                     let newsP: NewsPost = NewsPost(sender: entryUUID, title: entryTitle, url: url!)
+                    if let image = thread.objectForKey("main_image") as? String{
+                    let url = NSURL(string: image)
+                    if let imageData = NSData(contentsOfURL: url!){
+                        if let mainImage = UIImage(data: imageData) {
+                            newsP.image = mainImage
+
+                        }
+                    }
+                }
                     self.newsArray.append(newsP)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.collectionView?.reloadData()
@@ -102,21 +142,23 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
         
     }
     func collectionView(collecionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 400)
+        return CGSize(width: view.frame.width, height: 350)
     }
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: PostCell = collectionView.dequeueReusableCellWithReuseIdentifier("postCell", forIndexPath: indexPath) as! PostCell
         if newsArray.count > 0 {
             let post = newsArray[indexPath.item]
             cell.textView.text = post.text
-
+            //print(post.image)
+            cell.postImageView.image = post.image
+           // print(cell.postImageView.image)
 
         }
         //cell.backgroundColor = UIColor.blueColor()
         return cell
     }
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return newsArray.count
     }
     func grabUsers() {
         FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
@@ -150,20 +192,7 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
                         })
 
                     
-//                    if message.chatBuddy() == self.user?.id{
-//                        self.messageArray.append(message)
-//                        if let toId = message.toId{
-//                            self.messageDict[toId] = message
-//                            self.messageArray = Array(self.messageDict.values)
-//                            self.messageArray.sortInPlace({ (m1, m2) -> Bool in
-//                                return m1.time?.intValue > m2.time?.intValue
-//                            })
-//                        }
-//                        dispatch_async(dispatch_get_main_queue(), {
-//                            self.messageCollectionView.reloadData()
-//                        })
-//                        
-//                    }
+
                 }
                 
                 }, withCancelBlock: nil)

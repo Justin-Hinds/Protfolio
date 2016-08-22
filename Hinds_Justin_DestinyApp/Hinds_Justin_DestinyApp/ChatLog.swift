@@ -62,7 +62,7 @@ return cell
 
                     if message.chatBuddy() == self.user?.id{
                         self.messageArray.append(message)
-                        if let toId = message.toId{
+                        if let toId = message.senderId{
                             self.messageDict[toId] = message
                             self.messageArray = Array(self.messageDict.values)
                             self.messageArray.sortInPlace({ (m1, m2) -> Bool in
