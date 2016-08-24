@@ -49,7 +49,7 @@ class PostCell: UICollectionViewCell {
     var textView: UITextView = {
        let tv = UITextView()
         //tv.text = "ipsom"
-        tv.allowsEditingTextAttributes = false
+        tv.editable = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()

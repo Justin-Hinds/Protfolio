@@ -59,13 +59,13 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         var height: CGFloat = 60
         if let text = messageArray[indexPath.item].text{
-            height = textFrameEstimate(text).height + 16
+            height = textFrameEstimate(text).height + 32
         }
         
         return CGSize(width: view.frame.width, height: height)
     }
     func textFrameEstimate(text: String) -> CGRect {
-        let size = CGSize(width: view.frame.width * 5/4, height: 1200)
+        let size = CGSize(width: 200, height: 1200)
         let options = NSStringDrawingOptions.UsesFontLeading.union(.UsesLineFragmentOrigin)
      return  NSString(string: text).boundingRectWithSize(size, options: options, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)], context: nil)
         
@@ -73,10 +73,12 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell : MessageCell = collectionView.dequeueReusableCellWithReuseIdentifier("message", forIndexPath: indexPath) as! MessageCell
         let message = messageArray[indexPath.row]
-                cell.bubbleWidthAnchor?.constant = textFrameEstimate(message.text!).width + 24
         cellSetUp(cell, message: message)
         cell.messageLabel.text = message.text
-        cell.bubbleWidthAnchor?.constant = textFrameEstimate(message.text!).width + 32
+        if let text  = message.text{
+            cell.bubbleWidthAnchor?.constant = textFrameEstimate(text).width + 32
+
+        }
         return cell
     }
     private func cellSetUp(cell: MessageCell, message: Message){

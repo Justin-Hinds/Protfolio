@@ -10,10 +10,12 @@ import UIKit
 
 class MessageCell: UICollectionViewCell {
     
-    let messageLabel: UILabel = {
-        let label = UILabel()
+    let messageLabel: UITextView = {
+        let label = UITextView()
         label.text = "rubbish"
-        label.textColor = UIColor.clearColor()
+        label.editable = false
+        label.font = UIFont.systemFontOfSize(16)
+        label.backgroundColor = UIColor.clearColor()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -32,7 +34,7 @@ class MessageCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(bubbleView)
-        bubbleView.addSubview(messageLabel)
+        addSubview(messageLabel)
 
         // constraints
         bubbleViewRightAnchor = bubbleView.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -8)
@@ -44,11 +46,11 @@ class MessageCell: UICollectionViewCell {
         bubbleWidthAnchor = bubbleView.widthAnchor.constraintEqualToConstant(200)
         bubbleWidthAnchor!.active = true
         // constraints
-        messageLabel.rightAnchor.constraintEqualToAnchor(bubbleView.rightAnchor,constant: -8).active = true
+        messageLabel.leftAnchor.constraintEqualToAnchor(bubbleView.leftAnchor,constant: 8).active = true
         messageLabel.topAnchor.constraintEqualToAnchor(self.topAnchor).active = true
         messageLabel.heightAnchor.constraintEqualToAnchor(self.heightAnchor).active = true
-        messageLabel.leftAnchor.constraintEqualToAnchor(bubbleView.leftAnchor, constant: 8).active = true
-    
+        //messageLabel.widthAnchor.constraintEqualToConstant(200).active = true
+        messageLabel.rightAnchor.constraintEqualToAnchor(bubbleView.rightAnchor, constant: -8).active = true
     }
     
     required init?(coder aDecoder: NSCoder) {
