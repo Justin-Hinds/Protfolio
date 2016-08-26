@@ -65,8 +65,11 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         var height: CGFloat = 60
-        if let text = messageArray[indexPath.item].text{
+        let message =  messageArray[indexPath.item]
+        if let text = message.text{
             height = textFrameEstimate(text).height + 16
+        }else if let imageWidth = message.imgWidth?.floatValue, imageHeight = message.imgHeight?.floatValue {
+            height = CGFloat(imageHeight / imageWidth * 200)
         }
         
         return CGSize(width: view.frame.width, height: height)
@@ -85,6 +88,8 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         if let text  = message.text{
             cell.bubbleWidthAnchor?.constant = textFrameEstimate(text).width + 32
 
+        }else if message.imgURL != nil{
+            cell.bubbleWidthAnchor?.constant = 200
         }
         return cell
     }
@@ -233,7 +238,7 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
                     return
                 }
                 if let imageUrl = metadata?.downloadURL()?.absoluteString{
-                    self.sendImageMessage(imageUrl)
+                    self.sendImageMessage(imageUrl, img: img)
                 }
             })
 
@@ -243,17 +248,15 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    private func sendImageMessage(imgURL: String){
+    private func sendImageMessage(imgURL: String, img: UIImage){
         let ref = FIRDatabase.database().reference().child("messages")
         let childRef = ref.childByAutoId()
-        guard let messageText = messageTextField.text else{
-            return
-        }
+
         let toId = self.user!.id!
         print(FIRAuth.auth()?.currentUser)
         let senderId = FIRAuth.auth()!.currentUser!.uid
         let time: NSNumber = Int(NSDate().timeIntervalSince1970)
-        let values = ["imgURL": imgURL, "toId": toId, "senderId": senderId, "time": time]
+        let values = ["imgURL": imgURL, "imgHeight": img.size.height, "imgWidth": img.size.width, "toId": toId, "senderId": senderId, "time": time]
         childRef.updateChildValues(values) { (error, ref) in
             if error != nil{
                 print(error)
