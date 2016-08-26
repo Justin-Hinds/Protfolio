@@ -15,9 +15,9 @@ class NewMessageController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         grabUser()
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
         tableView.registerClass(StickUserCell.self, forCellReuseIdentifier: "cellID")
-        print("view did load")
-        print(stickUsersArray.count)
+
     }
     func grabUser() {
 
@@ -28,7 +28,9 @@ class NewMessageController: UITableViewController {
                 print(snapshot)
                 user.id = snapshot.key
                 user.setValuesForKeysWithDictionary(dictionary)
+                if FIRAuth.auth()?.currentUser?.uid != user.id{
                 self.stickUsersArray.append(user)
+                }
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
                 })

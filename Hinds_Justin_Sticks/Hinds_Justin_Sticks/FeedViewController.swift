@@ -9,26 +9,44 @@
 import UIKit
 import Firebase
 
-class FeedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, PostDelegate {
+class FeedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, FeedDelegate {
     var userArray = [StickUser]()
     var posts = [Post]()
     let time: NSNumber = Int(NSDate().timeIntervalSince1970)
-   
+    var hasImage = false
     var newsArray = [NewsPost]()
     var newsArray2 = [NewsPost]()
+    var newsPref = "https://webhose.io/search?token=53c94167-efaf-426a-8228-b10c4342b062&format=json&q=smartphones%20tablets%20language%3A(english)%20site_category%3Atech%20(site_type%3Anews%20OR%20site_type%3Ablogs)&ts=1472087084380"
     override func viewWillAppear(animated: Bool) {
-        getNewsFeed()
+        
+        
 
     }
-    
     override func viewDidLoad() {
-                collectionView?.backgroundColor = UIColor.whiteColor()
-            collectionView?.registerClass(PostCell.self, forCellWithReuseIdentifier: "postCell")
+        getNewsFeed()
+        collectionView?.backgroundColor = UIColor.blackColor()
+        collectionView?.registerClass(PostCell.self, forCellWithReuseIdentifier: "postCell")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Inbox", style: .Plain, target: self, action: #selector(presentInbox))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(handleLogout))
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
         grabUsers()
         launchPostView()
+        launchSettings()
+        observePost()
     }
     
+    func launchSettings() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftAction))
+        swipeLeft.direction = .Left
+        view.addGestureRecognizer(swipeLeft)
+    }
+    func swipeLeftAction() {
+        let setting = Settings() as Settings
+        setting.delegate = self
+        self.presentViewController(setting, animated: true, completion: nil)
+    }
+
     func launchPostView() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightAction))
         swipeRight.direction = .Right
@@ -41,13 +59,13 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let webView = WebViewController()
-        if newsArray.count > 0 {
-            let post = newsArray[indexPath.item]
-            let postUrl = post.linkUrl
-            let request = NSURLRequest(URL: postUrl!)
+        if posts.count > 0 {
+            let post = posts[indexPath.item]
+            if let postUrl = post.linkUrl {
+            let request = NSURLRequest(URL: postUrl)
             webView.postWebView.loadRequest(request)
             navigationController?.pushViewController(webView, animated: true)
-            
+            }
             
         }
 
@@ -55,15 +73,11 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
     // Function to present inbox
     func presentInbox() {
         let inboxController = NewMessageController()
-        if self.userArray.count != 0 {
-            inboxController.stickUsersArray = userArray
 
-
-        }
         navigationController?.pushViewController(inboxController, animated: true)
     }
     func getNewsFeed() {
-         let queryURLString: String = "https://webhose.io/search?token=53c94167-efaf-426a-8228-b10c4342b062&format=json&q=smartphones%20language%3A(english)%20site_category%3Atech%20(site_type%3Anews%20OR%20site_type%3Ablogs)&ts=\(time)"
+         let queryURLString: String = newsPref //"https://webhose.io/search?token=53c94167-efaf-426a-8228-b10c4342b062&format=json&q=\(newsPref)%20language%3A(english)%20site_category%3Atech%20(site_type%3Anews%20OR%20site_type%3Ablogs)&ts=\(time)"
         let queryURL: NSURL = NSURL(string: queryURLString)!
         let session = NSURLSession.sharedSession()
         let request = NSURLRequest(URL: queryURL)
@@ -83,17 +97,21 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
                     let entryURL = thread.objectForKey("url") as! String
                     let url = NSURL(string: entryURL)
                     let entryUUID = thread.objectForKey("uuid") as! String
-                    let newsP: NewsPost = NewsPost(sender: entryUUID, title: entryTitle, url: url!)
+                    let newsP: Post = Post()
+                    newsP.senderId = entryUUID
+                    newsP.text = entryTitle
+                    newsP.linkUrl = url
                     if let image = thread.objectForKey("main_image") as? String{
-                    let url = NSURL(string: image)
-                    if let imageData = NSData(contentsOfURL: url!){
+                        guard let url = NSURL(string: image) else{
+                            return
+                        }
+                    if let imageData = NSData(contentsOfURL: url){
                         if let mainImage = UIImage(data: imageData) {
                             newsP.image = mainImage
-
                         }
                     }
                 }
-                    self.newsArray.append(newsP)
+                   self.posts.append(newsP)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.collectionView?.reloadData()
                     }
@@ -139,15 +157,16 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
             print("Logout Error = \(logoutError)")
         }
         self.dismissViewControllerAnimated(true, completion: nil)
-        
+        navigationController!.pushViewController(LoginView(), animated: true)
     }
     func collectionView(collecionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+
         return CGSize(width: view.frame.width, height: 350)
     }
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: PostCell = collectionView.dequeueReusableCellWithReuseIdentifier("postCell", forIndexPath: indexPath) as! PostCell
-        if newsArray.count > 0 {
-            let post = newsArray[indexPath.item]
+        if posts.count > 0 {
+            let post = posts[indexPath.item]
             cell.textView.text = post.text
             //print(post.image)
             cell.postImageView.image = post.image
@@ -158,7 +177,7 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
         return cell
     }
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newsArray.count
+        return posts.count
     }
     func grabUsers() {
         FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
@@ -175,45 +194,36 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
             }, withCancelBlock: nil)
     }
     func observePost(){
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else{
-            return
-        }
-        let userPostRef = FIRDatabase.database().reference().child("user_Post").child(uid)
-        userPostRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            let postID = snapshot.key
-            let postRef = FIRDatabase.database().reference().child("posts").child(postID)
-            postRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+
+        let postRef = FIRDatabase.database().reference().child("posts")
+            postRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
                 if let dict = snapshot.value as? [String:AnyObject]{
+                    print(snapshot)
                     let post = Post()
                     post.setValuesForKeysWithDictionary(dict)
-                    self.posts.append(post)
+                    self.posts.insert(post, atIndex: 0)
                     dispatch_async(dispatch_get_main_queue(), {
                         self.collectionView!.reloadData()
                         })
-
-                    
+                    let postID = snapshot.key
+                    let approveRef = FIRDatabase.database().reference().child("post_approved").child(postID)
+                approveRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                    print(snapshot)
+                    }, withCancelBlock: nil)
 
                 }
                 
                 }, withCancelBlock: nil)
-            }, withCancelBlock: nil)
     }
     
-    func sendPost() {
-        
+    func setUpFeed(feedPref: String)  {
+        newsPref = feedPref
+        posts.removeAll()
+       // posts.removeAll()
+        print(feedPref)
+        print(self.newsPref)
+        getNewsFeed()
+        collectionView?.reloadData()
     }
 }
 
-class customPostCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpPost()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-func setUpPost() {
-    
-}

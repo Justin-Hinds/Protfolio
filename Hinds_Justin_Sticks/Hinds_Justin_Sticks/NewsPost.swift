@@ -23,7 +23,6 @@ class NewsPost: NSObject {
     init(sender: String, title: String, url: NSURL) {
         senderId = sender
         text = title
-      //  image = mainImage
         linkUrl = url
     }
     

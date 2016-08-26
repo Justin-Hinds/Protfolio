@@ -10,6 +10,13 @@ import UIKit
 import Firebase
 
 extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    enum errorCode: Int {
+        case badEmailFormat = 17008
+        case emailAlreadyInUse = 17007
+        case badPassword = 17026
+        
+    }
     func handleRegister(){
         guard let email = emailInput.text, password = passwordInput.text, name = nameInput.text else{
             print("email or password error before register")
@@ -17,7 +24,42 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
         }
         FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user , error) in
             if error != nil{
-                print("create user error = \(error)")
+                switch error!.code {
+                case errorCode.badEmailFormat.rawValue:
+                    let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: " Invalid Email", preferredStyle: UIAlertControllerStyle.Alert)
+                    //action for said controller
+                    let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (ACTION) -> Void in
+                    })
+                    
+                    //casting the alert
+                    self.presentViewController(registerFail, animated: true, completion: nil)
+                    //adding action to alert
+                    registerFail.addAction(ok)
+                    
+
+                case errorCode.badPassword.rawValue:
+                    let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: " Invalid Password must be atleast 6 characters", preferredStyle: UIAlertControllerStyle.Alert)
+                    //action for said controller
+                    let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (ACTION) -> Void in
+                    })
+                    
+                    //casting the alert
+                    self.presentViewController(registerFail, animated: true, completion: nil)
+                    //adding action to alert
+                    registerFail.addAction(ok)
+                    
+                case errorCode.emailAlreadyInUse.rawValue:
+                    let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: "Email already in use please try again", preferredStyle: UIAlertControllerStyle.Alert)
+                    //action for said controller
+                    let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (ACTION) -> Void in
+                    })
+                    
+                    //casting the alert
+                    self.presentViewController(registerFail, animated: true, completion: nil)
+                    //adding action to alert
+                    registerFail.addAction(ok)
+                default: break
+                }
                 return
             }
             // Successful authentication
@@ -67,6 +109,16 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
         FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
             if  error != nil {
                 print("Sign in error = \(error)")
+                let loginFail : UIAlertController = UIAlertController(title: "Sorry", message: " There was a problem loging in please check your email and password", preferredStyle: UIAlertControllerStyle.Alert)
+                //action for said controller
+                let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (ACTION) -> Void in
+                })
+                
+                //casting the alert
+                self.presentViewController(loginFail, animated: true, completion: nil)
+                //adding action to alert
+                loginFail.addAction(ok)
+
                 return
             }
             // login was sucessful

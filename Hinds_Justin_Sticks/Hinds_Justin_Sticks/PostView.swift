@@ -9,10 +9,6 @@
 import UIKit
 import Firebase
 
-protocol PostDelegate {
-    func sendPost()
-}
-
 class PostView: UIViewController, UITextFieldDelegate{
     lazy var postTextfield: UITextField = {
         let postTextfield = UITextField()
@@ -73,10 +69,11 @@ func swipeLeftAction() {
     
     lazy var inputComponetsSetUp: UIView = {
         let containerView = UIView()
-        containerView.backgroundColor = UIColor.grayColor()
+        containerView.backgroundColor = UIColor(R: 240, G: 240, B: 240, A: 1)
         containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
         let sendButton = UIButton(type: .System)
         sendButton.setTitle("Send", forState: .Normal)
+        sendButton.setTitleColor(UIColor(R: 255, G: 133, B: 55, A: 1), forState: .Normal)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.addTarget(self, action: #selector(handleSend), forControlEvents: .TouchUpInside)
         containerView.addSubview(sendButton)
@@ -96,6 +93,7 @@ func swipeLeftAction() {
     
 
     func handleSend(){
+        print("send hit")
         let ref = FIRDatabase.database().reference().child("posts")
         let childRef = ref.childByAutoId()
         guard let postText = postTextfield.text else{
@@ -103,18 +101,22 @@ func swipeLeftAction() {
         }
         let senderId = FIRAuth.auth()!.currentUser!.uid
         let time: NSNumber = Int(NSDate().timeIntervalSince1970)
-        let values = ["text": postText,"senderId": senderId, "time": time]
+        let pID = childRef.key
+        let values = ["text": postText,"senderId": senderId, "time": time, "postID": pID]
         childRef.updateChildValues(values) { (error, ref) in
             if error != nil{
                 print(error)
                 return
             }
-            let userPostRef = FIRDatabase.database().reference().child("user_Posts").child(senderId)
+            let userMessagesRef = FIRDatabase.database().reference().child("posts_approved").child(senderId)
             let messageID = childRef.key
             
-            userPostRef.updateChildValues([messageID : 1])
-//            let recipientMessageRef = FIRDatabase.database().reference().child("user_messages").child(toId)
-//            recipientMessageRef.updateChildValues([messageID : 1])
+            userMessagesRef.updateChildValues([messageID : 1])
+
+            self.postTextfield.text = nil
+            self.swipeLeftAction()
+
+
         }
         
     }

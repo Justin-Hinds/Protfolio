@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PostCell: UICollectionViewCell {
     let commentButton: UIButton = {
@@ -17,10 +18,12 @@ class PostCell: UICollectionViewCell {
         return cb
     }()
 
-    let approveButton: UIButton = {
+    lazy var approveButton: UIButton = {
         let ab = UIButton()
         let approveImage = UIImage(named: "Approve_Icon")
         ab.setImage(approveImage, forState: .Normal)
+        ab.userInteractionEnabled = true
+        ab.addTarget(self, action: #selector(handleApprove), forControlEvents: .TouchUpInside)
         ab.translatesAutoresizingMaskIntoConstraints = false
         return ab
     }()
@@ -56,7 +59,7 @@ class PostCell: UICollectionViewCell {
     var postView: UIView = {
         let pv = UIView()
         pv.translatesAutoresizingMaskIntoConstraints = false
-        pv.backgroundColor = UIColor.blueColor()
+        pv.backgroundColor = UIColor.whiteColor()
         return pv
     }()
     var postImageView: UIImageView = {
@@ -76,7 +79,7 @@ class PostCell: UICollectionViewCell {
         addSubview(upVoteButton)
         addSubview(commentButton)
         addSubview(postView)
-        backgroundColor = UIColor.greenColor()
+        backgroundColor = UIColor(R: 47, G: 72, B: 88, A: 1)
         // TextView constraints
         textView.topAnchor.constraintEqualToAnchor(self.topAnchor).active = true
         textView.heightAnchor.constraintEqualToConstant(60).active = true
@@ -89,7 +92,7 @@ class PostCell: UICollectionViewCell {
         postView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
         //image view constraints
         postImageView.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 60).active = true
-        postImageView.heightAnchor.constraintEqualToConstant(240).active = true
+        postImageView.heightAnchor.constraintEqualToAnchor(self.heightAnchor, multiplier: 17/25).active = true
         postImageView.widthAnchor.constraintEqualToAnchor(self.widthAnchor).active = true
         postImageView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
         //ios constraints
@@ -124,5 +127,24 @@ class PostCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    func handleApprove() {
+        let ref = FIRDatabase.database().reference().child("posts_approved").child("-KQ2nHnrUhq_Q-uYINXe")
+        let senderId = FIRAuth.auth()!.currentUser!.uid
+        let time: NSNumber = Int(NSDate().timeIntervalSince1970)
+        let values = ["senderId": senderId, "time": time]
+        ref.updateChildValues(values) { (error, ref) in
+            if error != nil{
+                print(error)
+                return
+            }
+            
+//            let approveRef = childRef.child("approve").child(senderId)
+//            let messageID = approveRef.key
+//            
+//            approveRef.updateChildValues([messageID : 1])
+
+
+    }
+}
 }
 

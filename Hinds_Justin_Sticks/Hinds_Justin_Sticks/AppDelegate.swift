@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = UINavigationController(rootViewController: LoginView())
-        UINavigationBar.appearance().barTintColor = UIColor(R: 0, G: 204, B: 0, A: 1)
+        UINavigationBar.appearance().barTintColor = UIColor(R: 47, G: 72, B: 88, A: 1)
         return true
     }
 

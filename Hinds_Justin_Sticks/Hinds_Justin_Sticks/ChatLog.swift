@@ -12,10 +12,8 @@ import Firebase
 class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout{
     var user : StickUser?{
         didSet{
-            // print(navigationItem.title)
             navigationItem.title = user!.name
             dispatch_async(dispatch_get_main_queue()) {
-                //self.collectionView!.reloadData()
             }
         }
     }
@@ -41,6 +39,15 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         collectionView!.reloadData()
         collectionView?.keyboardDismissMode = .Interactive
     }
+
+//    func bottomOfView() {
+//       let NSIntegerSection =  numberOfSectionsInCollectionView(self.collectionView!) - 1;
+//        let NSIntegerItem =   collectionView(self.collectionView!, numberOfItemsInSection: NSIntegerSection) - 1;
+//        let lastIndexPath: NSIndexPath =  NSIndexPath(forItem: NSIntegerItem, inSection: NSIntegerSection)
+//        
+//            func scrollToItemAtIndexPath(indexPath: lastIndexPath, atScrollPosition scrollPosition: UICollectionViewScrollPositionBottom, animated: true)
+//
+//    }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -59,7 +66,7 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         var height: CGFloat = 60
         if let text = messageArray[indexPath.item].text{
-            height = textFrameEstimate(text).height + 32
+            height = textFrameEstimate(text).height + 16
         }
         
         return CGSize(width: view.frame.width, height: height)
@@ -154,10 +161,11 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
 
    lazy var inputComponetsSetUp: UIView = {
         let containerView = UIView()
-        containerView.backgroundColor = UIColor.grayColor()
+        containerView.backgroundColor = UIColor(R: 240, G: 240, B: 240, A: 1)
         containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
         let sendButton = UIButton(type: .System)
         sendButton.setTitle("Send", forState: .Normal)
+        sendButton.setTitleColor(UIColor(R: 255, G: 133, B: 55, A: 1), forState: .Normal)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.addTarget(self, action: #selector(handleSend), forControlEvents: .TouchUpInside)
         containerView.addSubview(sendButton)
@@ -180,7 +188,6 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         return true
     }
     func handleSend(){
-        print(messageTextField.text)
         let ref = FIRDatabase.database().reference().child("messages")
         let childRef = ref.childByAutoId()
         guard let messageText = messageTextField.text else{

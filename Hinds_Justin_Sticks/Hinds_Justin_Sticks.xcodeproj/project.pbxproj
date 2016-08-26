@@ -20,6 +20,7 @@
 		05302D351D63DFC900D1527D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D341D63DFC900D1527D /* Message.swift */; };
 		05302D371D63E06000D1527D /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D361D63E06000D1527D /* MessageCell.swift */; };
 		05302D3A1D641DB800D1527D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D391D641DB800D1527D /* WebViewController.swift */; };
+		05302D3D1D6FC76C00D1527D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D3C1D6FC76C00D1527D /* Settings.swift */; };
 		05643FCD1D590E1E0014DD58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FCC1D590E1E0014DD58 /* AppDelegate.swift */; };
 		05643FCF1D590E1E0014DD58 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FCE1D590E1E0014DD58 /* LoginView.swift */; };
 		05643FD21D590E1E0014DD58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05643FD01D590E1E0014DD58 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		05302D341D63DFC900D1527D /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		05302D361D63E06000D1527D /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		05302D391D641DB800D1527D /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		05302D3C1D6FC76C00D1527D /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		05643FC91D590E1E0014DD58 /* Hinds_Justin_Sticks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinds_Justin_Sticks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05643FCC1D590E1E0014DD58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05643FCE1D590E1E0014DD58 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,19 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		05302D3B1D6F6DEF00D1527D /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				05302D1F1D5A907A00D1527D /* FeedViewController.swift */,
+				05302D3C1D6FC76C00D1527D /* Settings.swift */,
+				05302D211D5C209E00D1527D /* NewsPost.swift */,
+				05302D271D61444C00D1527D /* PostView.swift */,
+				05302D2B1D6163C500D1527D /* PostCell.swift */,
+				05302D391D641DB800D1527D /* WebViewController.swift */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
 		05643FC01D590E1E0014DD58 = {
 			isa = PBXGroup;
 			children = (
@@ -167,20 +182,16 @@
 			children = (
 				05643FCC1D590E1E0014DD58 /* AppDelegate.swift */,
 				05302D291D615A9C00D1527D /* Post.swift */,
-				05302D1F1D5A907A00D1527D /* FeedViewController.swift */,
+				05302D3B1D6F6DEF00D1527D /* Feed */,
 				05302D381D63FD9400D1527D /* Login */,
 				05302D331D63DAF600D1527D /* Chat */,
 				05302D231D5EA57F00D1527D /* StickUser.swift */,
-				05302D211D5C209E00D1527D /* NewsPost.swift */,
 				05643FD01D590E1E0014DD58 /* Main.storyboard */,
 				05643FD61D590E1E0014DD58 /* Assets.xcassets */,
 				05643FD81D590E1E0014DD58 /* LaunchScreen.storyboard */,
 				05643FDB1D590E1E0014DD58 /* Info.plist */,
 				05643FFD1D5913E80014DD58 /* GoogleService-Info.plist */,
 				05643FD31D590E1E0014DD58 /* Hinds_Justin_Sticks.xcdatamodeld */,
-				05302D271D61444C00D1527D /* PostView.swift */,
-				05302D2B1D6163C500D1527D /* PostCell.swift */,
-				05302D391D641DB800D1527D /* WebViewController.swift */,
 			);
 			path = Hinds_Justin_Sticks;
 			sourceTree = "<group>";
@@ -495,6 +506,7 @@
 				05302D2E1D63D6E400D1527D /* ChatLog.swift in Sources */,
 				05643FD51D590E1E0014DD58 /* Hinds_Justin_Sticks.xcdatamodeld in Sources */,
 				05302D241D5EA57F00D1527D /* StickUser.swift in Sources */,
+				05302D3D1D6FC76C00D1527D /* Settings.swift in Sources */,
 				05302D281D61444C00D1527D /* PostView.swift in Sources */,
 				05302D301D63D6F000D1527D /* ChatView.swift in Sources */,
 				05302D221D5C209E00D1527D /* NewsPost.swift in Sources */,

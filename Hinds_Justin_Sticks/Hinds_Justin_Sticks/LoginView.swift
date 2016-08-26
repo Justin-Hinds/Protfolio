@@ -16,6 +16,7 @@ class LoginView: UIViewController , UITextFieldDelegate{
         let sc = UISegmentedControl(items: ["Login", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.tintColor = UIColor.whiteColor()
+        sc.backgroundColor = UIColor(R: 47, G: 72, B: 88, A: 1)
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleLoginOrRegisterChange), forControlEvents: .ValueChanged)
         return sc
@@ -40,10 +41,11 @@ class LoginView: UIViewController , UITextFieldDelegate{
     }()
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .System)
-        button.backgroundColor = UIColor(R: 200, G: 200, B: 200, A: 1)
+        button.backgroundColor = UIColor(R: 47, G: 72, B: 88, A: 1)
         button.setTitle("Register", forState: .Normal)
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleLoginOrRegister), forControlEvents: .TouchUpInside)
         return button
@@ -82,7 +84,7 @@ class LoginView: UIViewController , UITextFieldDelegate{
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.blueColor()
+        view.backgroundColor = UIColor(R: 239 , G: 248, B: 226, A: 1)
         view.addSubview(inputContainer)
         view.addSubview(loginRegisterButton)
         view.addSubview(appTitle)
@@ -93,6 +95,7 @@ class LoginView: UIViewController , UITextFieldDelegate{
         titleSetup()
         loginSCSetup()
         profilePicSetup()
+        navigationItem.hidesBackButton = true
            }
     
     func loginSCSetup() {
