@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout{
+class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     var user : StickUser?{
         didSet{
             navigationItem.title = user!.name
@@ -89,6 +89,13 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         return cell
     }
     private func cellSetUp(cell: MessageCell, message: Message){
+        if let messageImage = message.imgURL {
+            cell.messageImage.loadImageUsingCache(messageImage)
+            cell.messageImage.hidden = false
+        }else{
+            cell.messageImage.hidden = true
+        }
+        
         if message.senderId == FIRAuth.auth()?.currentUser?.uid{
             cell.bubbleView.backgroundColor = MessageCell.yourBubbleViewBackgroundColor
             cell.messageLabel.textColor = UIColor.whiteColor()
@@ -162,13 +169,26 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
    lazy var inputComponetsSetUp: UIView = {
         let containerView = UIView()
         containerView.backgroundColor = UIColor(R: 240, G: 240, B: 240, A: 1)
-        containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
+        containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
         let sendButton = UIButton(type: .System)
         sendButton.setTitle("Send", forState: .Normal)
         sendButton.setTitleColor(UIColor(R: 255, G: 133, B: 55, A: 1), forState: .Normal)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.addTarget(self, action: #selector(handleSend), forControlEvents: .TouchUpInside)
         containerView.addSubview(sendButton)
+    let uplaodImage = UIImageView()
+    uplaodImage.image = UIImage(named: "pic_icon")
+    uplaodImage.translatesAutoresizingMaskIntoConstraints = false
+    uplaodImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleUpload)))
+    uplaodImage.userInteractionEnabled = true
+    containerView.addSubview(uplaodImage)
+    
+
+    //
+    uplaodImage.leftAnchor.constraintEqualToAnchor(containerView.leftAnchor).active = true
+    uplaodImage.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor).active = true
+    uplaodImage.widthAnchor.constraintEqualToConstant(44).active = true
+    uplaodImage.heightAnchor.constraintEqualToConstant(44).active = true
         //iOS( Constraints
         sendButton.rightAnchor.constraintEqualToAnchor(containerView.rightAnchor, constant: -8).active = true
         sendButton.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor).active = true
@@ -176,7 +196,7 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         sendButton.widthAnchor.constraintEqualToConstant(60).active = true
         containerView.addSubview(self.messageTextField)
         //iOS 9 Constraints
-        self.messageTextField.leftAnchor.constraintEqualToAnchor(containerView.leftAnchor, constant: 8).active = true
+        self.messageTextField.leftAnchor.constraintEqualToAnchor(uplaodImage.rightAnchor, constant: 8).active = true
         self.messageTextField.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor).active = true
         self.messageTextField.heightAnchor.constraintEqualToAnchor(containerView.heightAnchor).active = true
         self.messageTextField.widthAnchor.constraintEqualToAnchor(containerView.widthAnchor, multiplier: 4/5).active = true
@@ -186,6 +206,67 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         handleSend()
         return true
+    }
+    func handleUpload(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        var selectedImageFromPicker = UIImage?()
+        if let originalImage = info["UIImagePickerControllerOriginalImage"]{
+            selectedImageFromPicker = (originalImage as! UIImage)
+        }
+        if let selectedImage = selectedImageFromPicker{
+            uploadImageToFirebase(selectedImage)
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+    }
+    private func uploadImageToFirebase(img: UIImage){
+        let imageName = NSUUID().UUIDString
+        let storageRef = FIRStorage.storage().reference().child("message_images").child(imageName)
+        if let uploadData = UIImageJPEGRepresentation(img, 0.3){
+            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil{
+                    print(error)
+                    return
+                }
+                if let imageUrl = metadata?.downloadURL()?.absoluteString{
+                    self.sendImageMessage(imageUrl)
+                }
+            })
+
+        }
+        
+    }
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    private func sendImageMessage(imgURL: String){
+        let ref = FIRDatabase.database().reference().child("messages")
+        let childRef = ref.childByAutoId()
+        guard let messageText = messageTextField.text else{
+            return
+        }
+        let toId = self.user!.id!
+        print(FIRAuth.auth()?.currentUser)
+        let senderId = FIRAuth.auth()!.currentUser!.uid
+        let time: NSNumber = Int(NSDate().timeIntervalSince1970)
+        let values = ["imgURL": imgURL, "toId": toId, "senderId": senderId, "time": time]
+        childRef.updateChildValues(values) { (error, ref) in
+            if error != nil{
+                print(error)
+                return
+            }
+            self.messageTextField.text = nil
+            let userMessagesRef = FIRDatabase.database().reference().child("user_messages").child(senderId)
+            let messageID = childRef.key
+            
+            userMessagesRef.updateChildValues([messageID : 1])
+            let recipientMessageRef = FIRDatabase.database().reference().child("user_messages").child(toId)
+            recipientMessageRef.updateChildValues([messageID : 1])
+        }
     }
     func handleSend(){
         let ref = FIRDatabase.database().reference().child("messages")

@@ -21,6 +21,7 @@
 		05302D371D63E06000D1527D /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D361D63E06000D1527D /* MessageCell.swift */; };
 		05302D3A1D641DB800D1527D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D391D641DB800D1527D /* WebViewController.swift */; };
 		05302D3D1D6FC76C00D1527D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D3C1D6FC76C00D1527D /* Settings.swift */; };
+		05302D3F1D6FFDAC00D1527D /* imageExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302D3E1D6FFDAC00D1527D /* imageExtention.swift */; };
 		05643FCD1D590E1E0014DD58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FCC1D590E1E0014DD58 /* AppDelegate.swift */; };
 		05643FCF1D590E1E0014DD58 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05643FCE1D590E1E0014DD58 /* LoginView.swift */; };
 		05643FD21D590E1E0014DD58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05643FD01D590E1E0014DD58 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		05302D361D63E06000D1527D /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		05302D391D641DB800D1527D /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		05302D3C1D6FC76C00D1527D /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		05302D3E1D6FFDAC00D1527D /* imageExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageExtention.swift; sourceTree = "<group>"; };
 		05643FC91D590E1E0014DD58 /* Hinds_Justin_Sticks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinds_Justin_Sticks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05643FCC1D590E1E0014DD58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05643FCE1D590E1E0014DD58 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				05302D271D61444C00D1527D /* PostView.swift */,
 				05302D2B1D6163C500D1527D /* PostCell.swift */,
 				05302D391D641DB800D1527D /* WebViewController.swift */,
+				05302D3E1D6FFDAC00D1527D /* imageExtention.swift */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				05302D3D1D6FC76C00D1527D /* Settings.swift in Sources */,
 				05302D281D61444C00D1527D /* PostView.swift in Sources */,
 				05302D301D63D6F000D1527D /* ChatView.swift in Sources */,
+				05302D3F1D6FFDAC00D1527D /* imageExtention.swift in Sources */,
 				05302D221D5C209E00D1527D /* NewsPost.swift in Sources */,
 				05643FCF1D590E1E0014DD58 /* LoginView.swift in Sources */,
 				05302D261D5ED62400D1527D /* LoginViewHandles.swift in Sources */,

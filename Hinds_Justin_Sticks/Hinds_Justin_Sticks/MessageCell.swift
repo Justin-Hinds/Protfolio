@@ -31,11 +31,23 @@ class MessageCell: UICollectionViewCell {
         bv.translatesAutoresizingMaskIntoConstraints = false
         return bv
     }()
+    let messageImage: UIImageView = {
+        let img = UIImageView()
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.contentMode = .ScaleToFill
+        
+        return img
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(bubbleView)
         addSubview(messageLabel)
-
+        bubbleView.addSubview(messageImage)
+        //
+        messageImage.topAnchor.constraintEqualToAnchor(bubbleView.topAnchor).active = true
+        messageImage.leftAnchor.constraintEqualToAnchor(bubbleView.leftAnchor).active = true
+        messageImage.heightAnchor.constraintEqualToAnchor(bubbleView.heightAnchor).active = true
+        messageImage.widthAnchor.constraintEqualToAnchor(bubbleView.widthAnchor).active = true
         // constraints
         bubbleViewRightAnchor = bubbleView.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -8)
         bubbleViewRightAnchor!.active = true

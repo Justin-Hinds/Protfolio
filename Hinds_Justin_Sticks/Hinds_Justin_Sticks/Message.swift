@@ -14,6 +14,7 @@ class Message: NSObject {
     var senderId : String?
     var time : NSNumber?
     var text : String?
+    var imgURL: String?
     
     func chatBuddy() -> String?{
         return senderId == FIRAuth.auth()?.currentUser?.uid ? toId : senderId
