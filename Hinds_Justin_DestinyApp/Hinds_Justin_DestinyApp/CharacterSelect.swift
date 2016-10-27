@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 protocol CharacterDelegate {
-    func setUpCurrentCharacter(selectedCharacter: Int)
+    func setUpCurrentCharacter(_ selectedCharacter: Int)
 }
 
 class CharacterSelect: UIViewController {
@@ -16,20 +16,20 @@ class CharacterSelect: UIViewController {
     var delegate : CharacterDelegate! = nil
 
     
-    @IBAction func C1(sender: AnyObject) {
+    @IBAction func C1(_ sender: AnyObject) {
         delegate.setUpCurrentCharacter(0)
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popToRootViewController(animated: true)
 
     }
     
-    @IBAction func C2(sender: AnyObject) {
+    @IBAction func C2(_ sender: AnyObject) {
         delegate.setUpCurrentCharacter(1)
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popToRootViewController(animated: true)
 
     }
-    @IBAction func C3(sender: AnyObject) {
+    @IBAction func C3(_ sender: AnyObject) {
         delegate.setUpCurrentCharacter(2)
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popToRootViewController(animated: true)
 
 
     }

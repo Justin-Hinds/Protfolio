@@ -15,47 +15,46 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
         case badEmailFormat = 17008
         case emailAlreadyInUse = 17007
         case badPassword = 17026
-        
     }
     func handleRegister(){
-        guard let email = emailInput.text, password = passwordInput.text, name = nameInput.text else{
+        guard let email = emailInput.text, let password = passwordInput.text, let name = nameInput.text else{
             print("email or password error before register")
             return
         }
-        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user , error) in
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user , error) in
             if error != nil{
                 switch error!.code {
                 case errorCode.badEmailFormat.rawValue:
-                    let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: " Invalid Email", preferredStyle: UIAlertControllerStyle.Alert)
+                    let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: " Invalid Email", preferredStyle: UIAlertControllerStyle.alert)
                     //action for said controller
-                    let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (ACTION) -> Void in
+                    let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (ACTION) -> Void in
                     })
                     
                     //casting the alert
-                    self.presentViewController(registerFail, animated: true, completion: nil)
+                    self.present(registerFail, animated: true, completion: nil)
                     //adding action to alert
                     registerFail.addAction(ok)
                     
 
                 case errorCode.badPassword.rawValue:
-                    let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: " Invalid Password must be atleast 6 characters", preferredStyle: UIAlertControllerStyle.Alert)
+                    let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: " Invalid Password must be atleast 6 characters", preferredStyle: UIAlertControllerStyle.alert)
                     //action for said controller
-                    let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (ACTION) -> Void in
+                    let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (ACTION) -> Void in
                     })
                     
                     //casting the alert
-                    self.presentViewController(registerFail, animated: true, completion: nil)
+                    self.present(registerFail, animated: true, completion: nil)
                     //adding action to alert
                     registerFail.addAction(ok)
                     
                 case errorCode.emailAlreadyInUse.rawValue:
-                    let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: "Email already in use please try again", preferredStyle: UIAlertControllerStyle.Alert)
+                    let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: "Email already in use please try again", preferredStyle: UIAlertControllerStyle.alert)
                     //action for said controller
-                    let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (ACTION) -> Void in
+                    let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (ACTION) -> Void in
                     })
                     
                     //casting the alert
-                    self.presentViewController(registerFail, animated: true, completion: nil)
+                    self.present(registerFail, animated: true, completion: nil)
                     //adding action to alert
                     registerFail.addAction(ok)
                 default: break
@@ -66,10 +65,10 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
             guard let uid = user?.uid else{
                 return
             }
-            let profilePicName = NSUUID().UUIDString
+            let profilePicName = UUID().uuidString
             let storageRef = FIRStorage.storage().reference().child("Profile_Pic").child("\(profilePicName).png")
-            if let profilePic = self.profileImage.image, uploadData = UIImageJPEGRepresentation(profilePic, 0.1){
-                storageRef.putData(uploadData, metadata: nil
+            if let profilePic = self.profileImage.image, let uploadData = UIImageJPEGRepresentation(profilePic, 0.1){
+                storageRef.put(uploadData, metadata: nil
                     , completion: { (metadata, error) in
                         if error != nil{
                             print(error)
@@ -77,7 +76,7 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
                         }
                         if let profileImageURL = metadata?.downloadURL()?.absoluteString{
                             let values = ["name": name, "email": email, "profileImageURL": profileImageURL]
-                            self.registerUserIntoDatabase(uid, values: values)
+                            self.registerUserIntoDatabase(uid, values: values as [String : AnyObject])
 
                         }
                 })
@@ -86,7 +85,7 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
                     })
     }
     
-    func registerUserIntoDatabase(uid: String, values: [String:AnyObject]){
+    func registerUserIntoDatabase(_ uid: String, values: [String:AnyObject]){
         // reference to firebase database
         let usersReference = self.ref.child("users").child(uid)
         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
@@ -102,20 +101,20 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
     }
     
     func handleLogin(){
-        guard let email = emailInput.text, password = passwordInput.text else{
+        guard let email = emailInput.text, let password = passwordInput.text else{
             print("error error")
             return
         }
-        FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if  error != nil {
                 print("Sign in error = \(error)")
-                let loginFail : UIAlertController = UIAlertController(title: "Sorry", message: " There was a problem loging in please check your email and password", preferredStyle: UIAlertControllerStyle.Alert)
+                let loginFail : UIAlertController = UIAlertController(title: "Sorry", message: " There was a problem loging in please check your email and password", preferredStyle: UIAlertControllerStyle.alert)
                 //action for said controller
-                let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (ACTION) -> Void in
+                let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (ACTION) -> Void in
                 })
                 
                 //casting the alert
-                self.presentViewController(loginFail, animated: true, completion: nil)
+                self.present(loginFail, animated: true, completion: nil)
                 //adding action to alert
                 loginFail.addAction(ok)
 
@@ -140,11 +139,11 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
     func profilePicSelector() {
         let picker = UIImagePickerController()
         picker.delegate = self
-        presentViewController(picker, animated: true, completion: nil)
+        present(picker, animated: true, completion: nil)
         
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {    var selectedImage = UIImage?()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {    var selectedImage = UIImage?()
         if let originalImage = info["UIImagePickerControllerOriginalImage"]{
             selectedImage = (originalImage as! UIImage)
         }

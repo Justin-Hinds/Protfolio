@@ -11,9 +11,9 @@ import UIKit
 class WebViewController: UIViewController, UIWebViewDelegate {
     let postWebView: UIWebView = {
         let webview = UIWebView()
-        var  postURL = NSURL(string: "http://apple.com")
+        var  postURL = URL(string: "http://apple.com")
         let urlstring = "http://apple.com"
-        let request = NSURLRequest(URL: postURL!)
+        let request = URLRequest(url: postURL!)
         webview.loadRequest(request)
         webview.translatesAutoresizingMaskIntoConstraints = false
         return webview
@@ -24,9 +24,9 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     }
     func setUpWebView() {
         view.addSubview(postWebView)
-        postWebView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        postWebView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
-        postWebView.heightAnchor.constraintEqualToAnchor(view.heightAnchor).active = true
-        postWebView.widthAnchor.constraintEqualToAnchor(view.widthAnchor).active = true
+        postWebView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        postWebView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        postWebView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        postWebView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     }
 }

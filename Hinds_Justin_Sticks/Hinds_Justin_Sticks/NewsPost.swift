@@ -18,9 +18,9 @@ class NewsPost: NSObject {
     var disapprove: Int?
     var upVote: Int?
     var downVote: Int?
-    var linkUrl: NSURL?
+    var linkUrl: URL?
     
-    init(sender: String, title: String, url: NSURL) {
+    init(sender: String, title: String, url: URL) {
         senderId = sender
         text = title
         linkUrl = url

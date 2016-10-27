@@ -317,15 +317,18 @@
 					05643FC81D590E1E0014DD58 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 632RN23THU;
+						LastSwiftMigration = 0800;
 					};
 					05643FDF1D590E1E0014DD58 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 632RN23THU;
+						LastSwiftMigration = 0800;
 						TestTargetID = 05643FC81D590E1E0014DD58;
 					};
 					05643FEA1D590E1E0014DD58 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 632RN23THU;
+						LastSwiftMigration = 0800;
 						TestTargetID = 05643FC81D590E1E0014DD58;
 					};
 				};
@@ -670,6 +673,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-Sticks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -682,6 +686,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-Sticks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -694,6 +699,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-SticksTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hinds_Justin_Sticks.app/Hinds_Justin_Sticks";
 			};
 			name = Debug;
@@ -707,6 +713,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-SticksTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hinds_Justin_Sticks.app/Hinds_Justin_Sticks";
 			};
 			name = Release;
@@ -719,6 +726,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-SticksUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Hinds_Justin_Sticks;
 			};
 			name = Debug;
@@ -731,6 +739,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-SticksUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Hinds_Justin_Sticks;
 			};
 			name = Release;

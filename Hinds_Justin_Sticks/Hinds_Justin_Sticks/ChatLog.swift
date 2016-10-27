@@ -13,7 +13,7 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
     var user : StickUser?{
         didSet{
             navigationItem.title = user!.name
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
             }
         }
     }
@@ -28,16 +28,16 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
     var messageArray = [Message]()
     var messageDict = [String:Message]()
     var num = 0
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
     }
     override func viewDidLoad() {
-        collectionView!.backgroundColor = UIColor.whiteColor()
+        collectionView!.backgroundColor = UIColor.white
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 48, right: 0)
         observeMessages()
-        collectionView?.registerClass(MessageCell.self, forCellWithReuseIdentifier: "message")
+        collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: "message")
         collectionView!.reloadData()
-        collectionView?.keyboardDismissMode = .Interactive
+        collectionView?.keyboardDismissMode = .interactive
     }
 
 //    func bottomOfView() {
@@ -48,41 +48,41 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
 //            func scrollToItemAtIndexPath(indexPath: lastIndexPath, atScrollPosition scrollPosition: UICollectionViewScrollPositionBottom, animated: true)
 //
 //    }
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     override var inputAccessoryView: UIView?{
         get{
             return inputComponetsSetUp
         }
     }
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return messageArray.count
     }
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder : Bool {
         return true
     }
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var height: CGFloat = 60
-        let message =  messageArray[indexPath.item]
+        let message =  messageArray[(indexPath as NSIndexPath).item]
         if let text = message.text{
             height = textFrameEstimate(text).height + 16
-        }else if let imageWidth = message.imgWidth?.floatValue, imageHeight = message.imgHeight?.floatValue {
+        }else if let imageWidth = message.imgWidth?.floatValue, let imageHeight = message.imgHeight?.floatValue {
             height = CGFloat(imageHeight / imageWidth * 200)
         }
         
         return CGSize(width: view.frame.width, height: height)
     }
-    func textFrameEstimate(text: String) -> CGRect {
+    func textFrameEstimate(_ text: String) -> CGRect {
         let size = CGSize(width: 200, height: 1200)
-        let options = NSStringDrawingOptions.UsesFontLeading.union(.UsesLineFragmentOrigin)
-     return  NSString(string: text).boundingRectWithSize(size, options: options, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)], context: nil)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+     return  NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
         
     }
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
-        let cell : MessageCell = collectionView.dequeueReusableCellWithReuseIdentifier("message", forIndexPath: indexPath) as! MessageCell
-        let message = messageArray[indexPath.row]
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell : MessageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "message", for: indexPath) as! MessageCell
+        let message = messageArray[(indexPath as NSIndexPath).row]
         cellSetUp(cell, message: message)
         cell.messageLabel.text = message.text
         if let text  = message.text{
@@ -93,24 +93,24 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         }
         return cell
     }
-    private func cellSetUp(cell: MessageCell, message: Message){
+    fileprivate func cellSetUp(_ cell: MessageCell, message: Message){
         if let messageImage = message.imgURL {
             cell.messageImage.loadImageUsingCache(messageImage)
-            cell.messageImage.hidden = false
+            cell.messageImage.isHidden = false
         }else{
-            cell.messageImage.hidden = true
+            cell.messageImage.isHidden = true
         }
         
         if message.senderId == FIRAuth.auth()?.currentUser?.uid{
             cell.bubbleView.backgroundColor = MessageCell.yourBubbleViewBackgroundColor
-            cell.messageLabel.textColor = UIColor.whiteColor()
-            cell.bubbleViewRightAnchor?.active = true
-            cell.bubbleViewLeftAnchor?.active = false
+            cell.messageLabel.textColor = UIColor.white
+            cell.bubbleViewRightAnchor?.isActive = true
+            cell.bubbleViewLeftAnchor?.isActive = false
         }else{
             cell.bubbleView.backgroundColor = MessageCell.theirBubbleViewBackgroundColor
-            cell.messageLabel.textColor = UIColor.blackColor()
-            cell.bubbleViewRightAnchor?.active = false
-            cell.bubbleViewLeftAnchor?.active = true
+            cell.messageLabel.textColor = UIColor.black
+            cell.bubbleViewRightAnchor?.isActive = false
+            cell.bubbleViewLeftAnchor?.isActive = true
         }
 
     }
@@ -119,13 +119,13 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
             return
         }
         let userMessagesRef = FIRDatabase.database().reference().child("user_messages").child(uid)
-        userMessagesRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        userMessagesRef.observe(.childAdded, with: { (snapshot) in
             let messageID = snapshot.key
             let messageRef = FIRDatabase.database().reference().child("messages").child(messageID)
-            messageRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            messageRef.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dict = snapshot.value as? [String:AnyObject]{
                     let message = Message()
-                    message.setValuesForKeysWithDictionary(dict)
+                    message.setValuesForKeys(dict)
                     
                     
                     if message.chatBuddy() == self.user?.id{
@@ -137,37 +137,37 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
 //                                return m1.time?.intValue > m2.time?.intValue
 //                            })
                         //}
-                        dispatch_async(dispatch_get_main_queue(), {
+                        DispatchQueue.main.async(execute: {
                             self.collectionView!.reloadData()
                         })
                         
                     }
                 }
                 
-                }, withCancelBlock: nil)
-            }, withCancelBlock: nil)
+                }, withCancel: nil)
+            }, withCancel: nil)
     }
     
     func setupKeyboard(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
-          NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+          NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
-    func keyboardWillHide(notification: NSNotification) {
-        let keyboardAnimationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey]?.doubleValue
+    func keyboardWillHide(_ notification: Notification) {
+        let keyboardAnimationDuration = ((notification as NSNotification).userInfo![UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
         containerViewBottomAnchor?.constant = 0
-        UIView.animateWithDuration(keyboardAnimationDuration!) {
+        UIView.animate(withDuration: keyboardAnimationDuration!, animations: {
             self.view.layoutIfNeeded()
-        }
+        }) 
 
     }
-    func keyboardWillShow(notification: NSNotification){
-        let keyboardFrame = notification.userInfo![UIKeyboardFrameEndUserInfoKey]?.CGRectValue()
-        let keyboardAnimationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey]?.doubleValue
+    func keyboardWillShow(_ notification: Notification){
+        let keyboardFrame = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        let keyboardAnimationDuration = ((notification as NSNotification).userInfo![UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
         containerViewBottomAnchor?.constant = keyboardFrame!.height
-        UIView.animateWithDuration(keyboardAnimationDuration!) {
+        UIView.animate(withDuration: keyboardAnimationDuration!, animations: {
             self.view.layoutIfNeeded()
-        }
+        }) 
     }
     var containerViewBottomAnchor: NSLayoutConstraint?
 
@@ -175,64 +175,64 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         let containerView = UIView()
         containerView.backgroundColor = UIColor(R: 240, G: 240, B: 240, A: 1)
         containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        let sendButton = UIButton(type: .System)
-        sendButton.setTitle("Send", forState: .Normal)
-        sendButton.setTitleColor(UIColor(R: 255, G: 133, B: 55, A: 1), forState: .Normal)
+        let sendButton = UIButton(type: .system)
+        sendButton.setTitle("Send", for: UIControlState())
+        sendButton.setTitleColor(UIColor(R: 255, G: 133, B: 55, A: 1), for: UIControlState())
         sendButton.translatesAutoresizingMaskIntoConstraints = false
-        sendButton.addTarget(self, action: #selector(handleSend), forControlEvents: .TouchUpInside)
+        sendButton.addTarget(self, action: #selector(handleSend), for: .touchUpInside)
         containerView.addSubview(sendButton)
     let uplaodImage = UIImageView()
     uplaodImage.image = UIImage(named: "pic_icon")
     uplaodImage.translatesAutoresizingMaskIntoConstraints = false
     uplaodImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleUpload)))
-    uplaodImage.userInteractionEnabled = true
+    uplaodImage.isUserInteractionEnabled = true
     containerView.addSubview(uplaodImage)
     
 
     //
-    uplaodImage.leftAnchor.constraintEqualToAnchor(containerView.leftAnchor).active = true
-    uplaodImage.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor).active = true
-    uplaodImage.widthAnchor.constraintEqualToConstant(44).active = true
-    uplaodImage.heightAnchor.constraintEqualToConstant(44).active = true
+    uplaodImage.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+    uplaodImage.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+    uplaodImage.widthAnchor.constraint(equalToConstant: 44).isActive = true
+    uplaodImage.heightAnchor.constraint(equalToConstant: 44).isActive = true
         //iOS( Constraints
-        sendButton.rightAnchor.constraintEqualToAnchor(containerView.rightAnchor, constant: -8).active = true
-        sendButton.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor).active = true
-        sendButton.heightAnchor.constraintEqualToAnchor(containerView.heightAnchor).active = true
-        sendButton.widthAnchor.constraintEqualToConstant(60).active = true
+        sendButton.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -8).isActive = true
+        sendButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        sendButton.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
+        sendButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         containerView.addSubview(self.messageTextField)
         //iOS 9 Constraints
-        self.messageTextField.leftAnchor.constraintEqualToAnchor(uplaodImage.rightAnchor, constant: 8).active = true
-        self.messageTextField.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor).active = true
-        self.messageTextField.heightAnchor.constraintEqualToAnchor(containerView.heightAnchor).active = true
-        self.messageTextField.widthAnchor.constraintEqualToAnchor(containerView.widthAnchor, multiplier: 4/5).active = true
+        self.messageTextField.leftAnchor.constraint(equalTo: uplaodImage.rightAnchor, constant: 8).isActive = true
+        self.messageTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        self.messageTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
+        self.messageTextField.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 4/5).isActive = true
         return containerView
     }()
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         handleSend()
         return true
     }
     func handleUpload(){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        var selectedImageFromPicker = UIImage?()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var selectedImageFromPicker = UIImage?.self
         if let originalImage = info["UIImagePickerControllerOriginalImage"]{
-            selectedImageFromPicker = (originalImage as! UIImage)
+            selectedImageFromPicker = (originalImage as! UIImage.Type)
         }
         if let selectedImage = selectedImageFromPicker{
-            uploadImageToFirebase(selectedImage)
-            dismissViewControllerAnimated(true, completion: nil)
+            uploadImageToFirebase(selectedImage )
+            dismiss(animated: true, completion: nil)
         }
         
     }
-    private func uploadImageToFirebase(img: UIImage){
-        let imageName = NSUUID().UUIDString
+    fileprivate func uploadImageToFirebase(_ img: UIImage){
+        let imageName = UUID().uuidString
         let storageRef = FIRStorage.storage().reference().child("message_images").child(imageName)
         if let uploadData = UIImageJPEGRepresentation(img, 0.3){
-            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+            storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
                 if error != nil{
                     print(error)
                     return
@@ -245,18 +245,18 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         }
         
     }
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
-    private func sendImageMessage(imgURL: String, img: UIImage){
+    fileprivate func sendImageMessage(_ imgURL: String, img: UIImage){
         let ref = FIRDatabase.database().reference().child("messages")
         let childRef = ref.childByAutoId()
 
         let toId = self.user!.id!
         print(FIRAuth.auth()?.currentUser)
         let senderId = FIRAuth.auth()!.currentUser!.uid
-        let time: NSNumber = Int(NSDate().timeIntervalSince1970)
-        let values = ["imgURL": imgURL, "imgHeight": img.size.height, "imgWidth": img.size.width, "toId": toId, "senderId": senderId, "time": time]
+        //let time: NSNumber = NSNumber(Int(Date().timeIntervalSince1970))
+        let values = ["imgURL": imgURL, "imgHeight": img.size.height, "imgWidth": img.size.width, "toId": toId, "senderId": senderId, "time": time] as [String : Any]
         childRef.updateChildValues(values) { (error, ref) in
             if error != nil{
                 print(error)
@@ -280,8 +280,8 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         let toId = self.user!.id!
         print(FIRAuth.auth()?.currentUser)
         let senderId = FIRAuth.auth()!.currentUser!.uid
-        let time: NSNumber = Int(NSDate().timeIntervalSince1970)
-        let values = ["text": messageText, "toId": toId, "senderId": senderId, "time": time]
+       // let time: NSNumber = NSNumber(Int(Date().timeIntervalSince1970))
+        let values = ["text": messageText, "toId": toId, "senderId": senderId, "time": time] as [String : Any]
         childRef.updateChildValues(values) { (error, ref) in
             if error != nil{
                 print(error)

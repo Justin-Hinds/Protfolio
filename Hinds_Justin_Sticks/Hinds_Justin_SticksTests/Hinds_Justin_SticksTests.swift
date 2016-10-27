@@ -7,8 +7,9 @@
 //
 
 import XCTest
-@testable import Hinds_Justin_Sticks
+import Firebase
 
+@testable import Hinds_Justin_Sticks
 class Hinds_Justin_SticksTests: XCTestCase {
     
     override func setUp() {
@@ -28,7 +29,7 @@ class Hinds_Justin_SticksTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

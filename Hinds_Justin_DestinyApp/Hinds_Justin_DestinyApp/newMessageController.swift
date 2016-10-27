@@ -16,32 +16,32 @@ class newMessageController: UITableViewController {
         grabUser()
     }
     func grabUser() {
-        FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 let user = User()
                 user.id = snapshot.key
-                user.setValuesForKeysWithDictionary(dictionary)
+                user.setValuesForKeys(dictionary)
                 self.usersArray.append(user)
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                 })
             }
-            }, withCancelBlock: nil)
+            }, withCancel: nil)
     }
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return usersArray.count
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let user = usersArray[indexPath.row]
-       let cell =  tableView.dequeueReusableCellWithIdentifier("memberCell")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let user = usersArray[(indexPath as NSIndexPath).row]
+       let cell =  tableView.dequeueReusableCell(withIdentifier: "memberCell")
         cell!.textLabel?.text = user.name
         return cell!
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMessage"{
-         let messageView = segue.destinationViewController as! ChatLog
+         let messageView = segue.destination as! ChatLog
             let indexPath = self.tableView.indexPathForSelectedRow
-            let user = usersArray[(indexPath?.row)!]
+            let user = usersArray[((indexPath as NSIndexPath?)?.row)!]
         messageView.user = user
         }
     }

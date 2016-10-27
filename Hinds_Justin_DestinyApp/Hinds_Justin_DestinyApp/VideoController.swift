@@ -12,17 +12,17 @@ class VideoController: UICollectionViewController {
     
     override func viewDidLoad() {
         let vidAPI = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&order=date&q=destiny+%2B+mesasean&type=video&key=AIzaSyDlUyfC0nn6AaaKmMR7Rt00Or3vh0x6i1s"
-        let vidURL = NSURL(string: vidAPI)
-        let request = NSURLRequest(URL:vidURL!)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            guard let realResponse = response as? NSHTTPURLResponse where
+        let vidURL = URL(string: vidAPI)
+        let request = URLRequest(url:vidURL!)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            guard let realResponse = response as? HTTPURLResponse ,
                 realResponse.statusCode == 200 else{
                     print("code not 200")
                     return
             }
             print(response)
-        }
+        }) 
         
     }
 }

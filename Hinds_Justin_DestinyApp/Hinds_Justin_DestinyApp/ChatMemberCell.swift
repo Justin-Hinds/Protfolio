@@ -18,10 +18,10 @@ class ChatMemberCell : UITableViewCell{
         didSet{
             setupName()
                 if let seconds = message?.time?.doubleValue{
-                let timeDate = NSDate(timeIntervalSince1970: seconds)
-                let dateFormatter = NSDateFormatter()
+                let timeDate = Date(timeIntervalSince1970: seconds)
+                let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "hh:mm:ss a"
-                time.text = dateFormatter.stringFromDate(timeDate)
+                time.text = dateFormatter.string(from: timeDate)
 
                 
             }
@@ -29,16 +29,16 @@ class ChatMemberCell : UITableViewCell{
             
         }
     }
-    private func setupName(){
+    fileprivate func setupName(){
                 if let id = message?.chatBuddy(){
             let ref = FIRDatabase.database().reference().child("users").child(id)
-            ref.observeEventType(.Value, withBlock: { (snapshot) in
+            ref.observe(.value, with: { (snapshot) in
                 if let dict = snapshot.value as? [String:AnyObject]{
                     self.name .text = dict["name"] as? String
                     
                     
                 }
-                }, withCancelBlock: nil)
+                }, withCancel: nil)
         }
 
     }

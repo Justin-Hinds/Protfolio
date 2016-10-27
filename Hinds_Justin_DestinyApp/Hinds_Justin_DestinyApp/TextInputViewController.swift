@@ -13,14 +13,14 @@ class TextInput: UIViewController {
     var user : User?
 
     @IBOutlet weak var messageTextField: UITextField!
-    @IBAction func sendButton(sender: AnyObject) {
+    @IBAction func sendButton(_ sender: AnyObject) {
         handleSend()
     }
     
     override func viewDidLoad() {
         
     }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
     }
    func handleSend(){
@@ -31,8 +31,8 @@ class TextInput: UIViewController {
     }
     let toId = self.user!.id!
     let senderId = FIRAuth.auth()!.currentUser!.uid
-    let time: NSNumber = Int(NSDate().timeIntervalSince1970)
-    let values = ["text": messageText, "toId": toId, "senderId": senderId, "time": time]
+    let time: NSNumber = NSNumber(Int(Date().timeIntervalSince1970))
+    let values = ["text": messageText, "toId": toId, "senderId": senderId, "time": time] as [String : Any]
     childRef.updateChildValues(values) { (error, ref) in
         if error != nil{
             print(error)

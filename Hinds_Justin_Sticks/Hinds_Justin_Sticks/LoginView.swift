@@ -11,14 +11,14 @@ import Firebase
 
 class LoginView: UIViewController , UITextFieldDelegate{
     
-    let ref = FIRDatabase.database().referenceFromURL("https://sticks-12d93.firebaseio.com/")
+    let ref = FIRDatabase.database().reference(fromURL: "https://sticks-12d93.firebaseio.com/")
     lazy var loginRegisterToggle: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
-        sc.tintColor = UIColor.whiteColor()
+        sc.tintColor = UIColor.white
         sc.backgroundColor = UIColor(R: 47, G: 72, B: 88, A: 1)
         sc.selectedSegmentIndex = 1
-        sc.addTarget(self, action: #selector(handleLoginOrRegisterChange), forControlEvents: .ValueChanged)
+        sc.addTarget(self, action: #selector(handleLoginOrRegisterChange), for: .valueChanged)
         return sc
     }()
     var profileImageHeightAnchor: NSLayoutConstraint?
@@ -26,28 +26,28 @@ class LoginView: UIViewController , UITextFieldDelegate{
         let pi = UIImageView()
         pi.translatesAutoresizingMaskIntoConstraints = false
         pi.image = UIImage(named: "Profile_Pic")
-        pi.userInteractionEnabled = true
+        pi.isUserInteractionEnabled = true
         pi.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profilePicSelector)))
         return pi
     }()
     var inputContainerHeightAnchor: NSLayoutConstraint?
     let inputContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 6
         view.layer.masksToBounds = true
         return view
     }()
     lazy var loginRegisterButton: UIButton = {
-        let button = UIButton(type: .System)
+        let button = UIButton(type: .system)
         button.backgroundColor = UIColor(R: 47, G: 72, B: 88, A: 1)
-        button.setTitle("Register", forState: .Normal)
+        button.setTitle("Register", for: UIControlState())
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.setTitleColor(UIColor.white, for: UIControlState())
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleLoginOrRegister), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(handleLoginOrRegister), for: .touchUpInside)
         return button
     }()
     var nameInputHeightAnchor: NSLayoutConstraint?
@@ -68,7 +68,7 @@ class LoginView: UIViewController , UITextFieldDelegate{
     lazy var passwordInput: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
-        tf.secureTextEntry = true
+        tf.isSecureTextEntry = true
         tf.delegate = self
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
@@ -76,8 +76,8 @@ class LoginView: UIViewController , UITextFieldDelegate{
     let appTitle: UILabel = {
         let label = UILabel()
         label.text = "Sticks"
-        label.textColor = UIColor.blackColor()
-        label.textAlignment = .Center
+        label.textColor = UIColor.black
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -100,87 +100,87 @@ class LoginView: UIViewController , UITextFieldDelegate{
     
     func loginSCSetup() {
         // iOS 9+ constraints
-        loginRegisterToggle.bottomAnchor.constraintEqualToAnchor(inputContainer.topAnchor, constant: -8).active = true
-        loginRegisterToggle.centerXAnchor.constraintEqualToAnchor(inputContainer.centerXAnchor).active = true
-        loginRegisterToggle.widthAnchor.constraintEqualToAnchor(inputContainer.widthAnchor, multiplier: 1/2).active = true
-        loginRegisterToggle.heightAnchor.constraintEqualToConstant(20).active = true
+        loginRegisterToggle.bottomAnchor.constraint(equalTo: inputContainer.topAnchor, constant: -8).isActive = true
+        loginRegisterToggle.centerXAnchor.constraint(equalTo: inputContainer.centerXAnchor).isActive = true
+        loginRegisterToggle.widthAnchor.constraint(equalTo: inputContainer.widthAnchor, multiplier: 1/2).isActive = true
+        loginRegisterToggle.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
     }
     func handleLoginOrRegisterChange() {
-        let title = loginRegisterToggle.titleForSegmentAtIndex(loginRegisterToggle.selectedSegmentIndex)
-        loginRegisterButton.setTitle(title, forState: .Normal)
+        let title = loginRegisterToggle.titleForSegment(at: loginRegisterToggle.selectedSegmentIndex)
+        loginRegisterButton.setTitle(title, for: UIControlState())
         // modifies the height of the input container
         inputContainerHeightAnchor?.constant =  loginRegisterToggle.selectedSegmentIndex == 0 ? 80 : 120
         // modifies the height of the name input
-        nameInputHeightAnchor?.active = false
-        nameInputHeightAnchor =  nameInput.heightAnchor.constraintEqualToAnchor(inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 0 : 1/3)
-        nameInputHeightAnchor?.active = true
+        nameInputHeightAnchor?.isActive = false
+        nameInputHeightAnchor =  nameInput.heightAnchor.constraint(equalTo: inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 0 : 1/3)
+        nameInputHeightAnchor?.isActive = true
         //modifies email height 
-        emailInputHeightAnchor?.active = false
-        emailInputHeightAnchor =  emailInput.heightAnchor.constraintEqualToAnchor(inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 1/2 : 1/3)
-        emailInputHeightAnchor?.active = true
+        emailInputHeightAnchor?.isActive = false
+        emailInputHeightAnchor =  emailInput.heightAnchor.constraint(equalTo: inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 1/2 : 1/3)
+        emailInputHeightAnchor?.isActive = true
         //modifies password height
-        passwordInputHeightAnchor?.active = false
-        passwordInputHeightAnchor =  passwordInput.heightAnchor.constraintEqualToAnchor(inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 1/2 : 1/3)
-        passwordInputHeightAnchor?.active = true
+        passwordInputHeightAnchor?.isActive = false
+        passwordInputHeightAnchor =  passwordInput.heightAnchor.constraint(equalTo: inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 1/2 : 1/3)
+        passwordInputHeightAnchor?.isActive = true
         // profile pic height
-        profileImageHeightAnchor?.active = false
-        profileImageHeightAnchor = profileImage.heightAnchor.constraintEqualToAnchor(inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 0 : 5/6)
-        profileImageHeightAnchor?.active = true
+        profileImageHeightAnchor?.isActive = false
+        profileImageHeightAnchor = profileImage.heightAnchor.constraint(equalTo: inputContainer.heightAnchor, multiplier: loginRegisterToggle.selectedSegmentIndex == 0 ? 0 : 5/6)
+        profileImageHeightAnchor?.isActive = true
     }
        func inputsContainerSetup(){
         //iOS 9+ constraints(x,y,width, height) input Container
-        inputContainer.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        inputContainer.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
-        inputContainer.widthAnchor.constraintEqualToAnchor(view.widthAnchor, constant: -48).active = true
-        inputContainerHeightAnchor =  inputContainer.heightAnchor.constraintEqualToConstant(120)
-        inputContainerHeightAnchor!.active = true
+        inputContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        inputContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        inputContainer.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -48).isActive = true
+        inputContainerHeightAnchor =  inputContainer.heightAnchor.constraint(equalToConstant: 120)
+        inputContainerHeightAnchor!.isActive = true
         inputContainer.addSubview(nameInput)
         inputContainer.addSubview(emailInput)
         inputContainer.addSubview(passwordInput)
         //iOS 9+ constraints(x,y,width, height) Name
-        nameInput.leftAnchor.constraintEqualToAnchor(inputContainer.leftAnchor, constant: 8).active = true
-        nameInput.topAnchor.constraintEqualToAnchor(inputContainer.topAnchor).active = true
-        nameInput.widthAnchor.constraintEqualToAnchor(inputContainer.widthAnchor).active = true
-        nameInputHeightAnchor =  nameInput.heightAnchor.constraintEqualToAnchor(inputContainer.heightAnchor, multiplier: 1/3)
-        nameInputHeightAnchor!.active = true
+        nameInput.leftAnchor.constraint(equalTo: inputContainer.leftAnchor, constant: 8).isActive = true
+        nameInput.topAnchor.constraint(equalTo: inputContainer.topAnchor).isActive = true
+        nameInput.widthAnchor.constraint(equalTo: inputContainer.widthAnchor).isActive = true
+        nameInputHeightAnchor =  nameInput.heightAnchor.constraint(equalTo: inputContainer.heightAnchor, multiplier: 1/3)
+        nameInputHeightAnchor!.isActive = true
         //iOS 9+ constraints(x,y,width, height) Email
-        emailInput.leftAnchor.constraintEqualToAnchor(inputContainer.leftAnchor, constant: 8).active = true
-        emailInput.topAnchor.constraintEqualToAnchor(nameInput.bottomAnchor).active = true
-        emailInput.widthAnchor.constraintEqualToAnchor(inputContainer.widthAnchor).active = true
-        emailInputHeightAnchor = emailInput.heightAnchor.constraintEqualToAnchor(inputContainer.heightAnchor, multiplier: 1/3)
-        emailInputHeightAnchor!.active = true
+        emailInput.leftAnchor.constraint(equalTo: inputContainer.leftAnchor, constant: 8).isActive = true
+        emailInput.topAnchor.constraint(equalTo: nameInput.bottomAnchor).isActive = true
+        emailInput.widthAnchor.constraint(equalTo: inputContainer.widthAnchor).isActive = true
+        emailInputHeightAnchor = emailInput.heightAnchor.constraint(equalTo: inputContainer.heightAnchor, multiplier: 1/3)
+        emailInputHeightAnchor!.isActive = true
 
         //iOS 9+ constraints(x,y,width, height) Password
-        passwordInput.leftAnchor.constraintEqualToAnchor(inputContainer.leftAnchor, constant: 8).active = true
-        passwordInput.topAnchor.constraintEqualToAnchor(emailInput.bottomAnchor).active = true
-        passwordInput.widthAnchor.constraintEqualToAnchor(inputContainer.widthAnchor).active = true
-        passwordInputHeightAnchor = passwordInput.heightAnchor.constraintEqualToAnchor(inputContainer.heightAnchor, multiplier: 1/3)
-        passwordInputHeightAnchor!.active = true
+        passwordInput.leftAnchor.constraint(equalTo: inputContainer.leftAnchor, constant: 8).isActive = true
+        passwordInput.topAnchor.constraint(equalTo: emailInput.bottomAnchor).isActive = true
+        passwordInput.widthAnchor.constraint(equalTo: inputContainer.widthAnchor).isActive = true
+        passwordInputHeightAnchor = passwordInput.heightAnchor.constraint(equalTo: inputContainer.heightAnchor, multiplier: 1/3)
+        passwordInputHeightAnchor!.isActive = true
     }
     
     func titleSetup() {
-        appTitle.bottomAnchor.constraintEqualToAnchor(loginRegisterToggle.topAnchor, constant: -12).active = true
-        appTitle.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        appTitle.widthAnchor.constraintEqualToAnchor(inputContainer.widthAnchor, multiplier: 1/4).active = true
-        appTitle.heightAnchor.constraintEqualToConstant(20).active = true
+        appTitle.bottomAnchor.constraint(equalTo: loginRegisterToggle.topAnchor, constant: -12).isActive = true
+        appTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        appTitle.widthAnchor.constraint(equalTo: inputContainer.widthAnchor, multiplier: 1/4).isActive = true
+        appTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
     func profilePicSetup() {
-        profileImage.bottomAnchor.constraintEqualToAnchor(appTitle.topAnchor, constant: -12).active = true
-        profileImage.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        profileImage.widthAnchor.constraintEqualToConstant(100).active = true
-        profileImageHeightAnchor = profileImage.heightAnchor.constraintEqualToConstant(100)
-        profileImageHeightAnchor!.active = true
+        profileImage.bottomAnchor.constraint(equalTo: appTitle.topAnchor, constant: -12).isActive = true
+        profileImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        profileImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        profileImageHeightAnchor = profileImage.heightAnchor.constraint(equalToConstant: 100)
+        profileImageHeightAnchor!.isActive = true
     }
     func registerButtonSetup() {
         //Constraints
-        loginRegisterButton.topAnchor.constraintEqualToAnchor(inputContainer.bottomAnchor, constant: 8).active = true
-        loginRegisterButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        loginRegisterButton.widthAnchor.constraintEqualToAnchor(inputContainer.widthAnchor, constant: -220).active = true
-        loginRegisterButton.heightAnchor.constraintEqualToConstant(40).active = true
+        loginRegisterButton.topAnchor.constraint(equalTo: inputContainer.bottomAnchor, constant: 8).isActive = true
+        loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginRegisterButton.widthAnchor.constraint(equalTo: inputContainer.widthAnchor, constant: -220).isActive = true
+        loginRegisterButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         handleLoginOrRegister()
         return true
     }

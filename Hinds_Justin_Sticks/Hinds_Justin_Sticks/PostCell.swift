@@ -13,7 +13,7 @@ class PostCell: UICollectionViewCell {
     let commentButton: UIButton = {
         let cb = UIButton()
         let commentImage = UIImage(named: "Comments_Icon")
-        cb.setImage(commentImage, forState: .Normal)
+        cb.setImage(commentImage, for: UIControlState())
         cb.translatesAutoresizingMaskIntoConstraints = false
         return cb
     }()
@@ -21,30 +21,30 @@ class PostCell: UICollectionViewCell {
     lazy var approveButton: UIButton = {
         let ab = UIButton()
         let approveImage = UIImage(named: "Approve_Icon")
-        ab.setImage(approveImage, forState: .Normal)
-        ab.userInteractionEnabled = true
-        ab.addTarget(self, action: #selector(handleApprove), forControlEvents: .TouchUpInside)
+        ab.setImage(approveImage, for: UIControlState())
+        ab.isUserInteractionEnabled = true
+        ab.addTarget(self, action: #selector(handleApprove), for: .touchUpInside)
         ab.translatesAutoresizingMaskIntoConstraints = false
         return ab
     }()
     let disapproveButton: UIButton = {
         let disapproveImage = UIImage(named: "Disapprove_Icon")
         let db = UIButton()
-        db.setImage(disapproveImage, forState: .Normal)
+        db.setImage(disapproveImage, for: UIControlState())
         db.translatesAutoresizingMaskIntoConstraints = false
         return db
     }()
     let downVoteButton: UIButton = {
         let dv = UIButton()
         let downVoteImage = UIImage(named: "DownVote_Icon")
-        dv.setImage(downVoteImage, forState: .Normal)
+        dv.setImage(downVoteImage, for: UIControlState())
         dv.translatesAutoresizingMaskIntoConstraints = false
         return dv
     }()
     let upVoteButton: UIButton = {
         let uv = UIButton()
         let upVoteImage = UIImage(named: "UpVote_Icon")
-        uv.setImage(upVoteImage, forState: .Normal)
+        uv.setImage(upVoteImage, for: UIControlState())
         uv.translatesAutoresizingMaskIntoConstraints = false
         return uv
     }()
@@ -52,19 +52,19 @@ class PostCell: UICollectionViewCell {
     var textView: UITextView = {
        let tv = UITextView()
         //tv.text = "ipsom"
-        tv.editable = false
+        tv.isEditable = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
     var postView: UIView = {
         let pv = UIView()
         pv.translatesAutoresizingMaskIntoConstraints = false
-        pv.backgroundColor = UIColor.whiteColor()
+        pv.backgroundColor = UIColor.white
         return pv
     }()
     var postImageView: UIImageView = {
         let pi = UIImageView()
-        pi.contentMode = .ScaleAspectFit
+        pi.contentMode = .scaleAspectFit
         pi.translatesAutoresizingMaskIntoConstraints = false
         return pi
     }()
@@ -81,45 +81,45 @@ class PostCell: UICollectionViewCell {
         addSubview(postView)
         backgroundColor = UIColor(R: 47, G: 72, B: 88, A: 1)
         // TextView constraints
-        textView.topAnchor.constraintEqualToAnchor(self.topAnchor).active = true
-        textView.heightAnchor.constraintEqualToConstant(60).active = true
-        textView.widthAnchor.constraintEqualToAnchor(self.widthAnchor).active = true
-        textView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
+        textView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        textView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        textView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        textView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         //postView Constraints
-        postView.topAnchor.constraintEqualToAnchor(self.topAnchor).active = true
-        postView.heightAnchor.constraintEqualToConstant(300).active = true
-        postView.widthAnchor.constraintEqualToAnchor(self.widthAnchor).active = true
-        postView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
+        postView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        postView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        postView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        postView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         //image view constraints
-        postImageView.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 60).active = true
-        postImageView.heightAnchor.constraintEqualToAnchor(self.heightAnchor, multiplier: 17/25).active = true
-        postImageView.widthAnchor.constraintEqualToAnchor(self.widthAnchor).active = true
-        postImageView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
+        postImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60).isActive = true
+        postImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 17/25).isActive = true
+        postImageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        postImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         //ios constraints
-        approveButton.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -8).active = true
-        approveButton.leftAnchor.constraintEqualToAnchor(self.leftAnchor, constant: 8).active = true
-        approveButton.heightAnchor.constraintEqualToConstant(40).active = true
-        approveButton.widthAnchor.constraintEqualToConstant(40).active = true
+        approveButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        approveButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
+        approveButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        approveButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         //iOS constraints
-        disapproveButton.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -8).active = true
-        disapproveButton.leftAnchor.constraintEqualToAnchor(approveButton.rightAnchor, constant: 8).active = true
-        disapproveButton.heightAnchor.constraintEqualToConstant(40).active = true
-        disapproveButton.widthAnchor.constraintEqualToConstant(40).active = true
+        disapproveButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        disapproveButton.leftAnchor.constraint(equalTo: approveButton.rightAnchor, constant: 8).isActive = true
+        disapproveButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        disapproveButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         //ios constraints
-        downVoteButton.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -8).active = true
-        downVoteButton.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -8).active = true
-        downVoteButton.heightAnchor.constraintEqualToConstant(40).active = true
-        downVoteButton.widthAnchor.constraintEqualToConstant(40).active = true
+        downVoteButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        downVoteButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8).isActive = true
+        downVoteButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        downVoteButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         //iOS constraints
-        upVoteButton.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -8).active = true
-        upVoteButton.rightAnchor.constraintEqualToAnchor(downVoteButton.leftAnchor, constant: 0).active = true
-        upVoteButton.heightAnchor.constraintEqualToConstant(40).active = true
-        upVoteButton.widthAnchor.constraintEqualToConstant(40).active = true
+        upVoteButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        upVoteButton.rightAnchor.constraint(equalTo: downVoteButton.leftAnchor, constant: 0).isActive = true
+        upVoteButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        upVoteButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         //iOS constraints
-        commentButton.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -8).active = true
-        commentButton.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
-        commentButton.heightAnchor.constraintEqualToConstant(40).active = true
-        commentButton.widthAnchor.constraintEqualToConstant(40).active = true
+        commentButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        commentButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        commentButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        commentButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
 
 
     }
@@ -130,8 +130,8 @@ class PostCell: UICollectionViewCell {
     func handleApprove() {
         let ref = FIRDatabase.database().reference().child("posts_approved").child("-KQ2nHnrUhq_Q-uYINXe")
         let senderId = FIRAuth.auth()!.currentUser!.uid
-        let time: NSNumber = Int(NSDate().timeIntervalSince1970)
-        let values = ["senderId": senderId, "time": time]
+       // let time: NSNumber = NSNumber(Int(Date().timeIntervalSince1970))
+        let values = ["senderId": senderId, "time": time] as [String : Any]
         ref.updateChildValues(values) { (error, ref) in
             if error != nil{
                 print(error)

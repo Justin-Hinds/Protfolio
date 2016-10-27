@@ -18,16 +18,16 @@ class ActivityController: UITableViewController {
 //print(activityArray.count)
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return activityArray.count
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let activ = activityArray[indexPath.row]
-        let cell =  tableView.dequeueReusableCellWithIdentifier("activityCell")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let activ = activityArray[(indexPath as NSIndexPath).row]
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "activityCell")
         cell!.textLabel?.text = activ.activityName
         return cell!
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "" {
             
         }

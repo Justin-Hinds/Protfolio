@@ -13,9 +13,9 @@ class MessageCell: UICollectionViewCell {
     let messageLabel: UITextView = {
         let label = UITextView()
         label.text = "rubbish"
-        label.editable = false
-        label.font = UIFont.systemFontOfSize(16)
-        label.backgroundColor = UIColor.clearColor()
+        label.isEditable = false
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.backgroundColor = UIColor.clear
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -34,7 +34,7 @@ class MessageCell: UICollectionViewCell {
     let messageImage: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
-        img.contentMode = .ScaleToFill
+        img.contentMode = .scaleToFill
         
         return img
     }()
@@ -44,25 +44,25 @@ class MessageCell: UICollectionViewCell {
         addSubview(messageLabel)
         bubbleView.addSubview(messageImage)
         //
-        messageImage.topAnchor.constraintEqualToAnchor(bubbleView.topAnchor).active = true
-        messageImage.leftAnchor.constraintEqualToAnchor(bubbleView.leftAnchor).active = true
-        messageImage.heightAnchor.constraintEqualToAnchor(bubbleView.heightAnchor).active = true
-        messageImage.widthAnchor.constraintEqualToAnchor(bubbleView.widthAnchor).active = true
+        messageImage.topAnchor.constraint(equalTo: bubbleView.topAnchor).isActive = true
+        messageImage.leftAnchor.constraint(equalTo: bubbleView.leftAnchor).isActive = true
+        messageImage.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true
+        messageImage.widthAnchor.constraint(equalTo: bubbleView.widthAnchor).isActive = true
         // constraints
-        bubbleViewRightAnchor = bubbleView.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -8)
-        bubbleViewRightAnchor!.active = true
-        bubbleViewLeftAnchor = bubbleView.leftAnchor.constraintEqualToAnchor(self.leftAnchor, constant: 8)
-        bubbleViewLeftAnchor?.active = false
-        bubbleView.topAnchor.constraintEqualToAnchor(self.topAnchor).active = true
-        bubbleView.heightAnchor.constraintEqualToAnchor(self.heightAnchor).active = true
-        bubbleWidthAnchor = bubbleView.widthAnchor.constraintEqualToConstant(200)
-        bubbleWidthAnchor!.active = true
+        bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8)
+        bubbleViewRightAnchor!.isActive = true
+        bubbleViewLeftAnchor = bubbleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8)
+        bubbleViewLeftAnchor?.isActive = false
+        bubbleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        bubbleView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        bubbleWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 200)
+        bubbleWidthAnchor!.isActive = true
         // constraints
-        messageLabel.leftAnchor.constraintEqualToAnchor(bubbleView.leftAnchor,constant: 8).active = true
-        messageLabel.topAnchor.constraintEqualToAnchor(self.topAnchor).active = true
-        messageLabel.heightAnchor.constraintEqualToAnchor(self.heightAnchor).active = true
+        messageLabel.leftAnchor.constraint(equalTo: bubbleView.leftAnchor,constant: 8).isActive = true
+        messageLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        messageLabel.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         //messageLabel.widthAnchor.constraintEqualToConstant(200).active = true
-        messageLabel.rightAnchor.constraintEqualToAnchor(bubbleView.rightAnchor, constant: -8).active = true
+        messageLabel.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

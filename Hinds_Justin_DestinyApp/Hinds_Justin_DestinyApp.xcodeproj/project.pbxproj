@@ -312,15 +312,18 @@
 					05853EBE1D245E5700FBD9B6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 632RN23THU;
+						LastSwiftMigration = 0800;
 					};
 					05853ED51D245E5800FBD9B6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 632RN23THU;
+						LastSwiftMigration = 0800;
 						TestTargetID = 05853EBE1D245E5700FBD9B6;
 					};
 					05853EE01D245E5800FBD9B6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 632RN23THU;
+						LastSwiftMigration = 0800;
 						TestTargetID = 05853EBE1D245E5700FBD9B6;
 					};
 				};
@@ -669,6 +672,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-DestinyApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -684,6 +688,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-DestinyApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -696,6 +701,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-DestinyAppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hinds_Justin_DestinyApp.app/Hinds_Justin_DestinyApp";
 			};
 			name = Debug;
@@ -709,6 +715,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-DestinyAppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hinds_Justin_DestinyApp.app/Hinds_Justin_DestinyApp";
 			};
 			name = Release;
@@ -721,6 +728,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-DestinyAppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Hinds_Justin_DestinyApp;
 			};
 			name = Debug;
@@ -733,6 +741,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arcane.Hinds-Justin-DestinyAppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Hinds_Justin_DestinyApp;
 			};
 			name = Release;

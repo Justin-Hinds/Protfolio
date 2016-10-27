@@ -19,7 +19,7 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
    override func viewDidLoad() {
-       mainCollectionView.backgroundColor = UIColor.whiteColor()
+       mainCollectionView.backgroundColor = UIColor.white
   let svc = self.tabBarController  as! DestinyViewController
     self.myArray = svc.myArray
     print(svc.myArray.count)
@@ -28,28 +28,28 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
     print(activityArray.count)
    
     }
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        switch indexPath.row {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch (indexPath as NSIndexPath).row {
         case 0:
-            performSegueWithIdentifier("characterSelect", sender: self)
+            performSegue(withIdentifier: "characterSelect", sender: self)
         case 1:
-            performSegueWithIdentifier("activityList", sender: self)
+            performSegue(withIdentifier: "activityList", sender: self)
 
         default:
             break
         }
     }
-     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return nameArray.count + 1
     }
-     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
-        let cell: CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("characterCell", forIndexPath: indexPath) as! CustomCell
-        if (indexPath.item > 0){
+        let cell: CustomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath) as! CustomCell
+        if ((indexPath as NSIndexPath).item > 0){
             cell.baseLevel.text = ""
             cell.classTitle.text = ""
             cell.lightLevel.text = ""
-            cell.title.text = "\(nameArray[indexPath.item - 1])"
+            cell.title.text = "\(nameArray[(indexPath as NSIndexPath).item - 1])"
         }else{
         cell.cladssTitle.text = "\(myArray[currentCharacter].characterClass!)"
         cell.lightLevel.text = "Light: \(myArray[currentCharacter].light!)"
@@ -65,21 +65,21 @@ class DestinyInfo : UIViewController, UICollectionViewDataSource, UICollectionVi
 //        print(currentCharacter)
 //        mainCollectionView.reloadData()
 //    }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //         logic for multiple segues
         switch segue.identifier!{
         case "characterSelect":
-            let detailView : CharacterSelect = segue.destinationViewController as! CharacterSelect
+            let detailView : CharacterSelect = segue.destination as! CharacterSelect
             detailView.delegate = self
         case "activityLest":
-            let detailView : ActivityController = segue.destinationViewController as! ActivityController
+            let detailView : ActivityController = segue.destination as! ActivityController
             detailView.activityArray = activityArray
         default:
             break
         }
  
     }
-    func setUpCurrentCharacter(selectedCharacter: Int) {
+    func setUpCurrentCharacter(_ selectedCharacter: Int) {
         self.currentCharacter = selectedCharacter
         mainCollectionView.reloadData()
     }

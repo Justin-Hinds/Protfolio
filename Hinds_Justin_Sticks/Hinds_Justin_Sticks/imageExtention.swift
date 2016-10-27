@@ -12,25 +12,25 @@ import Firebase
 let imageCache = NSCache()
 
 extension UIImageView {
-    
-    func loadImageUsingCache(urlString: String) {
+
+    func loadImageUsingCache(_ urlString: String) {
         
         self.image = nil
         
-        if let cachedImage = imageCache.objectForKey(urlString) as? UIImage {
+        if let cachedImage = imageCache.object(forKey: urlString) as? UIImage {
             self.image = cachedImage
             return
         }
         
-        let url = NSURL(string: urlString)
-        NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) in
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             
             if error != nil {
                 print(error)
                 return
             }
             
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 
                 if let downloadedImg = UIImage(data: data!) {
                     imageCache.setObject(downloadedImg, forKey: urlString)

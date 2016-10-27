@@ -9,6 +9,26 @@
 import Foundation
 import UIKit
 import Firebase
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class ChatLog: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -17,7 +37,7 @@ class ChatLog: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         didSet{
            // print(navigationItem.title)
             navigationItem.title = user!.name
-            dispatch_async(dispatch_get_main_queue()) { 
+            DispatchQueue.main.async { 
                 //self.messageCollectionView.reloadData()
             }
         }
@@ -25,7 +45,7 @@ class ChatLog: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     var messageArray = [Messages]()
     var messageDict = [String:Messages]()
     var num = 0
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
     }
     override func viewDidLoad() {
@@ -33,17 +53,17 @@ class ChatLog: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             print(user?.name)
 
         }
-        messageCollectionView.backgroundColor = UIColor.whiteColor()
+        messageCollectionView.backgroundColor = UIColor.white
         observeMessages()
         messageCollectionView.reloadData()
     }
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return messageArray.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
-        let cell : MessageCell = messageCollectionView.dequeueReusableCellWithReuseIdentifier("message", forIndexPath: indexPath) as! MessageCell
-        cell.message.text = messageArray[indexPath.row].text
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell : MessageCell = messageCollectionView.dequeueReusableCell(withReuseIdentifier: "message", for: indexPath) as! MessageCell
+        cell.message.text = messageArray[(indexPath as NSIndexPath).row].text
 return cell
     }
     func observeMessages(){
@@ -51,13 +71,13 @@ return cell
             return
         }
         let userMessagesRef = FIRDatabase.database().reference().child("user_messages").child(uid)
-        userMessagesRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        userMessagesRef.observe(.childAdded, with: { (snapshot) in
           let messageID = snapshot.key
           let messageRef = FIRDatabase.database().reference().child("messages").child(messageID)
-            messageRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            messageRef.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dict = snapshot.value as? [String:AnyObject]{
                     let message = Messages()
-                    message.setValuesForKeysWithDictionary(dict)
+                    message.setValuesForKeys(dict)
                     
 
                     if message.chatBuddy() == self.user?.id{
@@ -65,23 +85,23 @@ return cell
                         if let toId = message.senderId{
                             self.messageDict[toId] = message
                             self.messageArray = Array(self.messageDict.values)
-                            self.messageArray.sortInPlace({ (m1, m2) -> Bool in
-                                return m1.time?.intValue > m2.time?.intValue
+                            self.messageArray.sort(by: { (m1, m2) -> Bool in
+                                return m1.time?.int32Value > m2.time?.int32Value
                             })
                         }
-                        dispatch_async(dispatch_get_main_queue(), {
+                        DispatchQueue.main.async(execute: {
                             self.messageCollectionView.reloadData()
                         })
 
                     }
                                    }
                 
-                }, withCancelBlock: nil)
-            }, withCancelBlock: nil)
+                }, withCancel: nil)
+            }, withCancel: nil)
     }
-        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "textInput"){
-            let detailView : TextInput = segue.destinationViewController as! TextInput
+            let detailView : TextInput = segue.destination as! TextInput
             detailView.user = self.user
         }
     

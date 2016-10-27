@@ -25,45 +25,45 @@ class DestinyViewController: UITabBarController {
         let inventory = "/2/Account/\(myID)/Character/\(characterId)/Inventory/Summary/"
         let sonyAuth = "https://auth.api.sonyentertainmentnetwork.com/login.jsp"
         let destinyAPI : String = "http://www.bungie.net/Platform/Destiny/2/Account/\(myID)/Summary/"
-        let inventoryURL = NSURL(string: host + inventory)
-        let sonyLoginUrl = NSURL(string: sonyAuth)
+        let inventoryURL = URL(string: host + inventory)
+        let sonyLoginUrl = URL(string: sonyAuth)
         let idURLString = "http://www.bungie.net/Platform/Destiny/2/Stats/GetMembershipIdByDisplayName/cakepimp101/"
-        let idURL = NSURL(string: idURLString)
-        let destiny = NSURL(string: destinyAPI)
-        let session = NSURLSession.sharedSession()
-        let inventoryRequest = NSMutableURLRequest(URL: inventoryURL!)
-        let request = NSMutableURLRequest(URL: destiny!)
+        let idURL = URL(string: idURLString)
+        let destiny = URL(string: destinyAPI)
+        let session = URLSession.shared
+        let inventoryRequest = NSMutableURLRequest(url: inventoryURL!)
+        let request = NSMutableURLRequest(url: destiny!)
         request.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
         inventoryRequest.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
-        request.HTTPMethod = "GET"
-        inventoryRequest.HTTPMethod = "GET"
+        request.httpMethod = "GET"
+        inventoryRequest.httpMethod = "GET"
 
-        let inventoryTask = session.dataTaskWithRequest(inventoryRequest, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) in
+        let inventoryTask = session.dataTask(with: inventoryRequest, completionHandler: {(data: Data?, response: URLResponse?, error: NSError?) in
             
-            guard let realResponse = response as? NSHTTPURLResponse where
+            guard let realResponse = response as? HTTPURLResponse ,
                 realResponse.statusCode == 200 else {
                     print("Not a 200 response  \(inventoryRequest) ")
                     return
             }
             do{
-                let response = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
-                let info = response.objectForKey("Response") as! NSDictionary
-                let infoData = info.objectForKey("data") as! NSDictionary
-                let inventoryArray = infoData.objectForKey("items") as! NSArray
+                let response = try JSONSerialization.jsonObject(with: data!, options:JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+                let info = response.object(forKey: "Response") as! NSDictionary
+                let infoData = info.object(forKey: "data") as! NSDictionary
+                let inventoryArray = infoData.object(forKey: "items") as! NSArray
                 for item in inventoryArray{
-                    let hash = item.objectForKey("bucketHash") as! Int
-                    let manifestURL = NSURL(string: "http://www.bungie.net/Platform/Destiny/Manifest/5/\(hash)/")
-                    let manifestRequest = NSMutableURLRequest(URL: manifestURL!)
+                    let hash = item.object(forKey: "bucketHash") as! Int
+                    let manifestURL = URL(string: "http://www.bungie.net/Platform/Destiny/Manifest/5/\(hash)/")
+                    let manifestRequest = NSMutableURLRequest(url: manifestURL!)
                     manifestRequest.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
-                    let manifestTask = session.dataTaskWithRequest(manifestRequest, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) in
+                    let manifestTask = session.dataTask(with: manifestRequest, completionHandler: {(data: Data?, response: URLResponse?, error: NSError?) in
                         
-                        guard let realResponse = response as? NSHTTPURLResponse where
+                        guard let realResponse = response as? HTTPURLResponse ,
                             realResponse.statusCode == 200 else {
                                 print("Not a 200 response  \(inventoryRequest) ")
                                 return
                         }
                         do{
-                            let manifestResponse = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                            let manifestResponse = try JSONSerialization.jsonObject(with: data!, options:JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
                             //print(manifestResponse)
 
                             
@@ -81,59 +81,59 @@ class DestinyViewController: UITabBarController {
         })
 inventoryTask.resume()
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // logic for multiple segues
         if (segue.identifier == "toDestiny"){
-            let detailView : DestinyInfo = segue.destinationViewController as! DestinyInfo
+            let detailView : DestinyInfo = segue.destination as! DestinyInfo
             detailView.myArray = self.myArray
         } else if(segue.identifier == "toChat"){
-            let detailView : ChatView = segue.destinationViewController as! ChatView
+            let detailView : ChatView = segue.destination as! ChatView
             detailView.handleChatTable()
         }
     }
     func getActivityList() {
         let activityString = "http://www.bungie.net/Platform/Destiny/2/Account/\(memberID!)/Character/\(myArray[currentCharacter].characterID!)/Activities/"
-        let activityURL = NSURL(string: activityString)
-        let request = NSMutableURLRequest(URL: activityURL!)
-        let session = NSURLSession.sharedSession()
+        let activityURL = URL(string: activityString)
+        let request = NSMutableURLRequest(url: activityURL!)
+        let session = URLSession.shared
         request.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
-        let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
-            guard let realResponse = response as? NSHTTPURLResponse where
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            guard let realResponse = response as? HTTPURLResponse ,
                 realResponse.statusCode == 200 else{
                     print("not 200 response")
                     return
             }
             do{
-                let activityResponse = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
-                let activitydata = activityResponse.objectForKey("Response") as! NSDictionary
-                let dataResponse = activitydata.objectForKey("data") as! NSDictionary
-                let availableActivities = dataResponse.objectForKey("available") as! NSArray
+                let activityResponse = try JSONSerialization.jsonObject(with: data!, options:JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+                let activitydata = activityResponse.object(forKey: "Response") as! NSDictionary
+                let dataResponse = activitydata.object(forKey: "data") as! NSDictionary
+                let availableActivities = dataResponse.object(forKey: "available") as! NSArray
                 var activityDictionary : [ Int : Int] = [:]
                 for activities in availableActivities{
-                    let activityHash = activities.objectForKey("activityHash") as! Int
+                    let activityHash = activities.object(forKey: "activityHash") as! Int
                    // print(activities)
-                    let activityComplete = activities.objectForKey("isCompleted") as! Int
+                    let activityComplete = activities.object(forKey: "isCompleted") as! Int
                     activityDictionary[activityHash] = activityComplete
                     //print(activityDictionary)
-                    let manifestURL = NSURL(string: "http://www.bungie.net/Platform/Destiny/Manifest/1/\(activityHash)/")
-                    let manifestRequest = NSMutableURLRequest(URL: manifestURL!)
+                    let manifestURL = URL(string: "http://www.bungie.net/Platform/Destiny/Manifest/1/\(activityHash)/")
+                    let manifestRequest = NSMutableURLRequest(url: manifestURL!)
                     manifestRequest.setValue( "784bdaa4cf8146b89b7b0e66af487b9f", forHTTPHeaderField: "X-API-Key")
-                    let manifestTask = session.dataTaskWithRequest(manifestRequest, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) in
+                    let manifestTask = session.dataTask(with: manifestRequest, completionHandler: {(data: Data?, response: URLResponse?, error: NSError?) in
                         
-                        guard let realResponse = response as? NSHTTPURLResponse where
+                        guard let realResponse = response as? HTTPURLResponse ,
                             realResponse.statusCode == 200 else {
                                 print("Not a 200 response  ")
                                 return
                         }
                         do{
-                            let activityManifestResponse = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                            let activityManifestResponse = try JSONSerialization.jsonObject(with: data!, options:JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
                             var newDictionary : [String: [Int:Int]] = [:]
-                            let activityDataManifest = activityManifestResponse.objectForKey("Response") as! NSDictionary
-                            let activityData2Manifest = activityDataManifest.objectForKey("data") as! NSDictionary
-                            let activity = activityData2Manifest.objectForKey("activity") as! NSDictionary
-                            let activityName  = activity.objectForKey("activityName") as! String
-                            let activitiyCompletion = activity.objectForKey("completionFlagHash") as! Int
-                            let activityDesc = activity.objectForKey("activityDescription") as! String
+                            let activityDataManifest = activityManifestResponse.object(forKey: "Response") as! NSDictionary
+                            let activityData2Manifest = activityDataManifest.object(forKey: "data") as! NSDictionary
+                            let activity = activityData2Manifest.object(forKey: "activity") as! NSDictionary
+                            let activityName  = activity.object(forKey: "activityName") as! String
+                            let activitiyCompletion = activity.object(forKey: "completionFlagHash") as! Int
+                            let activityDesc = activity.object(forKey: "activityDescription") as! String
                             let act: Activity = Activity(name: activityName, desc: activityDesc, complete: activitiyCompletion)
                             self.array1.append(act)
                             //self.performSelectorOnMainThread(#selector(self.arrayMaker), withObject: nil, waitUntilDone: true)
@@ -163,8 +163,8 @@ inventoryTask.resume()
     }
 
 // function to switch keys for dictionary
-    func switchKey<T, U>(inout myDict: [T:U], fromKey: T, toKey: T) {
-        if let entry = myDict.removeValueForKey(fromKey) {
+    func switchKey<T, U>(_ myDict: inout [T:U], fromKey: T, toKey: T) {
+        if let entry = myDict.removeValue(forKey: fromKey) {
             myDict[toKey] = entry
         }
     }

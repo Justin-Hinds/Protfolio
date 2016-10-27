@@ -18,7 +18,7 @@ class Post: NSObject {
     var disapprove: Int?
     var upVote: Int?
     var downVote: Int?
-    var linkUrl: NSURL?
+    var linkUrl: URL?
 
 
 }

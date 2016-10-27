@@ -15,40 +15,40 @@ class NewMessageController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         grabUser()
-        self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
-        tableView.registerClass(StickUserCell.self, forCellReuseIdentifier: "cellID")
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
+        tableView.register(StickUserCell.self, forCellReuseIdentifier: "cellID")
 
     }
     func grabUser() {
 
-        FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
             print(snapshot)
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 let user = StickUser()
                 print(snapshot)
                 user.id = snapshot.key
-                user.setValuesForKeysWithDictionary(dictionary)
+                user.setValuesForKeys(dictionary)
                 if FIRAuth.auth()?.currentUser?.uid != user.id{
                 self.stickUsersArray.append(user)
                 }
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                 })
             }
-            }, withCancelBlock: nil)
+            }, withCancel: nil)
     }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatLog = ChatLog(collectionViewLayout: UICollectionViewFlowLayout())
-        let user = stickUsersArray[indexPath.row]
+        let user = stickUsersArray[(indexPath as NSIndexPath).row]
         chatLog.user = user
         navigationController?.pushViewController(chatLog, animated: true)
     }
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return stickUsersArray.count
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let user = stickUsersArray[indexPath.row]
-        let cell =  tableView.dequeueReusableCellWithIdentifier("cellID")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let user = stickUsersArray[(indexPath as NSIndexPath).row]
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "cellID")
         cell!.textLabel!.text = user.name
         return cell!
     }
@@ -65,7 +65,7 @@ class NewMessageController: UITableViewController {
 
 class StickUserCell: UITableViewCell{
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
     
     required init?(coder aDecoder: NSCoder) {
