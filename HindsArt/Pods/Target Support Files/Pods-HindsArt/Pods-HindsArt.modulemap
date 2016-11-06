@@ -1,0 +1,6 @@
+framework module Pods_HindsArt {
+  umbrella header "Pods-HindsArt-umbrella.h"
+
+  export *
+  module * { export * }
+}

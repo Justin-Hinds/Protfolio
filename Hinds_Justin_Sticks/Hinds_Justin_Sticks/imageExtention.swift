@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-let imageCache = NSCache()
+let imageCache = NSCache<NSString, UIImage>()
 
 extension UIImageView {
 
@@ -17,7 +17,7 @@ extension UIImageView {
         
         self.image = nil
         
-        if let cachedImage = imageCache.object(forKey: urlString) as? UIImage {
+        if let cachedImage = imageCache.object(forKey: urlString as NSString){
             self.image = cachedImage
             return
         }
@@ -33,7 +33,7 @@ extension UIImageView {
             DispatchQueue.main.async(execute: {
                 
                 if let downloadedImg = UIImage(data: data!) {
-                    imageCache.setObject(downloadedImg, forKey: urlString)
+                    imageCache.setObject(downloadedImg, forKey: urlString as NSString)
                     
                     self.image = downloadedImg
                 }

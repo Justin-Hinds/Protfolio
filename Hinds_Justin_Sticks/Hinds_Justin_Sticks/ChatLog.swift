@@ -218,14 +218,14 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         present(imagePicker, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        var selectedImageFromPicker = UIImage?.self
+        var selectedImageFromPicker = UIImage()
         if let originalImage = info["UIImagePickerControllerOriginalImage"]{
-            selectedImageFromPicker = (originalImage as! UIImage.Type)
+            selectedImageFromPicker = (originalImage as! UIImage)
         }
-        if let selectedImage = selectedImageFromPicker{
+         let selectedImage = selectedImageFromPicker
             uploadImageToFirebase(selectedImage )
             dismiss(animated: true, completion: nil)
-        }
+        
         
     }
     fileprivate func uploadImageToFirebase(_ img: UIImage){
@@ -280,7 +280,7 @@ class ChatLog: UICollectionViewController, UITextFieldDelegate, UICollectionView
         let toId = self.user!.id!
         print(FIRAuth.auth()?.currentUser)
         let senderId = FIRAuth.auth()!.currentUser!.uid
-       // let time: NSNumber = NSNumber(Int(Date().timeIntervalSince1970))
+        let time = NSNumber(value: Int(Date().timeIntervalSince1970))
         let values = ["text": messageText, "toId": toId, "senderId": senderId, "time": time] as [String : Any]
         childRef.updateChildValues(values) { (error, ref) in
             if error != nil{

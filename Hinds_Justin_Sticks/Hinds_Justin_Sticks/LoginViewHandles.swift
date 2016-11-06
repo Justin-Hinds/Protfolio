@@ -23,7 +23,7 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
         }
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user , error) in
             if error != nil{
-                switch error!.code {
+                switch error!._code {
                 case errorCode.badEmailFormat.rawValue:
                     let registerFail : UIAlertController = UIAlertController(title: "Sorry", message: " Invalid Email", preferredStyle: UIAlertControllerStyle.alert)
                     //action for said controller
@@ -143,12 +143,12 @@ extension LoginView : UIImagePickerControllerDelegate, UINavigationControllerDel
         
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {    var selectedImage = UIImage?()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {    var selectedImage = UIImage()
         if let originalImage = info["UIImagePickerControllerOriginalImage"]{
             selectedImage = (originalImage as! UIImage)
         }
-        if let profilePic = selectedImage{
+         let profilePic = selectedImage
             profileImage.image = profilePic
-        }
+        
     }
 }

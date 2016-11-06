@@ -100,7 +100,7 @@ func swipeLeftAction() {
             return
         }
         let senderId = FIRAuth.auth()!.currentUser!.uid
-      //  let time: Number = Number(Int(Date().timeIntervalSince1970))
+        let time = NSNumber(value: Int(Date().timeIntervalSince1970))
         let pID = childRef.key
         let values = ["text": postText,"senderId": senderId, "time": time, "postID": pID] as [String : Any]
         childRef.updateChildValues(values) { (error, ref) in

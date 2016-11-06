@@ -12,7 +12,7 @@ import Firebase
 class FeedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, FeedDelegate {
     var userArray = [StickUser]()
     var posts = [Post]()
-    //let time: NSNumber = NSNumber(Int(Date().timeIntervalSince1970))
+    let time = NSNumber(value: Int(Date().timeIntervalSince1970))
     var hasImage = false
     var newsArray = [NewsPost]()
     var newsArray2 = [NewsPost]()
