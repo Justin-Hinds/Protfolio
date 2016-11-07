@@ -96,11 +96,12 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rV-W8-dN5">
-                                <rect key="frame" x="131" y="576" width="101" height="30"/>
+                                <rect key="frame" x="41" y="576" width="279" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginOrRegister:" destination="XN6-BK-NVr" eventType="touchUpInside" id="nze-i5-fhh"/>
+                                    <segue destination="1c8-e9-QTT" kind="presentation" id="QeY-Zv-0dH"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile_Pic" translatesAutoresizingMaskIntoConstraints="NO" id="qM2-aQ-fJk">
@@ -130,31 +131,10 @@
             </objects>
             <point key="canvasLocation" x="-100" y="135.38230884557723"/>
         </scene>
-        <!--Artists-->
-        <scene sceneID="ThP-tA-QPs">
-            <objects>
-                <viewController id="PZL-NM-AEh" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="X9m-ud-4Ep"/>
-                        <viewControllerLayoutGuide type="bottom" id="I27-tV-29c"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cOu-xF-iD8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Artists" id="8zZ-dA-bhC">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="MpM-0A-QCv"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WSX-Gj-um5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2012" y="912.5937031484259"/>
-        </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar Controller-->
         <scene sceneID="3mo-7g-MZC">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1c8-e9-QTT" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1c8-e9-QTT" customClass="CustomTabBarController" customModule="HindsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gKl-p7-C9t">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -189,10 +169,68 @@
             </objects>
             <point key="canvasLocation" x="1775.2" y="136.28185907046478"/>
         </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="eKE-Hb-7Rt">
+            <objects>
+                <viewController id="Hbq-OC-Y23" customClass="UploadViewController" customModule="HindsArt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dm9-XA-n1p"/>
+                        <viewControllerLayoutGuide type="bottom" id="EKz-Ko-BiK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FVh-in-t0r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj0-Eo-Ui1">
+                                <rect key="frame" x="27" y="72" width="320" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWK-Ho-PyC">
+                                <rect key="frame" x="139" y="260" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWL-sH-paK">
+                                <rect key="frame" x="139" y="298" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fui-5e-sG0">
+                                <rect key="frame" x="162" y="504" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadPaintingButton:" destination="Hbq-OC-Y23" eventType="touchUpInside" id="Co4-A1-TgU"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cgV-y0-sYB">
+                                <rect key="frame" x="67" y="336" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="newPaintingImg" destination="Kj0-Eo-Ui1" id="KTS-tK-XEp"/>
+                        <outlet property="paintingPrice" destination="MWL-sH-paK" id="1gN-fo-LXe"/>
+                        <outlet property="paintingTitle" destination="KWK-Ho-PyC" id="AMl-5b-HE4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFf-x4-9p7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2514" y="-652"/>
+        </scene>
         <!--Gallery-->
         <scene sceneID="fL4-rE-J0K">
             <objects>
-                <collectionViewController id="Bh1-Ys-oVj" sceneMemberID="viewController">
+                <collectionViewController id="Bh1-Ys-oVj" customClass="GalleryCollectionViewController" customModule="HindsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5pM-ez-ad2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,13 +242,23 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9mt-Ya-ldm">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PaintingCell" id="9mt-Ya-ldm" customClass="PaintingCollectionViewCell" customModule="HindsArt" customModuleProvider="target">
                                 <rect key="frame" x="28" y="0.0" width="320" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SMl-M4-fMW">
+                                            <rect key="frame" x="8" y="8" width="304" height="154"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <connections>
+                                    <outlet property="paintingImage" destination="SMl-M4-fMW" id="a5w-AL-NRD"/>
+                                    <segue destination="B2Q-FB-EuD" kind="show" identifier="showPainting" id="Y7f-AC-i39"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -220,11 +268,34 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Gallery" id="WWF-Ql-adc">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="uDa-5P-ozm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GL1-5P-v1b">
+                            <connections>
+                                <segue destination="Hbq-OC-Y23" kind="show" identifier="showUpload" id="Y0A-ok-Suf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYE-7a-c8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2541.5999999999999" y="161.46926536731635"/>
+            <point key="canvasLocation" x="2540" y="134.48275862068968"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="RqJ-fX-3gP">
+            <objects>
+                <viewController id="B2Q-FB-EuD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="32N-5v-Ypa"/>
+                        <viewControllerLayoutGuide type="bottom" id="DN3-m4-LzE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4MQ-mK-LSI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tE1-8r-5Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3362" y="135"/>
         </scene>
         <!--Artist-->
         <scene sceneID="HkM-5a-ZnT">
@@ -238,12 +309,62 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="PZL-NM-AEh" kind="relationship" relationship="rootViewController" id="eMh-QM-Cvf"/>
+                        <segue destination="1rM-PZ-vaT" kind="relationship" relationship="rootViewController" id="gQA-Dl-htA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbv-ax-Xyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1072.8" y="912.5937031484259"/>
+        </scene>
+        <!--Artists-->
+        <scene sceneID="qeb-rh-BBv">
+            <objects>
+                <tableViewController id="1rM-PZ-vaT" customClass="ArtistTableViewController" customModule="HindsArt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5sO-Ca-yVt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="SgX-Gd-2qq" customClass="CustomTableViewCell" customModule="HindsArt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SgX-Gd-2qq" id="gdE-rK-YK1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DEQ-6J-GSy" kind="show" identifier="showArtist" id="C11-Oe-hhZ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1rM-PZ-vaT" id="p1P-gv-ms0"/>
+                            <outlet property="delegate" destination="1rM-PZ-vaT" id="2a4-8w-sFZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Artists" id="Ewb-Gm-IIK"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4U-NN-fTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1959" y="913"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UjM-vF-HH6">
+            <objects>
+                <viewController id="DEQ-6J-GSy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oCV-O8-ZFh"/>
+                        <viewControllerLayoutGuide type="bottom" id="SNx-li-alj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k3G-hg-2uQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgB-kY-uYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2801" y="913"/>
         </scene>
     </scenes>
     <resources>

@@ -134,7 +134,6 @@ extension LoginViewController : UIImagePickerControllerDelegate, UINavigationCon
                 return
             }
             // login was sucessful
-            print("we logged in")
             self.navigationController?.pushViewController(CustomTabBarController(), animated: true) })
     }
     
@@ -144,7 +143,6 @@ extension LoginViewController : UIImagePickerControllerDelegate, UINavigationCon
     func handleLoginOrRegister(){
         if loginRegisterToggle.selectedSegmentIndex == 0{
             handleLogin()
-            print("login hit")
 
         }else{
             handleRegister()
@@ -156,6 +154,7 @@ extension LoginViewController : UIImagePickerControllerDelegate, UINavigationCon
     func profilePicSelector() {
         let picker = UIImagePickerController()
         picker.delegate = self
+        picker.sourceType = .photoLibrary
         present(picker, animated: true, completion: nil)
         
     }

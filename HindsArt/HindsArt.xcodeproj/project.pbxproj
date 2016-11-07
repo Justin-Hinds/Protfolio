@@ -11,6 +11,11 @@
 		050157B41DCA9AF60080BB04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 050157B31DCA9AF60080BB04 /* GoogleService-Info.plist */; };
 		050157B61DCAAAD90080BB04 /* Login + Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050157B51DCAAAD90080BB04 /* Login + Handlers.swift */; };
 		052072381DCC37000086A676 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052072371DCC37000086A676 /* GalleryCollectionViewController.swift */; };
+		0520723C1DCEC4CD0086A676 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520723B1DCEC4CD0086A676 /* CustomCell.swift */; };
+		0520723E1DCEC4D20086A676 /* ArtistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520723D1DCEC4D20086A676 /* ArtistTableViewController.swift */; };
+		052072401DCECF940086A676 /* PaintingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520723F1DCECF940086A676 /* PaintingCollectionViewCell.swift */; };
+		052072421DCEEE450086A676 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052072411DCEEE450086A676 /* UploadViewController.swift */; };
+		052072441DD032EF0086A676 /* ImageCacheExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052072431DD032EE0086A676 /* ImageCacheExtention.swift */; };
 		059FB9681DC401C400B76B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059FB9671DC401C400B76B9A /* AppDelegate.swift */; };
 		059FB96A1DC401C400B76B9A /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059FB9691DC401C400B76B9A /* CustomTabBarController.swift */; };
 		059FB96D1DC401C400B76B9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059FB96B1DC401C400B76B9A /* Main.storyboard */; };
@@ -49,6 +54,11 @@
 		050157B51DCAAAD90080BB04 /* Login + Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Login + Handlers.swift"; sourceTree = "<group>"; };
 		050157B71DCAAD450080BB04 /* HindsArt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HindsArt.entitlements; sourceTree = "<group>"; };
 		052072371DCC37000086A676 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
+		0520723B1DCEC4CD0086A676 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		0520723D1DCEC4D20086A676 /* ArtistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewController.swift; sourceTree = "<group>"; };
+		0520723F1DCECF940086A676 /* PaintingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingCollectionViewCell.swift; sourceTree = "<group>"; };
+		052072411DCEEE450086A676 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		052072431DD032EE0086A676 /* ImageCacheExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheExtention.swift; sourceTree = "<group>"; };
 		059FB9641DC401C400B76B9A /* HindsArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HindsArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		059FB9671DC401C400B76B9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		059FB9691DC401C400B76B9A /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -129,14 +139,19 @@
 		059FB9661DC401C400B76B9A /* HindsArt */ = {
 			isa = PBXGroup;
 			children = (
+				0520723F1DCECF940086A676 /* PaintingCollectionViewCell.swift */,
 				059FDEDC1DCBC5D800F745D3 /* Painting.swift */,
+				052072431DD032EE0086A676 /* ImageCacheExtention.swift */,
 				059FDEDE1DCBC5E000F745D3 /* Artist.swift */,
+				0520723D1DCEC4D20086A676 /* ArtistTableViewController.swift */,
+				0520723B1DCEC4CD0086A676 /* CustomCell.swift */,
 				050157B71DCAAD450080BB04 /* HindsArt.entitlements */,
-				059FB9671DC401C400B76B9A /* AppDelegate.swift */,
 				050157B11DCA99980080BB04 /* LoginViewController.swift */,
 				050157B51DCAAAD90080BB04 /* Login + Handlers.swift */,
+				059FB9671DC401C400B76B9A /* AppDelegate.swift */,
 				059FB9691DC401C400B76B9A /* CustomTabBarController.swift */,
 				059FB96B1DC401C400B76B9A /* Main.storyboard */,
+				052072411DCEEE450086A676 /* UploadViewController.swift */,
 				052072371DCC37000086A676 /* GalleryCollectionViewController.swift */,
 				059FB9711DC401C400B76B9A /* Assets.xcassets */,
 				059FB9731DC401C400B76B9A /* LaunchScreen.storyboard */,
@@ -460,13 +475,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				052072441DD032EF0086A676 /* ImageCacheExtention.swift in Sources */,
 				050157B61DCAAAD90080BB04 /* Login + Handlers.swift in Sources */,
+				052072421DCEEE450086A676 /* UploadViewController.swift in Sources */,
 				050157B21DCA99980080BB04 /* LoginViewController.swift in Sources */,
 				059FB96A1DC401C400B76B9A /* CustomTabBarController.swift in Sources */,
 				052072381DCC37000086A676 /* GalleryCollectionViewController.swift in Sources */,
+				0520723C1DCEC4CD0086A676 /* CustomCell.swift in Sources */,
 				059FDEDD1DCBC5D800F745D3 /* Painting.swift in Sources */,
+				0520723E1DCEC4D20086A676 /* ArtistTableViewController.swift in Sources */,
 				059FB9701DC401C400B76B9A /* HindsArt.xcdatamodeld in Sources */,
 				059FB9681DC401C400B76B9A /* AppDelegate.swift in Sources */,
+				052072401DCECF940086A676 /* PaintingCollectionViewCell.swift in Sources */,
 				059FDEDF1DCBC5E000F745D3 /* Artist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

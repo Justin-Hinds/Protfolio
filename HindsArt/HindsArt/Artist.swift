@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Artist {
+class Artist: NSObject {
     
     var id: String?
     var name: String?

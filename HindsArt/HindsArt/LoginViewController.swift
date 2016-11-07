@@ -24,7 +24,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         if loginRegisterToggle.selectedSegmentIndex == 0{
             addressInfoView.isHidden = true
+            profileImage.isHidden = true
         }else{
+            profileImage.isHidden = false
             addressInfoView.isHidden = false
 
         }
@@ -44,24 +46,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordInput: UITextField!
     
 
-//    lazy var loginRegisterToggle: UISegmentedControl = {
-//        let sc = UISegmentedControl(items: ["Login", "Register"])
-//        sc.translatesAutoresizingMaskIntoConstraints = false
-//        sc.tintColor = UIColor.white
-//        sc.backgroundColor = UIColor(R: 47, G: 72, B: 88, A: 1)
-//        sc.selectedSegmentIndex = 1
-//        sc.addTarget(self, action: #selector(handleLoginOrRegisterChange), for: .valueChanged)
-//        return sc
-//    }()
         override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(R: 239 , G: 248, B: 226, A: 1)
+            let tap = UITapGestureRecognizer(target: self, action: #selector( profilePicSelector))
+            tap.numberOfTapsRequired = 1
+            profileImage.isUserInteractionEnabled = true
+            profileImage.addGestureRecognizer(tap)
+
         ref = FIRDatabase.database().reference(fromURL: "https://hindsart-2a003.firebaseio.com/")
             if loginRegisterToggle.selectedSegmentIndex == 0{
                 addressInfoView.isHidden = true
+                profileImage.isHidden = true
             }else{
                 addressInfoView.isHidden = false
-                
+                profileImage.isHidden = false
             }
 
           }

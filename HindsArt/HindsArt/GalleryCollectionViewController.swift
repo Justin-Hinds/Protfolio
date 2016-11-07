@@ -7,10 +7,20 @@
 //
 
 import UIKit
-
-private let reuseIdentifier = "Cell"
+import Firebase
+private let reuseIdentifier = "PaintingCell"
 
 class GalleryCollectionViewController: UICollectionViewController {
+    
+    
+    var paintingsArray = [Painting]()
+    var user : Artist?{
+        didSet{
+            navigationItem.title = user!.name
+            DispatchQueue.main.async {
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +29,7 @@ class GalleryCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        observePaintings()
         // Do any additional setup after loading the view.
     }
 
@@ -43,23 +52,50 @@ class GalleryCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return paintingsArray.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell: PaintingCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaintingCell", for: indexPath) as! PaintingCollectionViewCell
     
         // Configure the cell
+        let painting = paintingsArray[indexPath.row]
+        cell.paintingImage.loadImageUsingCache(painting.imgURL!)
+        cell.backgroundColor = UIColor.gray
     
         return cell
     }
 
+    func observePaintings() {
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else{
+            return
+        }
+        let artistPaintingsRef = FIRDatabase.database().reference().child("artist_paintings").child(uid)
+        artistPaintingsRef.observe(.childAdded, with: { (snapshot) in
+            let paintingID = snapshot.key
+            let paintingRef = FIRDatabase.database().reference().child("paintings").child(paintingID)
+            paintingRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dict = snapshot.value as? [String:AnyObject]{
+                    let painting = Painting()
+                    painting.setValuesForKeys(dict)
+                    self.paintingsArray.append(painting)
+                                            DispatchQueue.main.async(execute: {
+                            self.collectionView!.reloadData()
+                        })
+                        
+                    }
+                
+                
+            }, withCancel: nil)
+        }, withCancel: nil)
+
+    }
     // MARK: UICollectionViewDelegate
 
     /*
