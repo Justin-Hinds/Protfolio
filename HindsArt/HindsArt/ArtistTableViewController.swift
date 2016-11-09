@@ -14,7 +14,7 @@ class ArtistTableViewController: UITableViewController {
     var artistArray = [Artist]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       // getArtists()
          }
 
     override func didReceiveMemoryWarning() {

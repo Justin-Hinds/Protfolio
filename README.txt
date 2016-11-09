@@ -1,10 +1,7 @@
 Developer: Justin Hinds
 
-Sticks App Version 0.9.6
+HindsArt Version 0.1.5
 
-Git - https://github.com/Justin-Hinds/Protfolio/tree/master/Hinds_Justin_Sticks
+Git - https://github.com/Justin-Hinds/Protfolio/tree/master/HindsArt
 
-You can register with a valid email address and password at least 6 characters long. I am using cocoa pods so .xcworkspace is the file to open.
-swipe right for the posting view
-swipe left for settings view where you can change the news feed preference.
-post interactions do not currently work.
+You can register artists, tap the profile icon to upload personal image. on the upload page tap the blank space to pull up a image picker in order to upload images of paintings. artist list currently not up.
