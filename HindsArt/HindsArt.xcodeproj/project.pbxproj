@@ -26,6 +26,10 @@
 		059FB98B1DC401C400B76B9A /* HindsArtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059FB98A1DC401C400B76B9A /* HindsArtUITests.swift */; };
 		059FDEDD1DCBC5D800F745D3 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059FDEDC1DCBC5D800F745D3 /* Painting.swift */; };
 		059FDEDF1DCBC5E000F745D3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059FDEDE1DCBC5E000F745D3 /* Artist.swift */; };
+		05BA41901DD4064400088F19 /* PaintingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA418F1DD4064400088F19 /* PaintingViewController.swift */; };
+		05BA41921DD4171500088F19 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA41911DD4171500088F19 /* ArtistViewController.swift */; };
+		05E67EB61DD69556005EB190 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E67EB51DD69556005EB190 /* PurchaseViewController.swift */; };
+		05EEA2051DD508810097186C /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEA2041DD508810097186C /* Email.swift */; };
 		4F69EB622E7E531E88DEF294 /* Pods_HindsArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCE5041CD5F8758954B063E /* Pods_HindsArt.framework */; };
 		5C1CD737D8475E459AA50E33 /* Pods_HindsArtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2837FDEC78D5B538080172 /* Pods_HindsArtTests.framework */; };
 		EBDAE7314DCE23BB6AAD77C1 /* Pods_HindsArtUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8773DF64338F94F004204C1 /* Pods_HindsArtUITests.framework */; };
@@ -75,6 +79,10 @@
 		059FB98C1DC401C400B76B9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		059FDEDC1DCBC5D800F745D3 /* Painting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		059FDEDE1DCBC5E000F745D3 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		05BA418F1DD4064400088F19 /* PaintingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingViewController.swift; sourceTree = "<group>"; };
+		05BA41911DD4171500088F19 /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
+		05E67EB51DD69556005EB190 /* PurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		05EEA2041DD508810097186C /* Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		0BCE5041CD5F8758954B063E /* Pods_HindsArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HindsArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA4CC6BFE4E1F3D38764B60 /* Pods-HindsArtTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HindsArtTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HindsArtTests/Pods-HindsArtTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0F17FDFAC261C7F248A6CF0B /* Pods-HindsArtUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HindsArtUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HindsArtUITests/Pods-HindsArtUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,20 +147,15 @@
 		059FB9661DC401C400B76B9A /* HindsArt */ = {
 			isa = PBXGroup;
 			children = (
-				0520723F1DCECF940086A676 /* PaintingCollectionViewCell.swift */,
-				059FDEDC1DCBC5D800F745D3 /* Painting.swift */,
 				052072431DD032EE0086A676 /* ImageCacheExtention.swift */,
-				059FDEDE1DCBC5E000F745D3 /* Artist.swift */,
-				0520723D1DCEC4D20086A676 /* ArtistTableViewController.swift */,
-				0520723B1DCEC4CD0086A676 /* CustomCell.swift */,
+				05BA41941DD419A100088F19 /* Artist Section */,
 				050157B71DCAAD450080BB04 /* HindsArt.entitlements */,
-				050157B11DCA99980080BB04 /* LoginViewController.swift */,
-				050157B51DCAAAD90080BB04 /* Login + Handlers.swift */,
+				05BA41951DD419C300088F19 /* Login */,
 				059FB9671DC401C400B76B9A /* AppDelegate.swift */,
 				059FB9691DC401C400B76B9A /* CustomTabBarController.swift */,
 				059FB96B1DC401C400B76B9A /* Main.storyboard */,
-				052072411DCEEE450086A676 /* UploadViewController.swift */,
-				052072371DCC37000086A676 /* GalleryCollectionViewController.swift */,
+				05EEA2041DD508810097186C /* Email.swift */,
+				05BA41931DD4196000088F19 /* Gallery Section */,
 				059FB9711DC401C400B76B9A /* Assets.xcassets */,
 				059FB9731DC401C400B76B9A /* LaunchScreen.storyboard */,
 				050157B31DCA9AF60080BB04 /* GoogleService-Info.plist */,
@@ -178,6 +181,39 @@
 				059FB98C1DC401C400B76B9A /* Info.plist */,
 			);
 			path = HindsArtUITests;
+			sourceTree = "<group>";
+		};
+		05BA41931DD4196000088F19 /* Gallery Section */ = {
+			isa = PBXGroup;
+			children = (
+				05E67EB51DD69556005EB190 /* PurchaseViewController.swift */,
+				0520723F1DCECF940086A676 /* PaintingCollectionViewCell.swift */,
+				059FDEDC1DCBC5D800F745D3 /* Painting.swift */,
+				05BA418F1DD4064400088F19 /* PaintingViewController.swift */,
+				052072411DCEEE450086A676 /* UploadViewController.swift */,
+				052072371DCC37000086A676 /* GalleryCollectionViewController.swift */,
+			);
+			name = "Gallery Section";
+			sourceTree = "<group>";
+		};
+		05BA41941DD419A100088F19 /* Artist Section */ = {
+			isa = PBXGroup;
+			children = (
+				059FDEDE1DCBC5E000F745D3 /* Artist.swift */,
+				0520723D1DCEC4D20086A676 /* ArtistTableViewController.swift */,
+				0520723B1DCEC4CD0086A676 /* CustomCell.swift */,
+				05BA41911DD4171500088F19 /* ArtistViewController.swift */,
+			);
+			name = "Artist Section";
+			sourceTree = "<group>";
+		};
+		05BA41951DD419C300088F19 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				050157B11DCA99980080BB04 /* LoginViewController.swift */,
+				050157B51DCAAAD90080BB04 /* Login + Handlers.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		3C90C6ABD985412CE2FF92D1 /* Frameworks */ = {
@@ -274,12 +310,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Justin Hinds";
 				TargetAttributes = {
 					059FB9631DC401C400B76B9A = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 632RN23THU;
+						DevelopmentTeam = DMCD24JAGY;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -478,16 +514,20 @@
 				052072441DD032EF0086A676 /* ImageCacheExtention.swift in Sources */,
 				050157B61DCAAAD90080BB04 /* Login + Handlers.swift in Sources */,
 				052072421DCEEE450086A676 /* UploadViewController.swift in Sources */,
+				05E67EB61DD69556005EB190 /* PurchaseViewController.swift in Sources */,
 				050157B21DCA99980080BB04 /* LoginViewController.swift in Sources */,
 				059FB96A1DC401C400B76B9A /* CustomTabBarController.swift in Sources */,
 				052072381DCC37000086A676 /* GalleryCollectionViewController.swift in Sources */,
 				0520723C1DCEC4CD0086A676 /* CustomCell.swift in Sources */,
 				059FDEDD1DCBC5D800F745D3 /* Painting.swift in Sources */,
+				05BA41901DD4064400088F19 /* PaintingViewController.swift in Sources */,
 				0520723E1DCEC4D20086A676 /* ArtistTableViewController.swift in Sources */,
 				059FB9701DC401C400B76B9A /* HindsArt.xcdatamodeld in Sources */,
 				059FB9681DC401C400B76B9A /* AppDelegate.swift in Sources */,
 				052072401DCECF940086A676 /* PaintingCollectionViewCell.swift in Sources */,
 				059FDEDF1DCBC5E000F745D3 /* Artist.swift in Sources */,
+				05EEA2051DD508810097186C /* Email.swift in Sources */,
+				05BA41921DD4171500088F19 /* ArtistViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +600,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -609,6 +650,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -639,12 +681,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HindsArt/HindsArt.entitlements;
-				DEVELOPMENT_TEAM = 632RN23THU;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DMCD24JAGY;
 				INFOPLIST_FILE = HindsArt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arcane.HindsArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -654,12 +702,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HindsArt/HindsArt.entitlements;
-				DEVELOPMENT_TEAM = 632RN23THU;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = HindsArt/HindsArt.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DMCD24JAGY;
 				INFOPLIST_FILE = HindsArt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arcane.HindsArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

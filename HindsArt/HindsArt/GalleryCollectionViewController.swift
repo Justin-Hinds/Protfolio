@@ -96,6 +96,17 @@ class GalleryCollectionViewController: UICollectionViewController {
         }, withCancel: nil)
 
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPainting"{
+        let indexPaths = collectionView?.indexPathsForSelectedItems
+         let indexPath = indexPaths?[0] as! NSIndexPath
+        let detail = segue.destination as! PaintingViewController
+            detail.painting = paintingsArray[indexPath.row]
+        }else{
+            let detail = segue.destination as! UploadViewController
+        }
+    }
     // MARK: UICollectionViewDelegate
 
     /*

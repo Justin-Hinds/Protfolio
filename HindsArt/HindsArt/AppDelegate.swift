@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import Braintree
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
             FIRApp.configure()
+        BTAppSwitch.setReturnURLScheme("com.arcane.HindsArt.payment")
         return true
+    }
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if url.scheme?.localizedCaseInsensitiveCompare("com.arcane.HindsArt.payment") == .orderedSame{
+            return BTAppSwitch.handleOpen(url, sourceApplication: sourceApplication)
+        }
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

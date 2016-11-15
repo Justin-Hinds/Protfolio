@@ -12,9 +12,10 @@ import Firebase
 class ArtistTableViewController: UITableViewController {
 
     var artistArray = [Artist]()
+    var currentUser = Artist()
     override func viewDidLoad() {
         super.viewDidLoad()
-       // getArtists()
+        getArtists()
          }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +37,7 @@ class ArtistTableViewController: UITableViewController {
     func getArtists() {
         
         FIRDatabase.database().reference().child("artists").observe(.childAdded, with: { (snapshot) in
-            print(snapshot)
+          //  print(snapshot)
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 let artist = Artist()
                 print(snapshot)
@@ -44,6 +45,8 @@ class ArtistTableViewController: UITableViewController {
                 artist.setValuesForKeys(dictionary)
                 if FIRAuth.auth()?.currentUser?.uid != artist.id{
                     self.artistArray.append(artist)
+                }else if FIRAuth.auth()?.currentUser?.uid == artist.id{
+                    self.currentUser = artist
                 }
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
@@ -82,14 +85,19 @@ class ArtistTableViewController: UITableViewController {
     }
     */
 
-      /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let detail = segue.destination as! ArtistViewController
+        let indexPath = tableView.indexPathForSelectedRow
+               if segue.identifier == "showArtist" {
+                let artist = artistArray[(indexPath?.row)!]
+                detail.artist = artist
+        }else if segue.identifier == "showUser"{
+                detail.artist = currentUser
+        }
+
+
     }
-    */
 
 }

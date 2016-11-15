@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Braintree-Braintree-Drop-In-Localization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Braintree-Braintree-UI-Localization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Braintree.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-HindsArt.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +42,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>11BD9F68C2F91F5AF96C10585EAE863A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4DB85987050BF2A3E76355E6CAED5C73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9890B050B4893F2DA2161F9C319C339</key>
+		<key>6BABDCAB10C7A22CBBBC7C36A10AB070</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BF15DE4E17E389ABC373A576A618294C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3CA6A004BD18BEA9E5502E4089BE94F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

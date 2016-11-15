@@ -14,13 +14,32 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var newPaintingImg: UIImageView!
     @IBOutlet weak var paintingTitle: UITextField!
     @IBOutlet weak var paintingPrice: UITextField!
+    @IBOutlet weak var paintingDesc: UITextView!
+    
     @IBAction func uploadPaintingButton(_ sender: UIButton) {
-        if let img = newPaintingImg.image{
-            uploadImageToFirebase(img)
+        print()
+        if (paintingTitle.text != "") && paintingPrice.text != ""{
+            if let img = newPaintingImg.image {
+                uploadImageToFirebase(img)
+            }else{
+                print("UPLOAD FAILED")
+            }
+
         }else{
-            print("UPLOAD FAILED")
+            print("alert should appear")
+            let uploadFail : UIAlertController = UIAlertController(title: "Sorry", message: " There was a problem uploading your painting. Pleas check yout title and price", preferredStyle: UIAlertControllerStyle.alert)
+            //action for said controller
+            let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (ACTION) -> Void in
+            })
+            
+            //casting the alert
+            self.present(uploadFail, animated: true, completion: nil)
+            //adding action to alert
+            uploadFail.addAction(ok)
+            
+
         }
-     //   handleUpload()
+            //   handleUpload()
     }
     
     
@@ -69,7 +88,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             selectedImageFromPicker = (originalImage as! UIImage)
         }
         let selectedImage = selectedImageFromPicker
-        uploadImageToFirebase(selectedImage )
         newPaintingImg.image = selectedImage
         dismiss(animated: true, completion: nil)
         
@@ -83,7 +101,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         print(FIRAuth.auth()?.currentUser! as Any)
         let senderId = FIRAuth.auth()!.currentUser!.uid
         //let time: NSNumber = NSNumber(Int(Date().timeIntervalSince1970))
-        let values = ["imgURL": imgURL, "imgHeight": img.size.height, "imgWidth": img.size.width] as [String : Any]
+        let values = ["imgURL": imgURL, "imgHeight": img.size.height, "imgWidth": img.size.width, "title" : paintingTitle.text, "price" : paintingPrice.text, "desc": paintingDesc.text] as [String : Any]
         childRef.updateChildValues(values) { (error, ref) in
             if error != nil{
                 print(error!)
@@ -92,9 +110,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             let artistPaintingRef = FIRDatabase.database().reference().child("artist_paintings").child(senderId)
             let paintingID = childRef.key
             artistPaintingRef.updateChildValues([paintingID : 1])
-            
-//            let recipientMessageRef = FIRDatabase.database().reference().child("artist_paintings").child(toId)
-//            recipientMessageRef.updateChildValues([paintingID : 1])
+            self.navigationController?.popToRootViewController(animated: true)
+           // self.dismiss(animated: true, completion: nil)
         }
     }
    

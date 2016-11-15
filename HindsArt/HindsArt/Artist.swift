@@ -14,9 +14,13 @@ class Artist: NSObject {
     var name: String?
     var email: String?
     var bio: String?
-    var address1: String?
+    var address: String?
     var city: String?
     var state: String?
-    var zip: Int?
-    var profileImageURL: URL?
+    var zip: String?
+    var profileImageURL: String?
+    var birthPlace: String?
+    var birthday: String?
+    var inspiration: String?
+    
 }

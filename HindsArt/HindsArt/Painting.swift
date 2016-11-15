@@ -14,7 +14,7 @@ class Painting: NSObject{
     var artistID: String?
     var title: String?
     var time: NSNumber?
-    var price: Int?
+    var price: String?
     var desc: String?
     var imgURL: String?
     var image: UIImage?
