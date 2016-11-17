@@ -18,6 +18,7 @@ class Painting: NSObject{
     var desc: String?
     var imgURL: String?
     var image: UIImage?
+    var paintingKey: String?
     var imgHeight: NSNumber?
     var imgWidth: NSNumber?
 }

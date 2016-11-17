@@ -8,6 +8,7 @@
 
 import UIKit
 import Braintree
+import Firebase
 
 class PaintingViewController: UIViewController, BTDropInViewControllerDelegate {
     var painting = Painting()
@@ -21,7 +22,8 @@ class PaintingViewController: UIViewController, BTDropInViewControllerDelegate {
         let navController = UINavigationController(rootViewController: dropInView)
         
         dropInView.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(cancelPayment))
-        present(navController, animated: true, completion: nil)
+        navigationController?.pushViewController(dropInView, animated: true)
+        //present(navController, animated: true, completion: nil)
         
     }
     var braintreeClient: BTAPIClient?
@@ -50,14 +52,16 @@ class PaintingViewController: UIViewController, BTDropInViewControllerDelegate {
     }
     func drop(_ viewController: BTDropInViewController, didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce) {
        print("PAYMENT SUCCEEDED!!!!")
-        _ = navigationController?.popToRootViewController(animated: true)
+        let ref = FIRDatabase.database().reference().child("paintings")
+        ref.child(painting.paintingKey!).removeValue()
+        _ = navigationController?.popToRootViewController(animated: true )
         //dismiss(animated: true, completion: nil)
     }
     func drop(inViewControllerDidCancel viewController: BTDropInViewController) {
-        dismiss(animated: true, completion: nil)
+        _ = navigationController?.popToRootViewController(animated: true )
     }
     func cancelPayment()  {
-        dismiss(animated: true, completion: nil)
+        _ = navigationController?.popToRootViewController(animated: true )
     }
     /*
     // MARK: - Navigation

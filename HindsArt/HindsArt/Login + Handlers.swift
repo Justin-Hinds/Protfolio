@@ -93,6 +93,9 @@ extension LoginViewController : UIImagePickerControllerDelegate, UINavigationCon
                         }
                 })
             }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! CustomTabBarController
+            self.present(vc, animated: true, completion: nil)
             
         })
     }
@@ -134,7 +137,11 @@ extension LoginViewController : UIImagePickerControllerDelegate, UINavigationCon
                 return
             }
             // login was sucessful
-            self.navigationController?.pushViewController(CustomTabBarController(), animated: true) })
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! CustomTabBarController
+            self.present(vc, animated: true, completion: nil)
+            //self.navigationController?.pushViewController(CustomTabBarController(), animated: true) 
+        })
     }
     
     

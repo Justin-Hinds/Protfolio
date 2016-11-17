@@ -84,7 +84,7 @@ class ArtistViewController: UIViewController, MFMailComposeViewControllerDelegat
     let birthPlace = birthPlaceText.text
     let update = ["birthday" : birthday, "birthPlace" : birthPlace, "bio" : bio, "inspiration" : inspiration]
         ref.child("artists").child(artist.id!).updateChildValues(update)
-        dismiss(animated: true, completion: nil)
+        _ = navigationController?.popToRootViewController(animated: true)
     }
     func sendPaintingRequest() {
         if MFMailComposeViewController.canSendMail(){
@@ -110,9 +110,8 @@ class ArtistViewController: UIViewController, MFMailComposeViewControllerDelegat
         }
         if result == .sent{
         }
-       // navigationController?.popToRootViewController(animated: true)
+       _ = navigationController?.popToRootViewController(animated: true)
 
-        dismiss(animated: true, completion: {})
     }
 
 

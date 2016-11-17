@@ -19,13 +19,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginOrRegister(_ sender: UIButton) {
         handleLoginOrRegister()
     }
+    @IBOutlet weak var emailAndPasswordView: UIView!
     @IBAction func loginRegisterAction(_ sender: UISegmentedControl) {
         let title = loginRegisterToggle.titleForSegment(at: loginRegisterToggle.selectedSegmentIndex)
 
         if loginRegisterToggle.selectedSegmentIndex == 0{
             addressInfoView.isHidden = true
             profileImage.isHidden = true
-        }else{
+                    }else{
             profileImage.isHidden = false
             addressInfoView.isHidden = false
 
@@ -54,16 +55,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             profileImage.addGestureRecognizer(tap)
 
         ref = FIRDatabase.database().reference(fromURL: "https://hindsart-2a003.firebaseio.com/")
-            if loginRegisterToggle.selectedSegmentIndex == 0{
-                addressInfoView.isHidden = true
-                profileImage.isHidden = true
-            }else{
-                addressInfoView.isHidden = false
-                profileImage.isHidden = false
-            }
+
 
           }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if loginRegisterToggle.selectedSegmentIndex == 0{
+            addressInfoView.isHidden = true
+            profileImage.isHidden = true
+            emailAndPasswordView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            emailAndPasswordView.centerYAnchor.constraint(equalTo:  view.centerYAnchor).isActive = true
+            
+        }else{
+            addressInfoView.isHidden = false
+            profileImage.isHidden = false
+        }
+    }
 //        func handleLoginOrRegisterChange() {
 //        let title = loginRegisterToggle.titleForSegment(at: loginRegisterToggle.selectedSegmentIndex)
 //        if loginRegisterToggle.selectedSegmentIndex == 0{

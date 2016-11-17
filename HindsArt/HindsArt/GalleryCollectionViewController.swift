@@ -73,14 +73,9 @@ class GalleryCollectionViewController: UICollectionViewController {
     }
 
     func observePaintings() {
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else{
-            return
-        }
-        let artistPaintingsRef = FIRDatabase.database().reference().child("artist_paintings").child(uid)
+
+        let artistPaintingsRef = FIRDatabase.database().reference().child("paintings")
         artistPaintingsRef.observe(.childAdded, with: { (snapshot) in
-            let paintingID = snapshot.key
-            let paintingRef = FIRDatabase.database().reference().child("paintings").child(paintingID)
-            paintingRef.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dict = snapshot.value as? [String:AnyObject]{
                     let painting = Painting()
                     painting.setValuesForKeys(dict)
@@ -91,10 +86,23 @@ class GalleryCollectionViewController: UICollectionViewController {
                         
                     }
                 
-                
-            }, withCancel: nil)
+            
         }, withCancel: nil)
+        artistPaintingsRef.observe(.childRemoved, with: {(snapshot) in
+            let indexPaths = self.collectionView?.indexPathsForSelectedItems
+            print(indexPaths)
+            if let indexPath = indexPaths?[0]{
+                print(indexPath.row)
+                self.paintingsArray.remove(at: indexPath.row)
+                //self.collectionView?.deleteItems(at: indexPaths!)
+                DispatchQueue.main.async(execute: {
+                    print("Updated indexPath: \(indexPath.row)")
+                    self.collectionView!.reloadData()
+                })
 
+            }
+           
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

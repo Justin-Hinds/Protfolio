@@ -18,16 +18,29 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func uploadPaintingButton(_ sender: UIButton) {
         print()
-        if (paintingTitle.text != "") && paintingPrice.text != ""{
-            if let img = newPaintingImg.image {
-                uploadImageToFirebase(img)
+        if let price : Double = Double(paintingPrice.text!){
+            if (paintingTitle.text != ""){
+                if let img = newPaintingImg.image {
+                    uploadImageToFirebase(img)
+                }else{
+                    print("UPLOAD FAILED")
+                }
+                
             }else{
-                print("UPLOAD FAILED")
+                let uploadFail : UIAlertController = UIAlertController(title: "Sorry", message: " There was a problem uploading your painting. Please check your title", preferredStyle: UIAlertControllerStyle.alert)
+                //action for said controller
+                let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (ACTION) -> Void in
+                })
+                
+                //casting the alert
+                self.present(uploadFail, animated: true, completion: nil)
+                //adding action to alert
+                uploadFail.addAction(ok)
+                
+                
             }
-
         }else{
-            print("alert should appear")
-            let uploadFail : UIAlertController = UIAlertController(title: "Sorry", message: " There was a problem uploading your painting. Pleas check yout title and price", preferredStyle: UIAlertControllerStyle.alert)
+            let uploadFail : UIAlertController = UIAlertController(title: "Sorry", message: " There was a problem uploading your painting. Please check your price", preferredStyle: UIAlertControllerStyle.alert)
             //action for said controller
             let ok : UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (ACTION) -> Void in
             })
@@ -36,9 +49,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.present(uploadFail, animated: true, completion: nil)
             //adding action to alert
             uploadFail.addAction(ok)
-            
 
         }
+
             //   handleUpload()
     }
     
@@ -101,7 +114,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         print(FIRAuth.auth()?.currentUser! as Any)
         let senderId = FIRAuth.auth()!.currentUser!.uid
         //let time: NSNumber = NSNumber(Int(Date().timeIntervalSince1970))
-        let values = ["imgURL": imgURL, "imgHeight": img.size.height, "imgWidth": img.size.width, "title" : paintingTitle.text, "price" : paintingPrice.text, "desc": paintingDesc.text] as [String : Any]
+        let values = ["imgURL": imgURL, "imgHeight": img.size.height, "imgWidth": img.size.width, "title" : paintingTitle.text!, "price" : paintingPrice.text!, "desc": paintingDesc.text, "paintingKey": childRef.key] as [String : Any]
         childRef.updateChildValues(values) { (error, ref) in
             if error != nil{
                 print(error!)
@@ -110,7 +123,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             let artistPaintingRef = FIRDatabase.database().reference().child("artist_paintings").child(senderId)
             let paintingID = childRef.key
             artistPaintingRef.updateChildValues([paintingID : 1])
-            self.navigationController?.popToRootViewController(animated: true)
+           _ =  self.navigationController?.popToRootViewController(animated: true)
            // self.dismiss(animated: true, completion: nil)
         }
     }
