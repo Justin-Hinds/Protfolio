@@ -12,7 +12,7 @@
         <!--HindsArt-->
         <scene sceneID="3IG-yU-Oyo">
             <objects>
-                <viewController id="XN6-BK-NVr" customClass="LoginViewController" customModule="HindsArt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="XN6-BK-NVr" customClass="LoginViewController" customModule="HindsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DXE-s8-lrH"/>
                         <viewControllerLayoutGuide type="bottom" id="FSp-HS-YHJ"/>
@@ -229,10 +229,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0Eq-83-IUW">
+                                <rect key="frame" x="169" y="279" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.41336448920054297" green="0.42032835721969608" blue="0.41973560799881282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.95780473947525024" green="0.92685991525650024" blue="0.83898431062698364" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="activityInd" destination="0Eq-83-IUW" id="IUL-cl-JyF"/>
                         <outlet property="newPaintingImg" destination="Kj0-Eo-Ui1" id="KTS-tK-XEp"/>
                         <outlet property="paintingDesc" destination="cgV-y0-sYB" id="zPW-bS-RdW"/>
                         <outlet property="paintingPrice" destination="MWL-sH-paK" id="1gN-fo-LXe"/>
@@ -286,6 +292,9 @@
                     <navigationItem key="navigationItem" title="Gallery" id="WWF-Ql-adc">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="uDa-5P-ozm">
                             <color key="tintColor" red="0.47337108850479126" green="0.36310410499572754" blue="0.087241627275943756" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logoutButton:" destination="Bh1-Ys-oVj" id="9RY-9w-lSN"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GL1-5P-v1b">
                             <color key="tintColor" red="0.47337108850479126" green="0.36310410499572754" blue="0.087241627275943756" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -15,9 +15,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var paintingTitle: UITextField!
     @IBOutlet weak var paintingPrice: UITextField!
     @IBOutlet weak var paintingDesc: UITextView!
+    @IBOutlet weak var activityInd: UIActivityIndicatorView!
     
     @IBAction func uploadPaintingButton(_ sender: UIButton) {
-        print()
+        activityInd.startAnimating()
         if let price : Double = Double(paintingPrice.text!){
             if (paintingTitle.text != ""){
                 if let img = newPaintingImg.image {
@@ -124,6 +125,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             let paintingID = childRef.key
             artistPaintingRef.updateChildValues([paintingID : 1])
            _ =  self.navigationController?.popToRootViewController(animated: true)
+            self.activityInd.stopAnimating()
            // self.dismiss(animated: true, completion: nil)
         }
     }

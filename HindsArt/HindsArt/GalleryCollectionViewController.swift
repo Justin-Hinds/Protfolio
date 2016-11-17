@@ -11,7 +11,11 @@ import Firebase
 private let reuseIdentifier = "PaintingCell"
 
 class GalleryCollectionViewController: UICollectionViewController {
-    
+    let token = FIRInstanceID.instanceID().token()!
+
+    @IBAction func logoutButton(_ sender: UIBarButtonItem) {
+        handleLogout()
+    }
     
     var paintingsArray = [Painting]()
     var user : Artist?{
@@ -27,9 +31,10 @@ class GalleryCollectionViewController: UICollectionViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+print(token)
         // Register cell classes
         observePaintings()
+        observeDeletion()
         // Do any additional setup after loading the view.
     }
 
@@ -38,16 +43,7 @@ class GalleryCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -88,23 +84,30 @@ class GalleryCollectionViewController: UICollectionViewController {
                 
             
         }, withCancel: nil)
+           }
+    
+    func observeDeletion() {
+        let artistPaintingsRef = FIRDatabase.database().reference().child("paintings")
         artistPaintingsRef.observe(.childRemoved, with: {(snapshot) in
             let indexPaths = self.collectionView?.indexPathsForSelectedItems
             print(indexPaths)
             if let indexPath = indexPaths?[0]{
-                print(indexPath.row)
-                self.paintingsArray.remove(at: indexPath.row)
-                //self.collectionView?.deleteItems(at: indexPaths!)
-                DispatchQueue.main.async(execute: {
-                    print("Updated indexPath: \(indexPath.row)")
-                    self.collectionView!.reloadData()
-                })
-
+                print(indexPath.item)
+                if indexPath.isEmpty == false{
+                    self.paintingsArray.remove(at: indexPath.item)
+                    //self.collectionView?.deleteItems(at: indexPaths!)
+                    DispatchQueue.main.async(execute: {
+                        print("Updated indexPath: \(indexPath.item)")
+                        self.collectionView!.reloadData()
+                    })
+                }
+                
+                
             }
-           
+            
         })
+
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPainting"{
         let indexPaths = collectionView?.indexPathsForSelectedItems
@@ -115,35 +118,16 @@ class GalleryCollectionViewController: UICollectionViewController {
             let detail = segue.destination as! UploadViewController
         }
     }
-    // MARK: UICollectionViewDelegate
+    func handleLogout(){
+        
+        do {
+            try FIRAuth.auth()?.signOut()
+        }catch let logoutError{
+            print("Logout Error = \(logoutError)")
+        }
+        self.dismiss(animated: true, completion: nil)
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
-    }
-    */
-
+  
 }

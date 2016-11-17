@@ -172,6 +172,6 @@ extension LoginViewController : UIImagePickerControllerDelegate, UINavigationCon
         }
         let profilePic = selectedImage
         profileImage.image = profilePic
-        
+        dismiss(animated: true, completion: nil)
     }
 }
