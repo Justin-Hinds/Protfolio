@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import Braintree
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

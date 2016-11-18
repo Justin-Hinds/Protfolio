@@ -187,8 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				05E67EB51DD69556005EB190 /* PurchaseViewController.swift */,
-				0520723F1DCECF940086A676 /* PaintingCollectionViewCell.swift */,
 				059FDEDC1DCBC5D800F745D3 /* Painting.swift */,
+				0520723F1DCECF940086A676 /* PaintingCollectionViewCell.swift */,
 				05BA418F1DD4064400088F19 /* PaintingViewController.swift */,
 				052072411DCEEE450086A676 /* UploadViewController.swift */,
 				052072371DCC37000086A676 /* GalleryCollectionViewController.swift */,
@@ -315,7 +315,7 @@
 				TargetAttributes = {
 					059FB9631DC401C400B76B9A = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = DMCD24JAGY;
+						DevelopmentTeam = 632RN23THU;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -683,7 +683,7 @@
 				CODE_SIGN_ENTITLEMENTS = HindsArt/HindsArt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = DMCD24JAGY;
+				DEVELOPMENT_TEAM = 632RN23THU;
 				INFOPLIST_FILE = HindsArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -705,7 +705,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = HindsArt/HindsArt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = DMCD24JAGY;
+				DEVELOPMENT_TEAM = 632RN23THU;
 				INFOPLIST_FILE = HindsArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

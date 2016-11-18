@@ -15,11 +15,14 @@ class PaintingViewController: UIViewController, BTDropInViewControllerDelegate {
     @IBOutlet weak var paintingImgView: UIImageView!
     @IBOutlet weak var paintingTitleLable: UILabel!
     @IBOutlet weak var paintingPriceLabel: UILabel!
+    
+    @IBOutlet weak var paintingDesc: UITextView!
+    
     @IBAction func purchaseButton(_ sender: UIButton) {
         self.braintreeClient = BTAPIClient(authorization: clientToken)
         let dropInView = BTDropInViewController(apiClient: braintreeClient!)
         dropInView.delegate = self
-        let navController = UINavigationController(rootViewController: dropInView)
+        //let navController = UINavigationController(rootViewController: dropInView)
         
         dropInView.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(cancelPayment))
         navigationController?.pushViewController(dropInView, animated: true)
@@ -36,14 +39,15 @@ class PaintingViewController: UIViewController, BTDropInViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      
+      paintingDesc.isEditable = false
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
 
         paintingPriceLabel.text = painting.price
         paintingTitleLable.text = painting.title
-            paintingImgView.loadImageUsingCache(painting.imgURL!)
+        paintingDesc.text = painting.desc
+        paintingImgView.loadImageUsingCache(painting.imgURL!)
 
     }
     override func didReceiveMemoryWarning() {
@@ -51,11 +55,13 @@ class PaintingViewController: UIViewController, BTDropInViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     func drop(_ viewController: BTDropInViewController, didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce) {
-       print("PAYMENT SUCCEEDED!!!!")
+        print("SUCCESS!!")
         let ref = FIRDatabase.database().reference().child("paintings")
         ref.child(painting.paintingKey!).removeValue()
-        _ = navigationController?.popToRootViewController(animated: true )
-        //dismiss(animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "confirm") as! PurchaseViewController
+        navigationController?.pushViewController(vc, animated: true)
+       // _ = navigationController?.popToRootViewController(animated: true )
     }
     func drop(inViewControllerDidCancel viewController: BTDropInViewController) {
         _ = navigationController?.popToRootViewController(animated: true )

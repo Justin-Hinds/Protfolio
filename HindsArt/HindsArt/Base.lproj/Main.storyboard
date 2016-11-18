@@ -102,7 +102,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rV-W8-dN5">
-                                <rect key="frame" x="128" y="576" width="119" height="22"/>
+                                <rect key="frame" x="90" y="576" width="196" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Login">
@@ -159,7 +159,7 @@
         <scene sceneID="Gkv-s5-eND">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9ke-XX-snq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Gallery" selectedImage="tabBar_gallery_icon" id="2lk-q8-laW"/>
+                    <tabBarItem key="tabBarItem" title="Gallery" image="tabBar_gallery_icon" selectedImage="tabBar_gallery_icon" id="2lk-q8-laW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="105-30-xsg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -331,7 +331,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruH-dZ-Muz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruH-dZ-Muz">
                                 <rect key="frame" x="217" y="271" width="142" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -355,10 +355,17 @@
                                     <action selector="purchaseButton:" destination="B2Q-FB-EuD" eventType="touchUpInside" id="hmC-O8-zAh"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-SH-bV7">
+                                <rect key="frame" x="67" y="300" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.9578047395" green="0.9268599153" blue="0.83898431060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="paintingDesc" destination="rmD-Lv-eGN" id="mHw-ht-IDf"/>
                         <outlet property="paintingImgView" destination="AQu-Wf-ehH" id="xWJ-vs-iyG"/>
                         <outlet property="paintingPriceLabel" destination="ruH-dZ-Muz" id="Ww9-39-c5x"/>
                         <outlet property="paintingTitleLable" destination="FPv-Xh-n3V" id="kfL-zb-8df"/>
@@ -368,11 +375,49 @@
             </objects>
             <point key="canvasLocation" x="3328.8000000000002" y="470.91454272863569"/>
         </scene>
+        <!--Purchase View Controller-->
+        <scene sceneID="Z4n-mt-mEQ">
+            <objects>
+                <viewController storyboardIdentifier="confirm" id="Itf-Zv-s4g" customClass="PurchaseViewController" customModule="HindsArt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="929-bW-NqL"/>
+                        <viewControllerLayoutGuide type="bottom" id="g9j-Vs-7le"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dxP-EU-SnJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3ka-NZ-kzu">
+                                <rect key="frame" x="67" y="103" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Thank you for your purchase. We will contact the artist with your shipping information and will email you the tracking information once we recieve it.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1G-i5-hJp">
+                                <rect key="frame" x="148" y="318" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.47337108849999998" green="0.36310410500000001" blue="0.087241627279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmButton:" destination="Itf-Zv-s4g" eventType="touchUpInside" id="otn-eh-Wv0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95780473947525024" green="0.92685991525650024" blue="0.83898431062698364" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZpW-ck-6JN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4264.8000000000002" y="470.91454272863569"/>
+        </scene>
         <!--Artist-->
         <scene sceneID="HkM-5a-ZnT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dZQ-88-V1Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Artist" id="C9n-Su-Lze"/>
+                    <tabBarItem key="tabBarItem" title="Artist" image="artist_icon" selectedImage="artist_icon" id="C9n-Su-Lze"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1L-5i-Qnk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -493,7 +538,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdH-wm-1K4">
                                 <rect key="frame" x="78" y="559" width="219" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Send Request"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Send Request">
+                                    <color key="titleColor" red="0.47337108849999998" green="0.36310410500000001" blue="0.087241627279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="sendRequestButton:" destination="DEQ-6J-GSy" eventType="touchUpInside" id="gru-dI-16M"/>
                                 </connections>
@@ -534,6 +582,7 @@
     </scenes>
     <resources>
         <image name="Profile_Pic" width="200" height="206"/>
+        <image name="artist_icon" width="20" height="22"/>
         <image name="frame_icon" width="250" height="250"/>
         <image name="tabBar_gallery_icon" width="24" height="18"/>
     </resources>
